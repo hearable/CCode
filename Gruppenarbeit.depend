@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1520542072 source:c:\users\moritz scherer\documents\gruppenarbeit ii\c-code\gruppenarbeit\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Hanning.c"
+	"FFT.c"
+	"BlackmanNuttall.c"
+
+1520541563 c:\users\moritz scherer\documents\gruppenarbeit ii\c-code\gruppenarbeit\hanning.c
+	"Hanning.h"
+	<string.h>
+
+1520531387 c:\users\moritz scherer\documents\gruppenarbeit ii\c-code\gruppenarbeit\hanning.h
+	<stdio.h>
+	<math.h>
+
+1520541534 c:\users\moritz scherer\documents\gruppenarbeit ii\c-code\gruppenarbeit\fft.c
+	<math.h>
+	<stddef.h>
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
+	"fft.h"
+
+1520533611 c:\users\moritz scherer\documents\gruppenarbeit ii\c-code\gruppenarbeit\fft.h
+	<stdbool.h>
+	<stddef.h>
+
+1520541534 source:c:\users\moritz scherer\documents\gruppenarbeit ii\c-code\gruppenarbeit\fft.c
+	<math.h>
+	<stddef.h>
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
+	"fft.h"
+
+1520542264 c:\users\moritz scherer\documents\gruppenarbeit ii\c-code\gruppenarbeit\blackmannuttall.c
+	"BlackmanNutall.h"
+
+1520541301 c:\users\moritz scherer\documents\gruppenarbeit ii\c-code\gruppenarbeit\blackmannutall.h
+
