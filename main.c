@@ -2,61 +2,146 @@
 #include <stdlib.h>
 #include "Hanning.c"
 #include "FFT.c"
-#include "BlackmanNuttall.c"
+#include "math.h"
 
-int main()
-{
-    double sampleRe[] = {1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0};
-    double sampleIm[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+void ApplyWindow(int windowSize, double* currentWindowRe, double* currentWindowIm, double* previousWindowRe, double* previousWindowIm, double* currentSample, double* window){
+    for(int i=0;i<windowSize;i++){
+        previousWindowRe[i] = currentWindowRe[i];
+        previousWindowIm[i] = currentWindowIm[i];
+        currentWindowRe[i] = currentSample[i] * window[i];
+        currentWindowIm[i] = 0;
+    }
+}
 
-    double resultRe[64];
-    double resultIm[64];
+void GetSamples(int windowSize, double* currentSample){
+    for(int i=0; i<windowSize; i++){
+        if(i%2==0){
+            if(i%4==0){
+                currentSample[i] = 1;
+            }
+            else{
+                currentSample[i] = 1;
+            }
+        }
+        else {
+            currentSample[i] = 1;
+        }
+    }
+}
+void GetSamples2(int windowSize, double* currentSample){
+    for(int i=0; i<windowSize; i++){
+        if(i%2==0){
+            if(i%4==0){
+                currentSample[i] = 2;
+            }
+            else{
+                currentSample[i] = 2;
+            }
+        }
+        else {
+            currentSample[i] = 2;
+        }
+    }
+}
+// Getsamples -> ApplyWindow -> OverlapAdd -> ReturnWindowOutput
+int main(){
+//    double* result1;
+//    double* result2;
+//
+//    double* hanningWindow;
+//
+//    double* previousWindowRe;
+//    double* previousWindowIm;
+//
+//    double* currentWindowRe;
+//    double* currentWindowIm;
+//
+//    double* currentSample;
+//
+//    int windowSize = 32;
+//    double overlappercentage = 0.5;
+//    int overlapIndex = (int)((windowSize+1)*(1-overlappercentage));
+//
+//    previousWindowRe = (double*) calloc(windowSize, sizeof(double));
+//    previousWindowIm = (double*) calloc(windowSize, sizeof(double));
+//    currentWindowRe = (double*) calloc(windowSize, sizeof(double));
+//    currentWindowIm = (double*) calloc(windowSize, sizeof(double));
+//    currentSample = (double*) calloc(windowSize, sizeof(double));
+//    hanningWindow = HanningWindow(windowSize, PERIODIC);
+//
+//    int imax = 10;
+//
+//    double* result = (double*) calloc(10*windowSize, sizeof(double));;
+//    int t = 0;
+//
+//    for(int i=0;i<=imax;i++){
+//        if(i == 0){
+//            GetSamples(windowSize, currentSample);
+//            ApplyWindow(windowSize, currentWindowRe, currentWindowIm, previousWindowRe, previousWindowIm, currentSample, hanningWindow);
+//            result1 = OverlapAddHanning(windowSize, overlappercentage, currentWindowRe, previousWindowRe);
+//            result1 = ReturnWindowOutputHanning(windowSize,overlappercentage,result1,HEAD);
+//            for(int i=0;i<overlapIndex;i++){
+//                printf("%f\t%f\n", result1[i], currentSample[i]);
+//                result[t] = result1[i];
+//                t++;
+//            }
+//        } else if(i == imax){
+//            GetSamples(windowSize, currentSample);
+//            ApplyWindow(windowSize, currentWindowRe, currentWindowIm, previousWindowRe, previousWindowIm, currentSample, hanningWindow);
+//            result1 = OverlapAddHanning(windowSize, overlappercentage, currentWindowRe, previousWindowRe);
+//            result2 = ReturnWindowOutputHanning(windowSize,overlappercentage,result1,TAIL);
+//            result1 = ReturnWindowOutputHanning(windowSize,overlappercentage,result1,MID);
+//            for(int i=0;i<windowSize-overlapIndex;i++){
+//                printf("%f\t%f\n", result1[i], currentSample[i]);
+//                result[t] = result1[i];
+//                t++;
+//            }
+//            for(int i=0;i<overlapIndex;i++){
+//                printf("%f\t%f\n", result2[i], currentSample[windowSize-overlapIndex+i]);
+//                result[t] = result2[i];
+//                t++;
+//            }
+//        } else {
+//            GetSamples(windowSize, currentSample);
+//            ApplyWindow(windowSize, currentWindowRe, currentWindowIm, previousWindowRe, previousWindowIm, currentSample, hanningWindow);
+//            result1 = OverlapAddHanning(windowSize, overlappercentage, currentWindowRe, previousWindowRe);
+//            result1 = ReturnWindowOutputHanning(windowSize,overlappercentage,result1,MID);
+//            for(int i=0;i<windowSize-overlapIndex;i++){
+//                printf("%f\t%f\n", result1[i], currentSample[i]);
+//                result[t] = result1[i];
+//                t++;
+//            }
+//        }
+//    }
+//
+//    double* samplere = (double*) calloc(t, sizeof(double));
+//    double* sampleim = (double*) calloc(t, sizeof(double));
+//
+//    double* resultim = (double*) calloc(t, sizeof(double));
+//    double* resultre = (double*) calloc(t, sizeof(double));
+//
+//
+//    for(int i=0;i<t;i++){
+//        resultre[i] = result[i];
+//        samplere[i] = 1;
+//    }
+//
+//    Fft_transform(resultre,resultim,t);
+//    Fft_transform(samplere,sampleim,t);
+//
+//    for(int i=0;i<t;i++){
+//        printf("%f\t%f\t%f\t%f\n", resultre[i],resultim[i],samplere[i],sampleim[i]);
+//    }
 
     int windowSize = 32;
-    float* hanning = Hanning(windowSize, PERIODIC);
-    float* blackman = BlackmanNutall(windowSize);
-    //float hanning[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
 
-    /*for(int i=0;i<windowSize;i++){
-        printf("%f \n", hanning[i]);
-    }*/
+    double* currentSample = (double*) calloc(windowSize, sizeof(double));
+    double* hanningWindow = HanningWindow(windowSize, PERIODIC);
+    double* cosine = (double*) calloc(windowSize, sizeof(double));
 
+    GetSamples(windowSize, currentSample);
     for(int i=0;i<windowSize;i++){
-        printf("%f \n", blackman[i]);
-    }
-
-    double window1Re[32];
-    double window1Im[32];
-    double window2Re[32];
-    double window2Im[32];
-    double window3Re[32];
-    double window3Im[32];
-
-    for(int i=0;i<32;i++){
-        window1Re[i] = sampleRe[i] * hanning[i];
-        window1Im[i] = sampleIm[i] * hanning[i];
-        window2Re[i] = sampleRe[i+16] * hanning[i];
-        window2Im[i] = sampleIm[i+16] * hanning[i];
-        window3Re[i] = sampleRe[i+32] * hanning[i];
-        window3Im[i] = sampleIm[i+32] * hanning[i];
-    }
-
-    for(int i=0;i<16;i++){
-        resultRe[i] = window1Re[i];
-        resultRe[i+16] = window1Re[i+16] + window2Re[i];
-        resultRe[i+32] = window2Re[i+16] + window3Re[i];
-        resultRe[i+48] = window3Re[i+16];
-
-        resultIm[i] = window1Im[i];
-        resultIm[i+16] = window1Im[i+16] + window2Im[i];
-        resultIm[i+32] = window2Im[i+16] + window3Im[i];
-        resultIm[i+48] = window3Im[i+16];
-    }
-
-    Fft_transform(resultRe, resultIm, 64);
-
-    for(int i=0;i<64;i++){
-        printf("%f \n", resultRe[i]);
+        cosine[i] =
     }
 
     return 0;

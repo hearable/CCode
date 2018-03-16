@@ -1,14 +1,14 @@
 #include "Hanning.h"
 #include <string.h>
 
-float* Hanning(int windowSize, HanningPeriodicity periodicity){
-    float *hanningValues;
+double* HanningWindow(int windowSize, HanningPeriodicity periodicity){
+    double *hanningValues;
     int effectiveWindowSize = 0;
     int halfWindowSize = 0;
     int copyIndex = 0;
 
-    hanningValues = (float*) calloc(windowSize, sizeof(float)); // Allocate needed memory
-    memset(hanningValues, 0, windowSize*sizeof(float)); // Make sure allocated memory is all zeros t first
+    hanningValues = (double*) calloc(windowSize, sizeof(double)); // Allocate needed memory
+    memset(hanningValues, 0, windowSize*sizeof(double)); // Make sure allocated memory is all zeros t first
 
     if(periodicity == PERIODIC){
         effectiveWindowSize = windowSize - 1;
@@ -47,3 +47,49 @@ float* Hanning(int windowSize, HanningPeriodicity periodicity){
 
     return hanningValues;
 }
+
+double* ReturnWindowOutputHanning(int windowSize, double overlapPercentage, double* overlapAddResult, OverlapPart part){
+    double* returnValue;
+    int overlapIndex = (int)(windowSize*(1-overlapPercentage))+1;
+    switch(part){
+        case(HEAD):
+            returnValue = (double*) calloc(overlapIndex, sizeof(double));
+            for(int i=overlapIndex;i<2*overlapIndex;i++){
+                returnValue[i-overlapIndex] = overlapAddResult[i];
+            }
+        break;
+        case(MID):
+            returnValue = (double*) calloc(windowSize-overlapIndex+1, sizeof(double));
+            for(int i=overlapIndex;i<windowSize+1;i++){
+                returnValue[i-overlapIndex] = overlapAddResult[i];
+            }
+        break;
+        case(TAIL):
+            returnValue = (double*) calloc(overlapIndex, sizeof(double));
+            for(int i=windowSize;i<windowSize+overlapIndex;i++){
+                returnValue[i-windowSize] = overlapAddResult[i];
+            }
+        break;
+    }
+    return returnValue;
+}
+
+double* OverlapAddHanning(int windowSize, double overlapPercentage, double* currentWindowRe, double* previousWindowRe){
+    double* returnValue;
+    int overlapIndex = (int)((windowSize+1)*(1-overlapPercentage));
+
+    returnValue = (double*) calloc(windowSize+overlapIndex, sizeof(double));
+
+    for(int i=0;i<overlapIndex;i++){
+        returnValue[i] = previousWindowRe[i];
+    }
+    for(int i=overlapIndex;i<windowSize;i++){
+        returnValue[i] = currentWindowRe[i-overlapIndex] + previousWindowRe[i];
+    }
+    for(int i=windowSize;i<windowSize+overlapIndex;i++){
+        returnValue[i] = currentWindowRe[i-overlapIndex];
+    }
+
+    return returnValue;
+}
+

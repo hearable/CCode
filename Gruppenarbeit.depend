@@ -39,3 +39,36 @@
 
 1520541301 c:\users\moritz scherer\documents\gruppenarbeit ii\c-code\gruppenarbeit\blackmannutall.h
 
+1521138723 source:c:\users\moritz scherer\documents\ccode\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Hanning.c"
+	"FFT.c"
+	"BlackmanNuttall.c"
+	<assert.h>
+
+1521134821 c:\users\moritz scherer\documents\ccode\hanning.c
+	"Hanning.h"
+	<string.h>
+
+1521135071 c:\users\moritz scherer\documents\ccode\hanning.h
+	<stdio.h>
+	<math.h>
+
+1520541534 c:\users\moritz scherer\documents\ccode\fft.c
+	<math.h>
+	<stddef.h>
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
+	"fft.h"
+
+1520533611 c:\users\moritz scherer\documents\ccode\fft.h
+	<stdbool.h>
+	<stddef.h>
+
+1520887990 c:\users\moritz scherer\documents\ccode\blackmannuttall.c
+	"BlackmanNutall.h"
+
+1520888134 c:\users\moritz scherer\documents\ccode\blackmannutall.h
+

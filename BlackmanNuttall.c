@@ -1,12 +1,12 @@
 #include "BlackmanNutall.h"
 
-float* BlackmanNutall(int effectiveWindowSize){
+double* BlackmanNutall(int effectiveWindowSize){
 
-    float* filterValues;
+    double* filterValues;
     double c0,c1,c2,c3;
 
-    filterValues = (float*) calloc(effectiveWindowSize, sizeof(float)); // Allocate needed memory
-    memset(filterValues, 0, effectiveWindowSize*sizeof(float)); // Make sure allocated memory is all zeros t first
+    filterValues = (double*) calloc(effectiveWindowSize, sizeof(double)); // Allocate needed memory
+    memset(filterValues, 0, effectiveWindowSize*sizeof(double)); // Make sure allocated memory is all zeros t first
 
     c0 = 0.355768;
     c1 = -0.487396;
