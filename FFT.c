@@ -26,7 +26,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-#include "fft.h"
+#include "FFT.h"
 
 
 // Private function prototypes
@@ -45,7 +45,11 @@ bool Fft_transform(double real[], double imag[], size_t n) {
 
 
 bool Fft_inverseTransform(double real[], double imag[], size_t n) {
-	return Fft_transform(imag, real, n);
+	bool returnValue = Fft_transform(imag, real, n);
+	for(int i=0;i<n;i++){
+        imag[i] /= n;
+        real[i] /= n;
+	}
 }
 
 

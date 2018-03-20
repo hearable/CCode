@@ -1,13 +1,8 @@
 #ifndef HANNING_H_INCLUDED
 #define HANNING_H_INCLUDED
 
-#include <stdio.h>
-#include <math.h>
-
-#define PI 3.14159265359
-
 // Defines whether the periodic or the symmetric version should be used
-typedef enum {SYMMETRIC, PERIODIC} HanningPeriodicity ;
+typedef enum {SYMMETRIC, PERIODIC} HanningPeriodicity;
 
 // Returns an array with the hanning function
 /* PRE:
