@@ -12,6 +12,7 @@
       <ToolsetName>ARM-ADS</ToolsetName>
       <pArmCC>5060422::V5.06 update 4 (build 422)::ARMCC</pArmCC>
       <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
+      <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>AMAPH1KK-KBR</Device>
@@ -446,5 +447,10 @@
     </Target>
   </Targets>
 
-</Project>
+  <RTE>
+    <apis/>
+    <components/>
+    <files/>
+  </RTE>
 
+</Project>

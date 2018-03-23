@@ -21,7 +21,9 @@
     Conforms to Hard float procedure-call standard
 
     Built with
+    Component: ARM Compiler 5.06 update 5 (build 528) Tool: armasm [4d35e1]
     Component: ARM Compiler 5.06 update 4 (build 422) Tool: armasm [4d35cf]
+    Component: ARM Compiler 5.06 update 5 (build 528) Tool: armlink [4d35e2]
     Component: ARM Compiler 5.06 update 4 (build 422) Tool: armlink [4d35d2]
 
     Header size: 52 bytes (0x34)
@@ -31,8 +33,8 @@
     Program header entries: 1
     Section header entries: 16
 
-    Program header offset: 77712 (0x00012f90)
-    Section header offset: 77744 (0x00012fb0)
+    Program header offset: 77160 (0x00012d68)
+    Section header offset: 77192 (0x00012d88)
 
     Section header string table index: 15
 
@@ -3227,7 +3229,7 @@
 
 
 ** Section #6 '.debug_info' (SHT_PROGBITS)
-    Size   : 14208 bytes
+    Size   : 13588 bytes
 
 
 ** Section #7 '.debug_line' (SHT_PROGBITS)
@@ -4278,7 +4280,7 @@
 
 
 ** Section #14 '.comment' (SHT_PROGBITS)
-    Size   : 18012 bytes
+    Size   : 18080 bytes
 
 
 ** Section #15 '.shstrtab' (SHT_STRTAB)
