@@ -1012,32 +1012,32 @@ Image Symbol Table
     i.init_timerA3_for_ADC                   0x000017a4   Section        0  adc.o(i.init_timerA3_for_ADC)
     i.itm_start                              0x000017d8   Section        0  adc.o(i.itm_start)
     i.main                                   0x00001840   Section        0  adc.o(i.main)
-    i.ndigits_in_hex                         0x000018f8   Section        0  am_util_stdio.o(i.ndigits_in_hex)
-    ndigits_in_hex                           0x000018f9   Thumb Code    52  am_util_stdio.o(i.ndigits_in_hex)
-    i.ndigits_in_i64                         0x0000192c   Section        0  am_util_stdio.o(i.ndigits_in_i64)
-    ndigits_in_i64                           0x0000192d   Thumb Code    36  am_util_stdio.o(i.ndigits_in_i64)
-    i.ndigits_in_u64                         0x00001950   Section        0  am_util_stdio.o(i.ndigits_in_u64)
-    ndigits_in_u64                           0x00001951   Thumb Code    58  am_util_stdio.o(i.ndigits_in_u64)
-    i.padbuffer                              0x0000198a   Section        0  am_util_stdio.o(i.padbuffer)
-    padbuffer                                0x0000198b   Thumb Code    34  am_util_stdio.o(i.padbuffer)
-    i.setBuckZX                              0x000019ac   Section        0  am_hal_sysctrl.o(i.setBuckZX)
-    setBuckZX                                0x000019ad   Thumb Code   112  am_hal_sysctrl.o(i.setBuckZX)
-    i.simple_strlen                          0x00001a24   Section        0  am_util_stdio.o(i.simple_strlen)
-    simple_strlen                            0x00001a25   Thumb Code    24  am_util_stdio.o(i.simple_strlen)
-    i.uint64_to_hexstr                       0x00001a3c   Section        0  am_util_stdio.o(i.uint64_to_hexstr)
-    uint64_to_hexstr                         0x00001a3d   Thumb Code   138  am_util_stdio.o(i.uint64_to_hexstr)
-    i.uint64_to_str                          0x00001ac6   Section        0  am_util_stdio.o(i.uint64_to_str)
-    uint64_to_str                            0x00001ac7   Thumb Code   112  am_util_stdio.o(i.uint64_to_str)
-    x$fpl$d2f                                0x00001b38   Section       98  d2f.o(x$fpl$d2f)
-    $v0                                      0x00001b38   Number         0  d2f.o(x$fpl$d2f)
-    x$fpl$dnaninf                            0x00001b9a   Section      156  dnaninf.o(x$fpl$dnaninf)
-    $v0                                      0x00001b9a   Number         0  dnaninf.o(x$fpl$dnaninf)
-    x$fpl$fpinit                             0x00001c36   Section       10  fpinit.o(x$fpl$fpinit)
-    $v0                                      0x00001c36   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fretinf                            0x00001c40   Section       10  fretinf.o(x$fpl$fretinf)
-    $v0                                      0x00001c40   Number         0  fretinf.o(x$fpl$fretinf)
-    .constdata                               0x00001c4a   Section       12  am_hal_cachectrl.o(.constdata)
-    x$fpl$usenofp                            0x00001c4a   Section        0  usenofp.o(x$fpl$usenofp)
+    i.ndigits_in_hex                         0x00001910   Section        0  am_util_stdio.o(i.ndigits_in_hex)
+    ndigits_in_hex                           0x00001911   Thumb Code    52  am_util_stdio.o(i.ndigits_in_hex)
+    i.ndigits_in_i64                         0x00001944   Section        0  am_util_stdio.o(i.ndigits_in_i64)
+    ndigits_in_i64                           0x00001945   Thumb Code    36  am_util_stdio.o(i.ndigits_in_i64)
+    i.ndigits_in_u64                         0x00001968   Section        0  am_util_stdio.o(i.ndigits_in_u64)
+    ndigits_in_u64                           0x00001969   Thumb Code    58  am_util_stdio.o(i.ndigits_in_u64)
+    i.padbuffer                              0x000019a2   Section        0  am_util_stdio.o(i.padbuffer)
+    padbuffer                                0x000019a3   Thumb Code    34  am_util_stdio.o(i.padbuffer)
+    i.setBuckZX                              0x000019c4   Section        0  am_hal_sysctrl.o(i.setBuckZX)
+    setBuckZX                                0x000019c5   Thumb Code   112  am_hal_sysctrl.o(i.setBuckZX)
+    i.simple_strlen                          0x00001a3c   Section        0  am_util_stdio.o(i.simple_strlen)
+    simple_strlen                            0x00001a3d   Thumb Code    24  am_util_stdio.o(i.simple_strlen)
+    i.uint64_to_hexstr                       0x00001a54   Section        0  am_util_stdio.o(i.uint64_to_hexstr)
+    uint64_to_hexstr                         0x00001a55   Thumb Code   138  am_util_stdio.o(i.uint64_to_hexstr)
+    i.uint64_to_str                          0x00001ade   Section        0  am_util_stdio.o(i.uint64_to_str)
+    uint64_to_str                            0x00001adf   Thumb Code   112  am_util_stdio.o(i.uint64_to_str)
+    x$fpl$d2f                                0x00001b50   Section       98  d2f.o(x$fpl$d2f)
+    $v0                                      0x00001b50   Number         0  d2f.o(x$fpl$d2f)
+    x$fpl$dnaninf                            0x00001bb2   Section      156  dnaninf.o(x$fpl$dnaninf)
+    $v0                                      0x00001bb2   Number         0  dnaninf.o(x$fpl$dnaninf)
+    x$fpl$fpinit                             0x00001c4e   Section       10  fpinit.o(x$fpl$fpinit)
+    $v0                                      0x00001c4e   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fretinf                            0x00001c58   Section       10  fretinf.o(x$fpl$fretinf)
+    $v0                                      0x00001c58   Number         0  fretinf.o(x$fpl$fretinf)
+    .constdata                               0x00001c62   Section       12  am_hal_cachectrl.o(.constdata)
+    x$fpl$usenofp                            0x00001c62   Section        0  usenofp.o(x$fpl$usenofp)
     .data                                    0x10000000   Section        4  adc.o(.data)
     .data                                    0x10000004   Section        5  am_util_stdio.o(.data)
     g_bTxtXlate                              0x10000008   Data           1  am_util_stdio.o(.data)
@@ -1256,18 +1256,18 @@ Image Symbol Table
     am_util_stdio_vsprintf                   0x0000118d   Thumb Code   932  am_util_stdio.o(i.am_util_stdio_vsprintf)
     init_timerA3_for_ADC                     0x000017a5   Thumb Code    52  adc.o(i.init_timerA3_for_ADC)
     itm_start                                0x000017d9   Thumb Code    86  adc.o(i.itm_start)
-    main                                     0x00001841   Thumb Code   156  adc.o(i.main)
-    __aeabi_d2f                              0x00001b39   Thumb Code     0  d2f.o(x$fpl$d2f)
-    _d2f                                     0x00001b39   Thumb Code    98  d2f.o(x$fpl$d2f)
-    __fpl_dnaninf                            0x00001b9b   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
-    _fp_init                                 0x00001c37   Thumb Code    10  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x00001c3f   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x00001c3f   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fpl_fretinf                            0x00001c41   Thumb Code    10  fretinf.o(x$fpl$fretinf)
-    __I$use$fp                               0x00001c4a   Number         0  usenofp.o(x$fpl$usenofp)
-    am_hal_cachectrl_defaults                0x00001c4a   Data          12  am_hal_cachectrl.o(.constdata)
-    Region$$Table$$Base                      0x00001c58   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00001c78   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x00001841   Thumb Code   170  adc.o(i.main)
+    __aeabi_d2f                              0x00001b51   Thumb Code     0  d2f.o(x$fpl$d2f)
+    _d2f                                     0x00001b51   Thumb Code    98  d2f.o(x$fpl$d2f)
+    __fpl_dnaninf                            0x00001bb3   Thumb Code   156  dnaninf.o(x$fpl$dnaninf)
+    _fp_init                                 0x00001c4f   Thumb Code    10  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x00001c57   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x00001c57   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fpl_fretinf                            0x00001c59   Thumb Code    10  fretinf.o(x$fpl$fretinf)
+    __I$use$fp                               0x00001c62   Number         0  usenofp.o(x$fpl$usenofp)
+    am_hal_cachectrl_defaults                0x00001c62   Data          12  am_hal_cachectrl.o(.constdata)
+    Region$$Table$$Base                      0x00001c70   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00001c90   Number         0  anon$$obj.o(Region$$Table)
     g_ui32ADCSampleIndex                     0x10000000   Data           4  adc.o(.data)
     g_pfnCharPrint                           0x10000004   Data           4  am_util_stdio.o(.data)
     g_ui32HALflags                           0x1000000c   Data           4  am_hal_global.o(.data)
@@ -1285,9 +1285,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000e9
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00001d1c, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00001d34, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region FLASH (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001c78, Max: 0x00100000, ABSOLUTE)
+    Execution Region FLASH (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001c90, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1407,42 +1407,42 @@ Memory Map of the image
     0x00001650   0x00001650   0x00000154   Code   RO          326    i.ftoa              am_util_stdio.o
     0x000017a4   0x000017a4   0x00000034   Code   RO            3    i.init_timerA3_for_ADC  adc.o
     0x000017d8   0x000017d8   0x00000068   Code   RO            4    i.itm_start         adc.o
-    0x00001840   0x00001840   0x000000b8   Code   RO            5    i.main              adc.o
-    0x000018f8   0x000018f8   0x00000034   Code   RO          327    i.ndigits_in_hex    am_util_stdio.o
-    0x0000192c   0x0000192c   0x00000024   Code   RO          328    i.ndigits_in_i64    am_util_stdio.o
-    0x00001950   0x00001950   0x0000003a   Code   RO          329    i.ndigits_in_u64    am_util_stdio.o
-    0x0000198a   0x0000198a   0x00000022   Code   RO          330    i.padbuffer         am_util_stdio.o
-    0x000019ac   0x000019ac   0x00000078   Code   RO          809    i.setBuckZX         libam_hal.lib(am_hal_sysctrl.o)
-    0x00001a24   0x00001a24   0x00000018   Code   RO          331    i.simple_strlen     am_util_stdio.o
-    0x00001a3c   0x00001a3c   0x0000008a   Code   RO          332    i.uint64_to_hexstr  am_util_stdio.o
-    0x00001ac6   0x00001ac6   0x00000070   Code   RO          333    i.uint64_to_str     am_util_stdio.o
-    0x00001b36   0x00001b36   0x00000002   PAD
-    0x00001b38   0x00001b38   0x00000062   Code   RO         1084    x$fpl$d2f           fz_wm.l(d2f.o)
-    0x00001b9a   0x00001b9a   0x0000009c   Code   RO         1087    x$fpl$dnaninf       fz_wm.l(dnaninf.o)
-    0x00001c36   0x00001c36   0x0000000a   Code   RO         1176    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x00001c40   0x00001c40   0x0000000a   Code   RO         1089    x$fpl$fretinf       fz_wm.l(fretinf.o)
-    0x00001c4a   0x00001c4a   0x00000000   Code   RO         1091    x$fpl$usenofp       fz_wm.l(usenofp.o)
-    0x00001c4a   0x00001c4a   0x0000000c   Data   RO          561    .constdata          libam_hal.lib(am_hal_cachectrl.o)
-    0x00001c56   0x00001c56   0x00000002   PAD
-    0x00001c58   0x00001c58   0x00000020   Data   RO         1244    Region$$Table       anon$$obj.o
+    0x00001840   0x00001840   0x000000d0   Code   RO            5    i.main              adc.o
+    0x00001910   0x00001910   0x00000034   Code   RO          327    i.ndigits_in_hex    am_util_stdio.o
+    0x00001944   0x00001944   0x00000024   Code   RO          328    i.ndigits_in_i64    am_util_stdio.o
+    0x00001968   0x00001968   0x0000003a   Code   RO          329    i.ndigits_in_u64    am_util_stdio.o
+    0x000019a2   0x000019a2   0x00000022   Code   RO          330    i.padbuffer         am_util_stdio.o
+    0x000019c4   0x000019c4   0x00000078   Code   RO          809    i.setBuckZX         libam_hal.lib(am_hal_sysctrl.o)
+    0x00001a3c   0x00001a3c   0x00000018   Code   RO          331    i.simple_strlen     am_util_stdio.o
+    0x00001a54   0x00001a54   0x0000008a   Code   RO          332    i.uint64_to_hexstr  am_util_stdio.o
+    0x00001ade   0x00001ade   0x00000070   Code   RO          333    i.uint64_to_str     am_util_stdio.o
+    0x00001b4e   0x00001b4e   0x00000002   PAD
+    0x00001b50   0x00001b50   0x00000062   Code   RO         1084    x$fpl$d2f           fz_wm.l(d2f.o)
+    0x00001bb2   0x00001bb2   0x0000009c   Code   RO         1087    x$fpl$dnaninf       fz_wm.l(dnaninf.o)
+    0x00001c4e   0x00001c4e   0x0000000a   Code   RO         1176    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x00001c58   0x00001c58   0x0000000a   Code   RO         1089    x$fpl$fretinf       fz_wm.l(fretinf.o)
+    0x00001c62   0x00001c62   0x00000000   Code   RO         1091    x$fpl$usenofp       fz_wm.l(usenofp.o)
+    0x00001c62   0x00001c62   0x0000000c   Data   RO          561    .constdata          libam_hal.lib(am_hal_cachectrl.o)
+    0x00001c6e   0x00001c6e   0x00000002   PAD
+    0x00001c70   0x00001c70   0x00000020   Data   RO         1244    Region$$Table       anon$$obj.o
 
 
-    Execution Region SRAM (Exec base: 0x10000000, Load base: 0x00001c78, Size: 0x00002218, Max: 0x00040000, ABSOLUTE)
+    Execution Region SRAM (Exec base: 0x10000000, Load base: 0x00001c90, Size: 0x00002218, Max: 0x00040000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x10000000   0x00001c78   0x00000004   Data   RW            7    .data               adc.o
-    0x10000004   0x00001c7c   0x00000005   Data   RW          335    .data               am_util_stdio.o
-    0x10000009   0x00001c81   0x00000003   PAD
-    0x1000000c   0x00001c84   0x00000004   Data   RW          483    .data               libam_hal.lib(am_hal_global.o)
-    0x10000010   0x00001c88   0x00000028   Data   RW          500    .data               libam_bsp.lib(am_bsp.o)
-    0x10000038   0x00001cb0   0x00000050   Data   RW          679    .data               libam_hal.lib(am_hal_flash.o)
-    0x10000088   0x00001d00   0x0000001c   Data   RW          811    .data               libam_hal.lib(am_hal_sysctrl.o)
+    0x10000000   0x00001c90   0x00000004   Data   RW            7    .data               adc.o
+    0x10000004   0x00001c94   0x00000005   Data   RW          335    .data               am_util_stdio.o
+    0x10000009   0x00001c99   0x00000003   PAD
+    0x1000000c   0x00001c9c   0x00000004   Data   RW          483    .data               libam_hal.lib(am_hal_global.o)
+    0x10000010   0x00001ca0   0x00000028   Data   RW          500    .data               libam_bsp.lib(am_bsp.o)
+    0x10000038   0x00001cc8   0x00000050   Data   RW          679    .data               libam_hal.lib(am_hal_flash.o)
+    0x10000088   0x00001d18   0x0000001c   Data   RW          811    .data               libam_hal.lib(am_hal_sysctrl.o)
     0x100000a4        -       0x00001000   Zero   RW            6    .bss                adc.o
     0x100010a4        -       0x00000100   Zero   RW          334    .bss                am_util_stdio.o
     0x100011a4        -       0x00000010   Zero   RW          534    .bss                libam_hal.lib(am_hal_adc.o)
     0x100011b4        -       0x00000060   Zero   RW         1118    .bss                c_w.l(libspace.o)
-    0x10001214   0x00001d1c   0x00000004   PAD
+    0x10001214   0x00001d34   0x00000004   PAD
     0x10001218        -       0x00000000   Zero   RW          474    HEAP                startup_keil.o
     0x10001218        -       0x00001000   Zero   RW          473    STACK               startup_keil.o
 
@@ -1454,7 +1454,7 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       484         62          0          4       4096      15458   adc.o
+       508         72          0          4       4096      15514   adc.o
        582          6          0          0          0       1850   am_devices_led.o
         28          0          0          0          0        607   am_util_delay.o
        204          6          0          0          0       1980   am_util_faultisr.o
@@ -1462,7 +1462,7 @@ Image component sizes
        256        210          0          0       4096        956   startup_keil.o
 
     ----------------------------------------------------------------------
-      3664        342         32         12       8448      33119   Object Totals
+      3688        352         32         12       8448      33175   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          6          0          0          3          0          0   (incl. Padding)
 
@@ -1535,15 +1535,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      7242        880         46        164       8564      32863   Grand Totals
-      7242        880         46        164       8564      32863   ELF Image Totals
-      7242        880         46        164          0          0   ROM Totals
+      7266        890         46        164       8564      32919   Grand Totals
+      7266        890         46        164       8564      32919   ELF Image Totals
+      7266        890         46        164          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 7288 (   7.12kB)
+    Total RO  Size (Code + RO Data)                 7312 (   7.14kB)
     Total RW  Size (RW Data + ZI Data)              8728 (   8.52kB)
-    Total ROM Size (Code + RO Data + RW Data)       7452 (   7.28kB)
+    Total ROM Size (Code + RO Data + RW Data)       7476 (   7.30kB)
 
 ==============================================================================
 
