@@ -87,6 +87,7 @@ void am_adc_isr(void)
 		{
 			//read value of FIFO into circular buffer
 			ui32FifoData = am_hal_adc_fifo_pop();
+			//am_util_stdio_printf("Interrupt: %u\n", ui32FifoData);
 			g_ui32ADCSampleBuffer[g_ui32ADCSampleIndex] = AM_HAL_ADC_FIFO_FULL_SAMPLE(ui32FifoData);
 			g_ui32ADCSampleIndex = (g_ui32ADCSampleIndex + 1) & ADC_SAMPLE_INDEX_M;
 		} while (AM_HAL_ADC_FIFO_COUNT(ui32FifoData>0));
@@ -94,7 +95,7 @@ void am_adc_isr(void)
 	
 }
 
-int main() //TODO: function definition and variable definition
+int main() 
 {
 	//GENERAL CONFIGURATIONS
 	//system clock set to maximum frequency with function (already programmed, sets also default low-power settings for board)
@@ -117,6 +118,8 @@ int main() //TODO: function definition and variable definition
 	//CTIMER A3 (generell purpose timer) start for timer-based ADC measurements
 	init_timerA3_for_ADC();
 	
+	
+	
 	//INTERRUPTS
 	//Enable interrups
 	am_hal_interrupt_enable(AM_HAL_INTERRUPT_ADC);
@@ -132,6 +135,12 @@ int main() //TODO: function definition and variable definition
 	
 	//print what happens => not needed
 	am_util_stdio_terminal_clear();
+	//Output buffer
+	
+	//zwischenspeicher von output
+	uint32_t* fifo = (uint32_t*)(0x50010038);
+	//Output fifo
+	am_util_stdio_printf("%u\n", (*fifo) & 0xFFFFF);
 	am_util_stdio_printf("ADC with 1.2Msps");
 	am_util_delay_ms(10); //time-delay because of printing message
 	//done printing-> disable debug printf messages on ITM

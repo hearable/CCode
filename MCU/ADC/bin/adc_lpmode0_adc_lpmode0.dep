@@ -1,5 +1,5 @@
 Dependencies for Project 'adc_lpmode0', Target 'adc_lpmode0': (DO NOT MODIFY !)
-F (ADC.c)(0x5AB5066E)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 -Otime --apcs=interwork --split_sections -I ../bsp -I ../ -I ../utils -I ../devices -I ../mcu/apollo2-I.\RTE\_adc_lpmode0-IC:\Keil_v5\ARM\PACK\AmbiqMicro\Apollo_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DAPOLLO2_1024 -DAM_PACKAGE_BGA -DAM_PART_APOLLO2 -Dkeil-o .\bin\adc.o --omf_browse .\bin\adc.crf --depend .\bin\adc.d)
+F (ADC.c)(0x5AB52478)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 -Otime --apcs=interwork --split_sections -I ../bsp -I ../ -I ../utils -I ../devices -I ../mcu/apollo2-I.\RTE\_adc_lpmode0-IC:\Keil_v5\ARM\PACK\AmbiqMicro\Apollo_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DAPOLLO2_1024 -DAM_PACKAGE_BGA -DAM_PART_APOLLO2 -Dkeil-o .\bin\adc.o --omf_browse .\bin\adc.crf --depend .\bin\adc.d)
 I (../mcu/apollo2/am_mcu_apollo.h)(0x5AB4BB79)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x588BE5B4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)
@@ -57,14 +57,14 @@ I (../mcu/apollo2/hal/am_hal_tpiu.h)(0x5AB4BB79)
 I (../mcu/apollo2/hal/am_hal_uart.h)(0x5AB4BB79)
 I (../mcu/apollo2/hal/am_hal_vcomp.h)(0x5AB4BB79)
 I (../mcu/apollo2/hal/am_hal_wdt.h)(0x5AB4BB79)
-I (../bsp/am_bsp.h)(0x5AB4BB73)
+I (../bsp/am_bsp.h)(0x5AB5071F)
 I (../devices/am_devices.h)(0x5AB4BB79)
 I (../devices/am_devices_button.h)(0x5AB4BB79)
 I (../devices/am_devices_da14581.h)(0x5AB4BB79)
 I (../devices/am_devices_em9304.h)(0x5AB4BB79)
 I (../devices/am_devices_led.h)(0x5AB4BB79)
 I (../devices/am_devices_spiflash.h)(0x5AB4BB79)
-I (../bsp/am_bsp_gpio.h)(0x5AB4BB73)
+I (../bsp/am_bsp_gpio.h)(0x5AB5071F)
 I (../utils/am_util.h)(0x5AB4BB7B)
 I (../utils/am_util_debug.h)(0x5AB4BB7B)
 I (../utils/am_util_delay.h)(0x5AB4BB7B)
@@ -201,6 +201,6 @@ I (../mcu/apollo2/hal/am_hal_uart.h)(0x5AB4BB79)
 I (../mcu/apollo2/hal/am_hal_vcomp.h)(0x5AB4BB79)
 I (../mcu/apollo2/hal/am_hal_wdt.h)(0x5AB4BB79)
 I (../devices/am_devices_led.h)(0x5AB4BB79)
-F (startup_keil.s)(0x5A1EEE91)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 -Otime --apcs=interwork --split_sections -I ../bsp -I ../ -I ../utils -I ../devices -I ../mcu/apollo2-I.\RTE\_adc_lpmode0-IC:\Keil_v5\ARM\PACK\AmbiqMicro\Apollo_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DAPOLLO2_1024 -DAM_PACKAGE_BGA -DAM_PART_APOLLO2 -Dkeil-o .\bin\startup_keil.o --omf_browse .\bin\startup_keil.crf --depend .\bin\startup_keil.d)
-F (../bsp/keil/bin/libam_bsp.lib)(0x5AB4BB73)()
+F (startup_keil.s)(0x5AB5071F)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 -Otime --apcs=interwork --split_sections -I ../bsp -I ../ -I ../utils -I ../devices -I ../mcu/apollo2-I.\RTE\_adc_lpmode0-IC:\Keil_v5\ARM\PACK\AmbiqMicro\Apollo_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DAPOLLO2_1024 -DAM_PACKAGE_BGA -DAM_PART_APOLLO2 -Dkeil-o .\bin\startup_keil.o --omf_browse .\bin\startup_keil.crf --depend .\bin\startup_keil.d)
+F (../bsp/keil/bin/libam_bsp.lib)(0x5AB50720)()
 F (../mcu/apollo2/hal/keil/bin/libam_hal.lib)(0x5AB4BB79)()
