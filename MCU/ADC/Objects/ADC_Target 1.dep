@@ -1,0 +1,7 @@
+Dependencies for Project 'ADC', Target 'Target 1': (DO NOT MODIFY !)
+F (.\ADC.c)(0x5AB3C2A0)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\AmbiqMicro\Apollo_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DAPOLLO2_1024-o .\objects\adc.o --omf_browse .\objects\adc.crf --depend .\objects\adc.d)
+I (am_mcu_apollo.h)(0x5AB3C78E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x588BE5B4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588BE5B4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
