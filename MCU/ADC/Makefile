@@ -34,11 +34,11 @@
 # This is part of revision 1.2.11 of the AmbiqSuite Development Package.
 #
 #******************************************************************************
-TARGET := target 1
+TARGET := adc_lpmode0
 COMPILERNAME := Keil
-PROJECT := ADC
+PROJECT := adc_lpmode0_Keil
 CONFIG := bin
-AM_SoftwareRoot ?= C:/AmbiqMicro/AmbiqSuite
+AM_SoftwareRoot ?= ../../../../..
 
 SHELL:=/bin/bash
 #### Required Executables ####
@@ -51,19 +51,19 @@ all clean:
 	$(RM) -rf bin
 else
 
-LIBS = C:/AmbiqMicro/AmbiqSuite/boards/apollo2_evb/bsp/keil/bin/libam_bsp.lib
-LIBS += C:/AmbiqMicro/AmbiqSuite/mcu/apollo2/hal/keil/bin/libam_hal.lib
-INCS = C:/AmbiqMicro/AmbiqSuite/boards/apollo2_evb/bsp/am_bsp_gpio.h
-INCS += C:/AmbiqMicro/AmbiqSuite/mcu/apollo2/hal/am_hal_pin.h
+LIBS = ../../../bsp/keil/bin/libam_bsp.lib
+LIBS += ../../../../../mcu/apollo2/hal/keil/bin/libam_hal.lib
+INCS = ../../../bsp/am_bsp_gpio.h
+INCS += ../../../../../mcu/apollo2/hal/am_hal_pin.h
 
 all: directories $(CONFIG)/$(TARGET).bin
 
 # Source Dependencies must be defined before they are used.
-SRCS = C:/AmbiqMicro/AmbiqSuite/boards/apollo2_evb/examples/adc_lpmode0/src/adc_lpmode0.c
-SRCS += C:/AmbiqMicro/AmbiqSuite/utils/am_util_delay.c
-SRCS += C:/AmbiqMicro/AmbiqSuite/utils/am_util_faultisr.c
-SRCS += C:/AmbiqMicro/AmbiqSuite/utils/am_util_stdio.c
-SRCS += C:/AmbiqMicro/AmbiqSuite/devices/am_devices_led.c
+SRCS = ../src/adc_lpmode0.c
+SRCS += ../../../../../utils/am_util_delay.c
+SRCS += ../../../../../utils/am_util_faultisr.c
+SRCS += ../../../../../utils/am_util_stdio.c
+SRCS += ../../../../../devices/am_devices_led.c
 
 $(CONFIG)/$(TARGET).bin: $(LIBS) $(INCS) $(SRCS)
 	(UV4.exe -b -t "adc_lpmode0" adc_lpmode0.uvprojx -j0 ;\
