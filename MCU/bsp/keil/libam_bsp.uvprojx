@@ -7,23 +7,23 @@
 
   <Targets>
     <Target>
-      <TargetName>Target 1</TargetName>
+      <TargetName>libam_bsp</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
-      <uAC6>0</uAC6>
+      <pArmCC>5060422::V5.06 update 4 (build 422)::ARMCC</pArmCC>
+      <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
           <Device>AMAPH1KK-KBR</Device>
           <Vendor>Ambiq Micro</Vendor>
           <PackID>AmbiqMicro.Apollo_DFP.1.0.0</PackID>
           <PackURL>http://s3.asia.ambiqmicro.com/pack/</PackURL>
-          <Cpu>IRAM(0x10000000,0x40000) IROM(0x00000000,0x100000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ELITTLE</Cpu>
+          <Cpu>IROM(0x00000000,0x100000) IRAM(0x10000000,0x40000) CPUTYPE("Cortex-M4") FPU2 CLOCK(24000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
-          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD10000000 -FC4000 -FN1 -FF0Apollo2 -FS00 -FL010000 -FP0($$Device:AMAPH1KK-KBR$Flash\Apollo2.FLM))</FlashDriverDll>
+          <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD10000000 -FC4000 -FN1 -FF0Apollo -FS00 -FL010000 -FP0($$Device:AMAPH1KK-KBR$Flash\Apollo2.FLM))</FlashDriverDll>
           <DeviceId>0</DeviceId>
-          <RegisterFile>$$Device:AMAPH1KK-KBR$Device\Include\apollo2.h</RegisterFile>
+          <RegisterFile></RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -33,14 +33,14 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:AMAPH1KK-KBR$SVD\apollo2.svd</SFDFile>
+          <SFDFile>$$Device:AMAPH1KK-KBR$SVD\Apollo2.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath></RegisterFilePath>
-          <DBRegisterFilePath></DBRegisterFilePath>
+          <RegisterFilePath>1024 BGA$Device\Include\Apollo2.h\</RegisterFilePath>
+          <DBRegisterFilePath>1024 BGA$Device\Include\Apollo2.h\</DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -48,12 +48,12 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>ADC</OutputName>
-          <CreateExecutable>1</CreateExecutable>
-          <CreateLib>0</CreateLib>
+          <OutputDirectory>.\bin\</OutputDirectory>
+          <OutputName>libam_bsp</OutputName>
+          <CreateExecutable>0</CreateExecutable>
+          <CreateLib>1</CreateLib>
           <CreateHexFile>0</CreateHexFile>
-          <DebugInformation>1</DebugInformation>
+          <DebugInformation>0</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\Listings\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
@@ -82,8 +82,8 @@
           <AfterMake>
             <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name></UserProg1Name>
-            <UserProg2Name></UserProg2Name>
+            <UserProg1Name>fromelf --bin --output bin\libam_bsp.bin bin\libam_bsp.axf</UserProg1Name>
+            <UserProg2Name>fromelf -cedrst --output bin\libam_bsp.txt bin\libam_bsp.axf</UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopA1X>0</nStopA1X>
@@ -133,8 +133,8 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>0</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <Capability>1</Capability>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
@@ -257,27 +257,27 @@
                 <Size>0x0</Size>
               </XRAM>
               <OCR_RVCT1>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT1>
               <OCR_RVCT2>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT2>
               <OCR_RVCT3>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT3>
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x100000</Size>
+                <Size>0x80000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT5>
@@ -311,8 +311,8 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
-            <oTime>0</oTime>
+            <Optim>4</Optim>
+            <oTime>1</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
             <Strict>0</Strict>
@@ -334,9 +334,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>AM_PACKAGE_BGA AM_PART_APOLLO2 keil</Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>../../../../mcu/apollo2;../../../../devices</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -364,7 +364,7 @@
             <noStLib>0</noStLib>
             <RepFail>1</RepFail>
             <useFile>0</useFile>
-            <TextAddressRange>0x00000000</TextAddressRange>
+            <TextAddressRange>0x0</TextAddressRange>
             <DataAddressRange>0x10000000</DataAddressRange>
             <pXoBase></pXoBase>
             <ScatterFile></ScatterFile>
@@ -378,12 +378,12 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Source Group 1</GroupName>
+          <GroupName>source_files</GroupName>
           <Files>
             <File>
-              <FileName>ADC.c</FileName>
+              <FileName>am_bsp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\ADC.c</FilePath>
+              <FilePath>../am_bsp.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -391,10 +391,5 @@
     </Target>
   </Targets>
 
-  <RTE>
-    <apis/>
-    <components/>
-    <files/>
-  </RTE>
-
 </Project>
+
