@@ -1,0 +1,15 @@
+.\bin\event_groups.o: ../../../../../third_party/FreeRTOS9/Source/event_groups.c
+.\bin\event_groups.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\bin\event_groups.o: ../../../../../third_party/FreeRTOS9/Source/include/FreeRTOS.h
+.\bin\event_groups.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\bin\event_groups.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\bin\event_groups.o: ../src/FreeRTOSConfig.h
+.\bin\event_groups.o: ../../../../../third_party/FreeRTOS9/Source/include/projdefs.h
+.\bin\event_groups.o: ../../../../../third_party/FreeRTOS9/Source/include/portable.h
+.\bin\event_groups.o: ../../../../../third_party/FreeRTOS9/Source/include/deprecated_definitions.h
+.\bin\event_groups.o: ../../../../../third_party/FreeRTOS9/Source/portable/Keil/AMapollo2/portmacro.h
+.\bin\event_groups.o: ../../../../../third_party/FreeRTOS9/Source/include/mpu_wrappers.h
+.\bin\event_groups.o: ../../../../../third_party/FreeRTOS9/Source/include/task.h
+.\bin\event_groups.o: ../../../../../third_party/FreeRTOS9/Source/include/list.h
+.\bin\event_groups.o: ../../../../../third_party/FreeRTOS9/Source/include/timers.h
+.\bin\event_groups.o: ../../../../../third_party/FreeRTOS9/Source/include/event_groups.h

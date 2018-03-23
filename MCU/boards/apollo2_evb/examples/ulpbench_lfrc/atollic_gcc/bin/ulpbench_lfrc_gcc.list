@@ -1,0 +1,4588 @@
+
+C:\jenkins\jobs\ambiqsuite-checkout\workspace\ambiqsuite-sdk\boards\apollo2_evb\examples\ulpbench_lfrc\atollic_gcc\bin\ulpbench_lfrc_gcc.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000013b0  00000000  00000000  00010000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stack        00001000  10000000  10000000  00030000  2**2
+                  ALLOC
+  2 .data         00000190  10001000  000013b0  00021000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .bss          00000070  10001190  00001540  00021190  2**2
+                  ALLOC
+  4 .ARM.attributes 00000037  00000000  00000000  00021190  2**0
+                  CONTENTS, READONLY
+  5 .debug_info   00004d45  00000000  00000000  000211c7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00001b66  00000000  00000000  00025f0c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_aranges 000005f0  00000000  00000000  00027a72  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_ranges 000009e0  00000000  00000000  00028062  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   000038a6  00000000  00000000  00028a42  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00001cd7  00000000  00000000  0002c2e8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .comment      0000007e  00000000  00000000  0002dfbf  2**0
+                  CONTENTS, READONLY
+ 12 .debug_frame  00000ed4  00000000  00000000  0002e040  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_loc    000021d1  00000000  00000000  0002ef14  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <g_am_pfnVectors>:
+#if defined(AM_BSP_GPIO_IOM0_SCK) || defined(AM_BSP_GPIO_IOM1_SCK) || \
+    defined(AM_BSP_GPIO_IOM2_SCK) || defined(AM_BSP_GPIO_IOM3_SCK) || \
+    defined(AM_BSP_GPIO_IOM4_SCK) || defined(AM_BSP_GPIO_IOM5_SCK)
+void
+am_bsp_iom_spi_pins_disable(uint32_t ui32Module)
+{
+       0:	00 10 00 10 dd 0e 00 00 d5 0e 00 00 45 0f 00 00     ............E...
+    switch(ui32Module)
+      10:	45 0f 00 00 45 0f 00 00 45 0f 00 00 00 00 00 00     E...E...E.......
+	...
+            break;
+#endif
+
+#ifdef AM_BSP_GPIO_IOM5_SCK
+        case 5:
+            am_bsp_pin_disable(IOM5_SCK);
+      2c:	d9 0e 00 00 d9 0e 00 00 00 00 00 00 d9 0e 00 00     ................
+      3c:	d9 0e 00 00 d9 0e 00 00 d9 0e 00 00 6d 01 00 00     ............m...
+      4c:	d9 0e 00 00 d9 0e 00 00 d9 0e 00 00 d9 0e 00 00     ................
+            am_bsp_pin_disable(IOM5_MISO);
+      5c:	d9 0e 00 00 d9 0e 00 00 d9 0e 00 00 d9 0e 00 00     ................
+      6c:	d9 0e 00 00 d9 0e 00 00 d9 0e 00 00 d9 0e 00 00     ................
+      7c:	d9 0e 00 00 d9 0e 00 00 d9 0e 00 00 d9 0e 00 00     ................
+            am_bsp_pin_disable(IOM5_MOSI);
+      8c:	d9 0e 00 00 d9 0e 00 00 d9 0e 00 00 d9 0e 00 00     ................
+      9c:	d9 0e 00 00 d9 0e 00 00 d9 0e 00 00 d9 0e 00 00     ................
+      ac:	d9 0e 00 00 d9 0e 00 00 d9 0e 00 00 d9 0e 00 00     ................
+            break;
+#endif
+
+#ifdef AM_BSP_GPIO_IOM4_SCK
+        case 4:
+            am_bsp_pin_disable(IOM4_SCK);
+      bc:	d9 0e 00 00                                         ....
+
+000000c0 <hardware_setup_part1>:
+//
+// Setup up platform specific hardware part 1.
+//
+//*****************************************************************************
+void hardware_setup_part1(void)
+{
+      c0:	b530      	push	{r4, r5, lr}
+void ulp_initialize_pins(void)
+{
+    //
+    // Initialize LEDs.
+    //
+    am_devices_led_array_init(am_bsp_psLEDs, AM_BSP_NUM_LEDS);
+      c2:	4c21      	ldr	r4, [pc, #132]	; (148 <hardware_setup_part1+0x88>)
+//
+// Setup up platform specific hardware part 1.
+//
+//*****************************************************************************
+void hardware_setup_part1(void)
+{
+      c4:	b083      	sub	sp, #12
+    //
+    // Set the system clock to maximum frequency.
+    //
+    am_hal_clkgen_sysclk_select(AM_HAL_CLKGEN_SYSCLK_MAX);
+      c6:	2000      	movs	r0, #0
+      c8:	f000 ffa6 	bl	1018 <am_hal_clkgen_sysclk_select>
+void ulp_initialize_pins(void)
+{
+    //
+    // Initialize LEDs.
+    //
+    am_devices_led_array_init(am_bsp_psLEDs, AM_BSP_NUM_LEDS);
+      cc:	4620      	mov	r0, r4
+      ce:	2105      	movs	r1, #5
+      d0:	f000 fde4 	bl	c9c <am_devices_led_array_init>
+
+    //
+    // Set up ULP status pin and clear it.
+    //
+    am_hal_gpio_pin_config(ULP_INDICATOR_PIN, AM_HAL_PIN_OUTPUT);
+      d4:	f3ef 8310 	mrs	r3, PRIMASK
+      d8:	9301      	str	r3, [sp, #4]
+      da:	b672      	cpsid	i
+      dc:	4a1b      	ldr	r2, [pc, #108]	; (14c <hardware_setup_part1+0x8c>)
+      de:	4d1c      	ldr	r5, [pc, #112]	; (150 <hardware_setup_part1+0x90>)
+      e0:	481c      	ldr	r0, [pc, #112]	; (154 <hardware_setup_part1+0x94>)
+      e2:	491d      	ldr	r1, [pc, #116]	; (158 <hardware_setup_part1+0x98>)
+      e4:	2373      	movs	r3, #115	; 0x73
+      e6:	6013      	str	r3, [r2, #0]
+      e8:	682b      	ldr	r3, [r5, #0]
+      ea:	f423 4ce0 	bic.w	ip, r3, #28672	; 0x7000
+      ee:	f44c 5300 	orr.w	r3, ip, #8192	; 0x2000
+      f2:	602b      	str	r3, [r5, #0]
+      f4:	6805      	ldr	r5, [r0, #0]
+      f6:	f025 4c7f 	bic.w	ip, r5, #4278190080	; 0xff000000
+      fa:	f04c 53c0 	orr.w	r3, ip, #402653184	; 0x18000000
+      fe:	6003      	str	r3, [r0, #0]
+     100:	6808      	ldr	r0, [r1, #0]
+     102:	2500      	movs	r5, #0
+     104:	f020 437f 	bic.w	r3, r0, #4278190080	; 0xff000000
+     108:	600b      	str	r3, [r1, #0]
+     10a:	6015      	str	r5, [r2, #0]
+     10c:	9a01      	ldr	r2, [sp, #4]
+     10e:	f382 8810 	msr	PRIMASK, r2
+void ulp_rtc_init(void)
+{
+    //
+    // Run the RTC off the LFRC.
+    //
+    am_hal_rtc_osc_select(AM_HAL_RTC_OSC_LFRC);
+     112:	2001      	movs	r0, #1
+     114:	f000 fff6 	bl	1104 <am_hal_rtc_osc_select>
+
+    //
+    // Stop the XT.
+    //
+    am_hal_clkgen_osc_stop(AM_HAL_CLKGEN_OSC_XT);
+     118:	2001      	movs	r0, #1
+     11a:	f000 ff95 	bl	1048 <am_hal_clkgen_osc_stop>
+
+    //
+    // Make sure LED is off.
+    //
+    am_devices_led_off(am_bsp_psLEDs, 0);
+     11e:	4629      	mov	r1, r5
+     120:	4620      	mov	r0, r4
+     122:	f000 feb5 	bl	e90 <am_devices_led_off>
+
+    //
+    // Clear RTC interrupts.
+    //
+    am_hal_rtc_int_clear(AM_HAL_RTC_INT_ALM);
+     126:	2008      	movs	r0, #8
+     128:	f001 f80a 	bl	1140 <am_hal_rtc_int_clear>
+    am_hal_rtc_int_clear(AM_HAL_RTC_INT_OF);
+     12c:	2004      	movs	r0, #4
+     12e:	f001 f807 	bl	1140 <am_hal_rtc_int_clear>
+
+    //
+    // Enable RTC Alarm interrupts
+    //
+    am_hal_rtc_int_enable(AM_HAL_RTC_INT_ALM);
+     132:	2008      	movs	r0, #8
+     134:	f000 fffc 	bl	1130 <am_hal_rtc_int_enable>
+
+    //
+    // Enale the CLKGEN interupts in the NVIC
+    //
+    am_hal_interrupt_enable(AM_HAL_INTERRUPT_CLKGEN);
+     138:	2012      	movs	r0, #18
+     13a:	f000 ff91 	bl	1060 <am_hal_interrupt_enable>
+#endif  // DEBUG
+
+    //
+    // Enable interrupts
+    //
+    am_hal_interrupt_master_enable();
+     13e:	f000 ffb7 	bl	10b0 <am_hal_interrupt_master_enable>
+}
+     142:	b003      	add	sp, #12
+     144:	bd30      	pop	{r4, r5, pc}
+     146:	bf00      	nop
+     148:	10001168 	.word	0x10001168
+     14c:	40010060 	.word	0x40010060
+     150:	40010044 	.word	0x40010044
+     154:	40010008 	.word	0x40010008
+     158:	400100e8 	.word	0x400100e8
+
+0000015c <hardware_setup_part2>:
+//
+// Setup up platform specific hardware part 2.
+//
+//*****************************************************************************
+void hardware_setup_part2( void )
+{
+     15c:	b508      	push	{r3, lr}
+void RTC_Start( void )
+{
+    //
+    // Enable the RTC.
+    //
+    am_hal_rtc_osc_enable();
+     15e:	f000 ffdf 	bl	1120 <am_hal_rtc_osc_enable>
+
+    //
+    // Enable the RTC 1 sec alarm interval.
+    //
+    am_hal_rtc_alarm_interval_set(AM_HAL_RTC_ALM_RPT_SEC);
+     162:	2007      	movs	r0, #7
+//
+//*****************************************************************************
+void hardware_setup_part2( void )
+{
+    RTC_Start();
+}
+     164:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+    am_hal_rtc_osc_enable();
+
+    //
+    // Enable the RTC 1 sec alarm interval.
+    //
+    am_hal_rtc_alarm_interval_set(AM_HAL_RTC_ALM_RPT_SEC);
+     168:	f000 bff0 	b.w	114c <am_hal_rtc_alarm_interval_set>
+
+0000016c <am_clkgen_isr>:
+void am_clkgen_isr(void)
+{
+    //
+    // Clear the RTC Alarm Interrupt.
+    //
+    AM_REG(RTC, INTCLR) = AM_HAL_RTC_INT_ALM;
+     16c:	4b02      	ldr	r3, [pc, #8]	; (178 <am_clkgen_isr+0xc>)
+     16e:	2208      	movs	r2, #8
+     170:	601a      	str	r2, [r3, #0]
+
+    //
+    // Run ULP bench
+    //
+    tesTimerInterrupt();
+     172:	f000 bd25 	b.w	bc0 <tesTimerInterrupt>
+     176:	bf00      	nop
+     178:	40004108 	.word	0x40004108
+
+0000017c <workload_func_1>:
+- Run the <bubblesort> function on the result of the previous step, and test the result.
+- Run the <permute> function for 16 permutes
+- Indicate end of workload iteration by calling <clear_Indication_Port>
+		
+*/
+void workload_func_1(ulp_u1 repeat, vfacts *facts) {
+     17c:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+
+   unsigned int i,sid;
+   unsigned int innerloop;
+   ulp_u4 math_cumu=last_state&0xffff;
+     180:	4b89      	ldr	r3, [pc, #548]	; (3a8 <workload_func_1+0x22c>)
+- Run the <bubblesort> function on the result of the previous step, and test the result.
+- Run the <permute> function for 16 permutes
+- Indicate end of workload iteration by calling <clear_Indication_Port>
+		
+*/
+void workload_func_1(ulp_u1 repeat, vfacts *facts) {
+     182:	b0a9      	sub	sp, #164	; 0xa4
+
+   unsigned int i,sid;
+   unsigned int innerloop;
+   ulp_u4 math_cumu=last_state&0xffff;
+     184:	681c      	ldr	r4, [r3, #0]
+#else
+   ulp_u1 s[128];
+#endif
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+     186:	2800      	cmp	r0, #0
+     188:	f000 810a 	beq.w	3a0 <workload_func_1+0x224>
+     18c:	b2a6      	uxth	r6, r4
+     18e:	9007      	str	r0, [sp, #28]
+     190:	f8df 823c 	ldr.w	r8, [pc, #572]	; 3d0 <workload_func_1+0x254>
+   {
+     for(i=0;i<20;i++){  
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     194:	f8df 923c 	ldr.w	r9, [pc, #572]	; 3d4 <workload_func_1+0x258>
+                                /* also be used to measure the correction repeat frequency and duration of the */
+                                /* Workload function */
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     198:	f8df a23c 	ldr.w	sl, [pc, #572]	; 3d8 <workload_func_1+0x25c>
+     19c:	4d83      	ldr	r5, [pc, #524]	; (3ac <workload_func_1+0x230>)
+     19e:	9603      	str	r6, [sp, #12]
+#else
+   ulp_u1 s[128];
+#endif
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+     1a0:	2000      	movs	r0, #0
+     1a2:	468b      	mov	fp, r1
+     1a4:	9005      	str	r0, [sp, #20]
+     1a6:	9004      	str	r0, [sp, #16]
+   {
+     for(i=0;i<20;i++){  
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     1a8:	f44f 6700 	mov.w	r7, #2048	; 0x800
+#else
+   ulp_u1 s[128];
+#endif
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+     1ac:	9c03      	ldr	r4, [sp, #12]
+     1ae:	2614      	movs	r6, #20
+   {
+     for(i=0;i<20;i++){  
+     1b0:	3e0a      	subs	r6, #10
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     1b2:	f8c9 7000 	str.w	r7, [r9]
+                                /* also be used to measure the correction repeat frequency and duration of the */
+                                /* Workload function */
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     1b6:	f8ca 7000 	str.w	r7, [sl]
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+   {
+     for(i=0;i<20;i++){  
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     1ba:	f8c9 7000 	str.w	r7, [r9]
+                                /* also be used to measure the correction repeat frequency and duration of the */
+                                /* Workload function */
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     1be:	f8ca 7000 	str.w	r7, [sl]
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+   {
+     for(i=0;i<20;i++){  
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     1c2:	f8c9 7000 	str.w	r7, [r9]
+                                /* also be used to measure the correction repeat frequency and duration of the */
+                                /* Workload function */
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     1c6:	f8ca 7000 	str.w	r7, [sl]
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+   {
+     for(i=0;i<20;i++){  
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     1ca:	f8c9 7000 	str.w	r7, [r9]
+                                /* also be used to measure the correction repeat frequency and duration of the */
+                                /* Workload function */
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     1ce:	f8ca 7000 	str.w	r7, [sl]
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+   {
+     for(i=0;i<20;i++){  
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     1d2:	f8c9 7000 	str.w	r7, [r9]
+                                /* also be used to measure the correction repeat frequency and duration of the */
+                                /* Workload function */
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     1d6:	f8ca 7000 	str.w	r7, [sl]
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+   {
+     for(i=0;i<20;i++){  
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     1da:	f8c9 7000 	str.w	r7, [r9]
+                                /* also be used to measure the correction repeat frequency and duration of the */
+                                /* Workload function */
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     1de:	f8ca 7000 	str.w	r7, [sl]
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+   {
+     for(i=0;i<20;i++){  
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     1e2:	f8c9 7000 	str.w	r7, [r9]
+                                /* also be used to measure the correction repeat frequency and duration of the */
+                                /* Workload function */
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     1e6:	f8ca 7000 	str.w	r7, [sl]
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+   {
+     for(i=0;i<20;i++){  
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     1ea:	f8c9 7000 	str.w	r7, [r9]
+                                /* also be used to measure the correction repeat frequency and duration of the */
+                                /* Workload function */
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     1ee:	f8ca 7000 	str.w	r7, [sl]
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+   {
+     for(i=0;i<20;i++){  
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     1f2:	f8c9 7000 	str.w	r7, [r9]
+                                /* also be used to measure the correction repeat frequency and duration of the */
+                                /* Workload function */
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     1f6:	f8ca 7000 	str.w	r7, [sl]
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+   {
+     for(i=0;i<20;i++){  
+         PLT_STATUS_PIN_CLEAR;  /* Set on port pin to low. Used to make some peripheral access but can */
+     1fa:	f8c9 7000 	str.w	r7, [r9]
+                                /* also be used to measure the correction repeat frequency and duration of the */
+                                /* Workload function */
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     1fe:	f8ca 7000 	str.w	r7, [sl]
+#endif
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+   {
+     for(i=0;i<20;i++){  
+     202:	d1d5      	bne.n	1b0 <workload_func_1+0x34>
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     }
+     /* we end with port high so during the processing of the following part the pin is high. */
+
+     
+     for(i=0;i<facts->datasize;i++){  
+     204:	f8bb 1000 	ldrh.w	r1, [fp]
+     208:	9403      	str	r4, [sp, #12]
+     20a:	b3a9      	cbz	r1, 278 <workload_func_1+0xfc>
+        /* Math simulating simple PID */
+       if (math_cumu >= DATASIZE){
+		  ulp_u1 cur_param=(ulp_u1)loop_param;
+     20c:	f8d8 3000 	ldr.w	r3, [r8]
+          math_cumu += math_int8(cur_param, (ulp_u1)ulp_data[cur_param & 0x07], (ulp_u1)ulp_data[0], (ulp_u1)ulp_data[i]);
+     210:	b2d8      	uxtb	r0, r3
+     212:	f000 0107 	and.w	r1, r0, #7
+     /* we end with port high so during the processing of the following part the pin is high. */
+
+     
+     for(i=0;i<facts->datasize;i++){  
+        /* Math simulating simple PID */
+       if (math_cumu >= DATASIZE){
+     216:	2c17      	cmp	r4, #23
+		  ulp_u1 cur_param=(ulp_u1)loop_param;
+          math_cumu += math_int8(cur_param, (ulp_u1)ulp_data[cur_param & 0x07], (ulp_u1)ulp_data[0], (ulp_u1)ulp_data[i]);
+     218:	f835 c011 	ldrh.w	ip, [r5, r1, lsl #1]
+       }else{
+		  ulp_u1 cur_param=(ulp_u1)loop_param;
+          math_cumu += math_int8(cur_param, (ulp_u1)ulp_data[cur_param & 0x07], (ulp_u1)ulp_data[math_cumu], (ulp_u1)ulp_data[i]);
+     21c:	bf94      	ite	ls
+     21e:	f835 2014 	ldrhls.w	r2, [r5, r4, lsl #1]
+     
+     for(i=0;i<facts->datasize;i++){  
+        /* Math simulating simple PID */
+       if (math_cumu >= DATASIZE){
+		  ulp_u1 cur_param=(ulp_u1)loop_param;
+          math_cumu += math_int8(cur_param, (ulp_u1)ulp_data[cur_param & 0x07], (ulp_u1)ulp_data[0], (ulp_u1)ulp_data[i]);
+     222:	882a      	ldrhhi	r2, [r5, #0]
+       }else{
+		  ulp_u1 cur_param=(ulp_u1)loop_param;
+          math_cumu += math_int8(cur_param, (ulp_u1)ulp_data[cur_param & 0x07], (ulp_u1)ulp_data[math_cumu], (ulp_u1)ulp_data[i]);
+     224:	f835 e016 	ldrh.w	lr, [r5, r6, lsl #1]
+     228:	fa5f f18c 	uxtb.w	r1, ip
+     22c:	fa5f f38e 	uxtb.w	r3, lr
+     230:	b2d2      	uxtb	r2, r2
+     232:	f000 fa1b 	bl	66c <math_int8>
+       }
+#if DEBUG>2
+		printf("math8,%x\n",math_cumu);
+#endif     
+       if (math_cumu >= DATASIZE){
+		  ulp_u2 cur_param=(ulp_u2)loop_param;
+     236:	f8d8 2000 	ldr.w	r2, [r8]
+       if (math_cumu >= DATASIZE){
+		  ulp_u1 cur_param=(ulp_u1)loop_param;
+          math_cumu += math_int8(cur_param, (ulp_u1)ulp_data[cur_param & 0x07], (ulp_u1)ulp_data[0], (ulp_u1)ulp_data[i]);
+       }else{
+		  ulp_u1 cur_param=(ulp_u1)loop_param;
+          math_cumu += math_int8(cur_param, (ulp_u1)ulp_data[cur_param & 0x07], (ulp_u1)ulp_data[math_cumu], (ulp_u1)ulp_data[i]);
+     23a:	4404      	add	r4, r0
+#if DEBUG>2
+		printf("math8,%x\n",math_cumu);
+#endif     
+       if (math_cumu >= DATASIZE){
+		  ulp_u2 cur_param=(ulp_u2)loop_param;
+          math_cumu += math_int16(cur_param, ulp_data[cur_param & 0x07], ulp_data[0], ulp_data[i]);
+     23c:	b290      	uxth	r0, r2
+     23e:	f000 0307 	and.w	r3, r0, #7
+          math_cumu += math_int8(cur_param, (ulp_u1)ulp_data[cur_param & 0x07], (ulp_u1)ulp_data[math_cumu], (ulp_u1)ulp_data[i]);
+       }
+#if DEBUG>2
+		printf("math8,%x\n",math_cumu);
+#endif     
+       if (math_cumu >= DATASIZE){
+     242:	2c17      	cmp	r4, #23
+		  ulp_u2 cur_param=(ulp_u2)loop_param;
+          math_cumu += math_int16(cur_param, ulp_data[cur_param & 0x07], ulp_data[0], ulp_data[i]);
+     244:	f835 1013 	ldrh.w	r1, [r5, r3, lsl #1]
+       }else{
+		  ulp_u2 cur_param=(ulp_u2)loop_param;
+          math_cumu += math_int16(cur_param, ulp_data[cur_param & 0x07], ulp_data[math_cumu], ulp_data[i]);
+     248:	bf94      	ite	ls
+     24a:	f835 c014 	ldrhls.w	ip, [r5, r4, lsl #1]
+#if DEBUG>2
+		printf("math8,%x\n",math_cumu);
+#endif     
+       if (math_cumu >= DATASIZE){
+		  ulp_u2 cur_param=(ulp_u2)loop_param;
+          math_cumu += math_int16(cur_param, ulp_data[cur_param & 0x07], ulp_data[0], ulp_data[i]);
+     24e:	f8b5 c000 	ldrhhi.w	ip, [r5]
+       }else{
+		  ulp_u2 cur_param=(ulp_u2)loop_param;
+          math_cumu += math_int16(cur_param, ulp_data[cur_param & 0x07], ulp_data[math_cumu], ulp_data[i]);
+     252:	f835 3016 	ldrh.w	r3, [r5, r6, lsl #1]
+     256:	fa1f f28c 	uxth.w	r2, ip
+     25a:	b289      	uxth	r1, r1
+     25c:	b29b      	uxth	r3, r3
+     25e:	f000 f9ef 	bl	640 <math_int16>
+     262:	4404      	add	r4, r0
+       }
+#if DEBUG>2
+		printf("math16,%x\n",math_cumu);
+#endif     
+		/* State change based on PID output */
+        state = state_machine(math_cumu);
+     264:	4620      	mov	r0, r4
+     266:	f000 fb75 	bl	954 <state_machine>
+         PLT_STATUS_PIN_SET;    /* Set on port pin to high. */
+     }
+     /* we end with port high so during the processing of the following part the pin is high. */
+
+     
+     for(i=0;i<facts->datasize;i++){  
+     26a:	f8bb 2000 	ldrh.w	r2, [fp]
+     26e:	3601      	adds	r6, #1
+     270:	42b2      	cmp	r2, r6
+     272:	d8cb      	bhi.n	20c <workload_func_1+0x90>
+     274:	9403      	str	r4, [sp, #12]
+     276:	9005      	str	r0, [sp, #20]
+       
+     } // for
+     
+     /* prepare the values for the display */
+     /* here we have some table processing */
+     bin2LCD((ulp_u1 *)display_out, facts->displaysize, ((ulp_u4)state<<16)|loop_param);
+     278:	9e05      	ldr	r6, [sp, #20]
+     27a:	f8d8 4000 	ldr.w	r4, [r8]
+     27e:	f8bb 1002 	ldrh.w	r1, [fp, #2]
+     282:	484b      	ldr	r0, [pc, #300]	; (3b0 <workload_func_1+0x234>)
+     284:	ea44 4206 	orr.w	r2, r4, r6, lsl #16
+     288:	f000 f93a 	bl	500 <bin2LCD>
+	 {
+		ulp_u4 cur_state=last_state;
+		last_state=cur_state+display_out[(innerloop+state)&DISPLAYMASK];
+     28c:	9804      	ldr	r0, [sp, #16]
+     
+     /* prepare the values for the display */
+     /* here we have some table processing */
+     bin2LCD((ulp_u1 *)display_out, facts->displaysize, ((ulp_u4)state<<16)|loop_param);
+	 {
+		ulp_u4 cur_state=last_state;
+     28e:	4b46      	ldr	r3, [pc, #280]	; (3a8 <workload_func_1+0x22c>)
+		last_state=cur_state+display_out[(innerloop+state)&DISPLAYMASK];
+     290:	4a47      	ldr	r2, [pc, #284]	; (3b0 <workload_func_1+0x234>)
+     
+     /* prepare the values for the display */
+     /* here we have some table processing */
+     bin2LCD((ulp_u1 *)display_out, facts->displaysize, ((ulp_u4)state<<16)|loop_param);
+	 {
+		ulp_u4 cur_state=last_state;
+     292:	681c      	ldr	r4, [r3, #0]
+	 sid=last_state&0x3;
+	 string=string_a[sid];     
+     
+     /* some String operation */
+     /* find a sub string in a string - usecase for communications */
+     p_str1 = (volatile ulp_u1 *) tesStringSearch((const ulp_u1 *)string, facts->needle);
+     294:	f8db 1010 	ldr.w	r1, [fp, #16]
+     /* prepare the values for the display */
+     /* here we have some table processing */
+     bin2LCD((ulp_u1 *)display_out, facts->displaysize, ((ulp_u4)state<<16)|loop_param);
+	 {
+		ulp_u4 cur_state=last_state;
+		last_state=cur_state+display_out[(innerloop+state)&DISPLAYMASK];
+     298:	4430      	add	r0, r6
+     29a:	f000 0c0f 	and.w	ip, r0, #15
+     29e:	4842      	ldr	r0, [pc, #264]	; (3a8 <workload_func_1+0x22c>)
+     2a0:	f812 600c 	ldrb.w	r6, [r2, ip]
+#if DEBUG>2
+		printf("lcd,%x\n",last_state);
+#endif     
+	 /* setup flow to continue to next step input for verification and to make sure compiler does not optimize call away */
+	 sid=last_state&0x3;
+	 string=string_a[sid];     
+     2a4:	4a43      	ldr	r2, [pc, #268]	; (3b4 <workload_func_1+0x238>)
+     /* prepare the values for the display */
+     /* here we have some table processing */
+     bin2LCD((ulp_u1 *)display_out, facts->displaysize, ((ulp_u4)state<<16)|loop_param);
+	 {
+		ulp_u4 cur_state=last_state;
+		last_state=cur_state+display_out[(innerloop+state)&DISPLAYMASK];
+     2a6:	4434      	add	r4, r6
+     2a8:	6004      	str	r4, [r0, #0]
+	 }
+#if DEBUG>2
+		printf("lcd,%x\n",last_state);
+#endif     
+	 /* setup flow to continue to next step input for verification and to make sure compiler does not optimize call away */
+	 sid=last_state&0x3;
+     2aa:	6803      	ldr	r3, [r0, #0]
+	 string=string_a[sid];     
+     2ac:	4e42      	ldr	r6, [pc, #264]	; (3b8 <workload_func_1+0x23c>)
+	 }
+#if DEBUG>2
+		printf("lcd,%x\n",last_state);
+#endif     
+	 /* setup flow to continue to next step input for verification and to make sure compiler does not optimize call away */
+	 sid=last_state&0x3;
+     2ae:	f003 0403 	and.w	r4, r3, #3
+	 string=string_a[sid];     
+     2b2:	f852 0024 	ldr.w	r0, [r2, r4, lsl #2]
+     2b6:	6030      	str	r0, [r6, #0]
+     
+     /* some String operation */
+     /* find a sub string in a string - usecase for communications */
+     p_str1 = (volatile ulp_u1 *) tesStringSearch((const ulp_u1 *)string, facts->needle);
+     2b8:	f000 fcca 	bl	c50 <tesStringSearch>
+#if DEBUG>2
+		printf("sidx,%x\n",string + facts->needle_pos[sid] - p_str1,p_str1-string);
+#endif     
+     if (p_str1 != (string + facts->needle_pos[sid])){
+     2bc:	eb0b 0c44 	add.w	ip, fp, r4, lsl #1
+     2c0:	493d      	ldr	r1, [pc, #244]	; (3b8 <workload_func_1+0x23c>)
+     2c2:	f8bc 3004 	ldrh.w	r3, [ip, #4]
+     2c6:	680e      	ldr	r6, [r1, #0]
+     2c8:	4433      	add	r3, r6
+     2ca:	4298      	cmp	r0, r3
+     2cc:	d00a      	beq.n	2e4 <workload_func_1+0x168>
+         PLT_STATUS_PIN_CLEAR;      /* Set on port pin to low. */
+     2ce:	f44f 6200 	mov.w	r2, #2048	; 0x800
+    	 PLT_STATUS_PIN_SET;        /* Set on port pin to high again. */
+	   errors++;
+     2d2:	493a      	ldr	r1, [pc, #232]	; (3bc <workload_func_1+0x240>)
+     p_str1 = (volatile ulp_u1 *) tesStringSearch((const ulp_u1 *)string, facts->needle);
+#if DEBUG>2
+		printf("sidx,%x\n",string + facts->needle_pos[sid] - p_str1,p_str1-string);
+#endif     
+     if (p_str1 != (string + facts->needle_pos[sid])){
+         PLT_STATUS_PIN_CLEAR;      /* Set on port pin to low. */
+     2d4:	f8c9 2000 	str.w	r2, [r9]
+    	 PLT_STATUS_PIN_SET;        /* Set on port pin to high again. */
+     2d8:	f8ca 2000 	str.w	r2, [sl]
+	   errors++;
+     2dc:	680b      	ldr	r3, [r1, #0]
+     2de:	4a37      	ldr	r2, [pc, #220]	; (3bc <workload_func_1+0x240>)
+     2e0:	3301      	adds	r3, #1
+     2e2:	6013      	str	r3, [r2, #0]
+#endif
+#if GEN_REF
+		facts->needle_pos[sid]=p_str1-string;
+#endif
+     }
+	 last_state+= (p_str1==NULL) ? 256 : p_str1-string;
+     2e4:	2800      	cmp	r0, #0
+     2e6:	d058      	beq.n	39a <workload_func_1+0x21e>
+     2e8:	1b80      	subs	r0, r0, r6
+     2ea:	492f      	ldr	r1, [pc, #188]	; (3a8 <workload_func_1+0x22c>)
+     tesBytesCopy(s,(void *)string,tesStringLength((ulp_u1 *)string));
+     2ec:	9606      	str	r6, [sp, #24]
+#endif
+#if GEN_REF
+		facts->needle_pos[sid]=p_str1-string;
+#endif
+     }
+	 last_state+= (p_str1==NULL) ? 256 : p_str1-string;
+     2ee:	680b      	ldr	r3, [r1, #0]
+     2f0:	4403      	add	r3, r0
+     tesBytesCopy(s,(void *)string,tesStringLength((ulp_u1 *)string));
+     2f2:	4630      	mov	r0, r6
+#endif
+#if GEN_REF
+		facts->needle_pos[sid]=p_str1-string;
+#endif
+     }
+	 last_state+= (p_str1==NULL) ? 256 : p_str1-string;
+     2f4:	4e2c      	ldr	r6, [pc, #176]	; (3a8 <workload_func_1+0x22c>)
+     2f6:	6033      	str	r3, [r6, #0]
+     tesBytesCopy(s,(void *)string,tesStringLength((ulp_u1 *)string));
+     2f8:	f000 fcc4 	bl	c84 <tesStringLength>
+     2fc:	9906      	ldr	r1, [sp, #24]
+     2fe:	4602      	mov	r2, r0
+     300:	a808      	add	r0, sp, #32
+     302:	f000 fc9b 	bl	c3c <tesBytesCopy>
+     i = bubblesort(s,(int)facts->sort_max,(unsigned int)facts->sort_idx);
+#if DEBUG>2
+		printf("sres,%x\n",i);
+#endif     
+     if (i != facts->sort_res[sid]){
+     306:	445c      	add	r4, fp
+		facts->needle_pos[sid]=p_str1-string;
+#endif
+     }
+	 last_state+= (p_str1==NULL) ? 256 : p_str1-string;
+     tesBytesCopy(s,(void *)string,tesStringLength((ulp_u1 *)string));
+     i = bubblesort(s,(int)facts->sort_max,(unsigned int)facts->sort_idx);
+     308:	f89b 2018 	ldrb.w	r2, [fp, #24]
+     30c:	f8db 1014 	ldr.w	r1, [fp, #20]
+     310:	a808      	add	r0, sp, #32
+     312:	f000 fa5b 	bl	7cc <bubblesort>
+#if DEBUG>2
+		printf("sres,%x\n",i);
+#endif     
+     if (i != facts->sort_res[sid]){
+     316:	7b24      	ldrb	r4, [r4, #12]
+     318:	42a0      	cmp	r0, r4
+     31a:	d00a      	beq.n	332 <workload_func_1+0x1b6>
+         PLT_STATUS_PIN_CLEAR;      /* Set on port pin to low. */
+     31c:	f44f 6200 	mov.w	r2, #2048	; 0x800
+    	 PLT_STATUS_PIN_SET;        /* Set on port pin to high again. */
+	   errors++;
+     320:	4926      	ldr	r1, [pc, #152]	; (3bc <workload_func_1+0x240>)
+     i = bubblesort(s,(int)facts->sort_max,(unsigned int)facts->sort_idx);
+#if DEBUG>2
+		printf("sres,%x\n",i);
+#endif     
+     if (i != facts->sort_res[sid]){
+         PLT_STATUS_PIN_CLEAR;      /* Set on port pin to low. */
+     322:	f8c9 2000 	str.w	r2, [r9]
+    	 PLT_STATUS_PIN_SET;        /* Set on port pin to high again. */
+     326:	f8ca 2000 	str.w	r2, [sl]
+	   errors++;
+     32a:	680b      	ldr	r3, [r1, #0]
+     32c:	4e23      	ldr	r6, [pc, #140]	; (3bc <workload_func_1+0x240>)
+     32e:	3301      	adds	r3, #1
+     330:	6033      	str	r3, [r6, #0]
+#endif
+#if GEN_REF
+		facts->sort_res[sid]=i;
+#endif
+     }
+	 last_state+=i;
+     332:	4c1d      	ldr	r4, [pc, #116]	; (3a8 <workload_func_1+0x22c>)
+
+     permute((ulp_u1 *)ipOut, (ulp_u1 *)rxBuffer, ip, facts->permutes, PERMUTE_BUF_MASK);
+     334:	f89b 3019 	ldrb.w	r3, [fp, #25]
+#endif
+#if GEN_REF
+		facts->sort_res[sid]=i;
+#endif
+     }
+	 last_state+=i;
+     338:	6826      	ldr	r6, [r4, #0]
+     33a:	4c1b      	ldr	r4, [pc, #108]	; (3a8 <workload_func_1+0x22c>)
+
+     permute((ulp_u1 *)ipOut, (ulp_u1 *)rxBuffer, ip, facts->permutes, PERMUTE_BUF_MASK);
+     33c:	4a20      	ldr	r2, [pc, #128]	; (3c0 <workload_func_1+0x244>)
+     33e:	4921      	ldr	r1, [pc, #132]	; (3c4 <workload_func_1+0x248>)
+#endif
+#if GEN_REF
+		facts->sort_res[sid]=i;
+#endif
+     }
+	 last_state+=i;
+     340:	4406      	add	r6, r0
+
+     permute((ulp_u1 *)ipOut, (ulp_u1 *)rxBuffer, ip, facts->permutes, PERMUTE_BUF_MASK);
+     342:	2007      	movs	r0, #7
+     344:	9000      	str	r0, [sp, #0]
+     346:	4820      	ldr	r0, [pc, #128]	; (3c8 <workload_func_1+0x24c>)
+#endif
+#if GEN_REF
+		facts->sort_res[sid]=i;
+#endif
+     }
+	 last_state+=i;
+     348:	6026      	str	r6, [r4, #0]
+
+     permute((ulp_u1 *)ipOut, (ulp_u1 *)rxBuffer, ip, facts->permutes, PERMUTE_BUF_MASK);
+     34a:	f000 f9ad 	bl	6a8 <permute>
+	 {
+		ulp_u4 cur_state=last_state;
+		last_state=cur_state+ipOut[0];				/* Take an output of the permute into the compute chain */
+     34e:	4a1e      	ldr	r2, [pc, #120]	; (3c8 <workload_func_1+0x24c>)
+     }
+	 last_state+=i;
+
+     permute((ulp_u1 *)ipOut, (ulp_u1 *)rxBuffer, ip, facts->permutes, PERMUTE_BUF_MASK);
+	 {
+		ulp_u4 cur_state=last_state;
+     350:	6821      	ldr	r1, [r4, #0]
+		last_state=cur_state+ipOut[0];				/* Take an output of the permute into the compute chain */
+     352:	7813      	ldrb	r3, [r2, #0]
+	 }
+#if DEBUG>2
+		printf("slast,%x\n",last_state);
+#endif     
+     if (errors==0)
+     354:	4819      	ldr	r0, [pc, #100]	; (3bc <workload_func_1+0x240>)
+	 last_state+=i;
+
+     permute((ulp_u1 *)ipOut, (ulp_u1 *)rxBuffer, ip, facts->permutes, PERMUTE_BUF_MASK);
+	 {
+		ulp_u4 cur_state=last_state;
+		last_state=cur_state+ipOut[0];				/* Take an output of the permute into the compute chain */
+     356:	4419      	add	r1, r3
+     358:	6021      	str	r1, [r4, #0]
+	 }
+#if DEBUG>2
+		printf("slast,%x\n",last_state);
+#endif     
+     if (errors==0)
+     35a:	6804      	ldr	r4, [r0, #0]
+     35c:	b91c      	cbnz	r4, 366 <workload_func_1+0x1ea>
+         PLT_STATUS_PIN_CLEAR;   /* Set on port pin to low. Used to make some peripheral access but can */
+     35e:	f44f 6100 	mov.w	r1, #2048	; 0x800
+     362:	f8c9 1000 	str.w	r1, [r9]
+                                 /* also be used to measure the correction repeat frequency and duration of the */
+                                 /* Workload function */
+     
+     loop_count++;
+     366:	4a19      	ldr	r2, [pc, #100]	; (3cc <workload_func_1+0x250>)
+     368:	4e18      	ldr	r6, [pc, #96]	; (3cc <workload_func_1+0x250>)
+     36a:	6813      	ldr	r3, [r2, #0]
+#else
+   ulp_u1 s[128];
+#endif
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+     36c:	9a04      	ldr	r2, [sp, #16]
+     36e:	9c07      	ldr	r4, [sp, #28]
+     if (errors==0)
+         PLT_STATUS_PIN_CLEAR;   /* Set on port pin to low. Used to make some peripheral access but can */
+                                 /* also be used to measure the correction repeat frequency and duration of the */
+                                 /* Workload function */
+     
+     loop_count++;
+     370:	3301      	adds	r3, #1
+     372:	6033      	str	r3, [r6, #0]
+     loop_param++;
+     374:	f8d8 0000 	ldr.w	r0, [r8]
+#else
+   ulp_u1 s[128];
+#endif
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+     378:	3201      	adds	r2, #1
+         PLT_STATUS_PIN_CLEAR;   /* Set on port pin to low. Used to make some peripheral access but can */
+                                 /* also be used to measure the correction repeat frequency and duration of the */
+                                 /* Workload function */
+     
+     loop_count++;
+     loop_param++;
+     37a:	3001      	adds	r0, #1
+#else
+   ulp_u1 s[128];
+#endif
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+     37c:	4294      	cmp	r4, r2
+     37e:	9204      	str	r2, [sp, #16]
+         PLT_STATUS_PIN_CLEAR;   /* Set on port pin to low. Used to make some peripheral access but can */
+                                 /* also be used to measure the correction repeat frequency and duration of the */
+                                 /* Workload function */
+     
+     loop_count++;
+     loop_param++;
+     380:	f8c8 0000 	str.w	r0, [r8]
+#else
+   ulp_u1 s[128];
+#endif
+   unsigned int DATASIZE=sizeof(ulp_data)/sizeof(ulp_u2);
+   
+   for (innerloop=0; innerloop < repeat; innerloop++)
+     384:	f47f af12 	bne.w	1ac <workload_func_1+0x30>
+     388:	9a05      	ldr	r2, [sp, #20]
+                                 /* Workload function */
+     
+     loop_count++;
+     loop_param++;
+   } // for innerloop
+   last_state+=state;
+     38a:	4d07      	ldr	r5, [pc, #28]	; (3a8 <workload_func_1+0x22c>)
+     38c:	4906      	ldr	r1, [pc, #24]	; (3a8 <workload_func_1+0x22c>)
+     38e:	682f      	ldr	r7, [r5, #0]
+     390:	4417      	add	r7, r2
+     392:	600f      	str	r7, [r1, #0]
+#if DEBUG>2
+		printf("send,%x\n",last_state);
+#endif     
+}
+     394:	b029      	add	sp, #164	; 0xa4
+     396:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+#endif
+#if GEN_REF
+		facts->needle_pos[sid]=p_str1-string;
+#endif
+     }
+	 last_state+= (p_str1==NULL) ? 256 : p_str1-string;
+     39a:	f44f 7080 	mov.w	r0, #256	; 0x100
+     39e:	e7a4      	b.n	2ea <workload_func_1+0x16e>
+void workload_func_1(ulp_u1 repeat, vfacts *facts) {
+
+   unsigned int i,sid;
+   unsigned int innerloop;
+   ulp_u4 math_cumu=last_state&0xffff;
+   unsigned int state=0;
+     3a0:	9005      	str	r0, [sp, #20]
+     3a2:	4602      	mov	r2, r0
+     3a4:	e7f1      	b.n	38a <workload_func_1+0x20e>
+     3a6:	bf00      	nop
+     3a8:	100011b0 	.word	0x100011b0
+     3ac:	10001008 	.word	0x10001008
+     3b0:	10001198 	.word	0x10001198
+     3b4:	10001150 	.word	0x10001150
+     3b8:	100011a8 	.word	0x100011a8
+     3bc:	10001190 	.word	0x10001190
+     3c0:	0000068d 	.word	0x0000068d
+     3c4:	100011d4 	.word	0x100011d4
+     3c8:	100011c0 	.word	0x100011c0
+     3cc:	100011ac 	.word	0x100011ac
+     3d0:	10001194 	.word	0x10001194
+     3d4:	40010098 	.word	0x40010098
+     3d8:	40010090 	.word	0x40010090
+
+000003dc <CoreProfileMain>:
+ Function: CoreProfileMain
+	Core Profile Workload Function
+*/
+
+void CoreProfileMain(void)
+{
+     3dc:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+#if (CALLGRIND_RUN || DEBUG)
+	unsigned int outer_iterations=0;
+#endif
+	RESTORE_ON_WAKEUP vfacts *facts;
+	tesBytesCopy((void *)rxBuffer,(void *)rxBuffer_ini,PERMUTE_BUF_SIZE);
+     3e0:	2208      	movs	r2, #8
+     3e2:	493a      	ldr	r1, [pc, #232]	; (4cc <CoreProfileMain+0xf0>)
+     3e4:	483a      	ldr	r0, [pc, #232]	; (4d0 <CoreProfileMain+0xf4>)
+	__asm int 3;
+ #else
+	__asm volatile("int3");
+ #endif
+#endif
+	facts=&(defaults[work_id]);
+     3e6:	4c3b      	ldr	r4, [pc, #236]	; (4d4 <CoreProfileMain+0xf8>)
+     3e8:	4e3b      	ldr	r6, [pc, #236]	; (4d8 <CoreProfileMain+0xfc>)
+     3ea:	4d3c      	ldr	r5, [pc, #240]	; (4dc <CoreProfileMain+0x100>)
+     3ec:	f8df a104 	ldr.w	sl, [pc, #260]	; 4f4 <CoreProfileMain+0x118>
+     3f0:	f8df 8104 	ldr.w	r8, [pc, #260]	; 4f8 <CoreProfileMain+0x11c>
+     3f4:	f8df 9104 	ldr.w	r9, [pc, #260]	; 4fc <CoreProfileMain+0x120>
+{
+#if (CALLGRIND_RUN || DEBUG)
+	unsigned int outer_iterations=0;
+#endif
+	RESTORE_ON_WAKEUP vfacts *facts;
+	tesBytesCopy((void *)rxBuffer,(void *)rxBuffer_ini,PERMUTE_BUF_SIZE);
+     3f8:	f000 fc20 	bl	c3c <tesBytesCopy>
+	tesBytesCopy((void *)ipOut,(void *)ipOut_ini,PERMUTE_BUF_SIZE);
+     3fc:	2208      	movs	r2, #8
+     3fe:	4938      	ldr	r1, [pc, #224]	; (4e0 <CoreProfileMain+0x104>)
+     400:	4838      	ldr	r0, [pc, #224]	; (4e4 <CoreProfileMain+0x108>)
+     402:	f000 fc1b 	bl	c3c <tesBytesCopy>
+ Set timers for wakeups
+*/
+void setTimers(vfacts *facts)
+{
+	int i;
+	tesSlotTimerSet(timers[0], 0 /*slot*/, 0 /*param*/);  /* Always register for slot 0 */
+     406:	4b38      	ldr	r3, [pc, #224]	; (4e8 <CoreProfileMain+0x10c>)
+     408:	2200      	movs	r2, #0
+     40a:	6818      	ldr	r0, [r3, #0]
+	__asm int 3;
+ #else
+	__asm volatile("int3");
+ #endif
+#endif
+	facts=&(defaults[work_id]);
+     40c:	6823      	ldr	r3, [r4, #0]
+ Set timers for wakeups
+*/
+void setTimers(vfacts *facts)
+{
+	int i;
+	tesSlotTimerSet(timers[0], 0 /*slot*/, 0 /*param*/);  /* Always register for slot 0 */
+     40e:	4611      	mov	r1, r2
+     410:	f000 fbb8 	bl	b84 <tesSlotTimerSet>
+        TesEvent * event = tesEventWait();
+		facts=&(defaults[work_id]);
+        if ((event == &tesTimer) || (facts->slots[0]==-1)) {
+			/* Reset values so next duty cycle is going to be the same. */
+			/* Note : slot 0 must be registered for this to work! */
+			last_state=0;
+     414:	2700      	movs	r7, #0
+     416:	e004      	b.n	422 <CoreProfileMain+0x46>
+			tesBytesCopy((void *)rxBuffer,(void *)rxBuffer_ini,PERMUTE_BUF_SIZE);
+			tesBytesCopy((void *)ipOut,(void *)ipOut_ini,PERMUTE_BUF_SIZE);
+			math_int_init();
+			reset_state();
+		}
+        workload_func_1((ulp_u1)facts->iterations,facts);
+     418:	4659      	mov	r1, fp
+     41a:	f89b 0020 	ldrb.w	r0, [fp, #32]
+     41e:	f7ff fead 	bl	17c <workload_func_1>
+	facts=&(defaults[work_id]);
+    setTimers(facts);
+
+    // event loop
+    for (;;) {
+        TesEvent * event = tesEventWait();
+     422:	f000 fb29 	bl	a78 <tesEventWait>
+		facts=&(defaults[work_id]);
+     426:	6821      	ldr	r1, [r4, #0]
+        if ((event == &tesTimer) || (facts->slots[0]==-1)) {
+     428:	4285      	cmp	r5, r0
+    setTimers(facts);
+
+    // event loop
+    for (;;) {
+        TesEvent * event = tesEventWait();
+		facts=&(defaults[work_id]);
+     42a:	eb01 1201 	add.w	r2, r1, r1, lsl #4
+     42e:	eb06 0b82 	add.w	fp, r6, r2, lsl #2
+        if ((event == &tesTimer) || (facts->slots[0]==-1)) {
+     432:	d016      	beq.n	462 <CoreProfileMain+0x86>
+     434:	f8db 0024 	ldr.w	r0, [fp, #36]	; 0x24
+     438:	1c42      	adds	r2, r0, #1
+     43a:	d1ed      	bne.n	418 <CoreProfileMain+0x3c>
+			/* Reset values so next duty cycle is going to be the same. */
+			/* Note : slot 0 must be registered for this to work! */
+			last_state=0;
+			loop_param=0;
+			tesBytesCopy((void *)rxBuffer,(void *)rxBuffer_ini,PERMUTE_BUF_SIZE);
+     43c:	2208      	movs	r2, #8
+     43e:	4923      	ldr	r1, [pc, #140]	; (4cc <CoreProfileMain+0xf0>)
+     440:	4823      	ldr	r0, [pc, #140]	; (4d0 <CoreProfileMain+0xf4>)
+        TesEvent * event = tesEventWait();
+		facts=&(defaults[work_id]);
+        if ((event == &tesTimer) || (facts->slots[0]==-1)) {
+			/* Reset values so next duty cycle is going to be the same. */
+			/* Note : slot 0 must be registered for this to work! */
+			last_state=0;
+     442:	f8c8 7000 	str.w	r7, [r8]
+			loop_param=0;
+     446:	f8c9 7000 	str.w	r7, [r9]
+			tesBytesCopy((void *)rxBuffer,(void *)rxBuffer_ini,PERMUTE_BUF_SIZE);
+     44a:	f000 fbf7 	bl	c3c <tesBytesCopy>
+			tesBytesCopy((void *)ipOut,(void *)ipOut_ini,PERMUTE_BUF_SIZE);
+     44e:	2208      	movs	r2, #8
+     450:	4923      	ldr	r1, [pc, #140]	; (4e0 <CoreProfileMain+0x104>)
+     452:	4824      	ldr	r0, [pc, #144]	; (4e4 <CoreProfileMain+0x108>)
+     454:	f000 fbf2 	bl	c3c <tesBytesCopy>
+			math_int_init();
+     458:	f000 f912 	bl	680 <math_int_init>
+			reset_state();
+     45c:	f000 faae 	bl	9bc <reset_state>
+     460:	e7da      	b.n	418 <CoreProfileMain+0x3c>
+        if ((event == &tesTimer) || (facts->slots[0]==-1)) {
+			/* Reset values so next duty cycle is going to be the same. */
+			/* Note : slot 0 must be registered for this to work! */
+			last_state=0;
+			loop_param=0;
+			tesBytesCopy((void *)rxBuffer,(void *)rxBuffer_ini,PERMUTE_BUF_SIZE);
+     462:	2208      	movs	r2, #8
+     464:	4919      	ldr	r1, [pc, #100]	; (4cc <CoreProfileMain+0xf0>)
+     466:	481a      	ldr	r0, [pc, #104]	; (4d0 <CoreProfileMain+0xf4>)
+        TesEvent * event = tesEventWait();
+		facts=&(defaults[work_id]);
+        if ((event == &tesTimer) || (facts->slots[0]==-1)) {
+			/* Reset values so next duty cycle is going to be the same. */
+			/* Note : slot 0 must be registered for this to work! */
+			last_state=0;
+     468:	f8c8 7000 	str.w	r7, [r8]
+			loop_param=0;
+     46c:	f8c9 7000 	str.w	r7, [r9]
+			tesBytesCopy((void *)rxBuffer,(void *)rxBuffer_ini,PERMUTE_BUF_SIZE);
+     470:	f000 fbe4 	bl	c3c <tesBytesCopy>
+			tesBytesCopy((void *)ipOut,(void *)ipOut_ini,PERMUTE_BUF_SIZE);
+     474:	2208      	movs	r2, #8
+     476:	491a      	ldr	r1, [pc, #104]	; (4e0 <CoreProfileMain+0x104>)
+     478:	481a      	ldr	r0, [pc, #104]	; (4e4 <CoreProfileMain+0x108>)
+     47a:	f000 fbdf 	bl	c3c <tesBytesCopy>
+			math_int_init();
+     47e:	f000 f8ff 	bl	680 <math_int_init>
+			reset_state();
+     482:	f000 fa9b 	bl	9bc <reset_state>
+		}
+        workload_func_1((ulp_u1)facts->iterations,facts);
+     486:	4659      	mov	r1, fp
+     488:	f89b 0020 	ldrb.w	r0, [fp, #32]
+     48c:	f7ff fe76 	bl	17c <workload_func_1>
+			if (work_id>=(sizeof(defaults)/sizeof(vfacts)))
+				exit(0);
+            setTimers(facts);      
+#else
+		/* A0 slot, after workload, verify final result of previous iterations */
+		if (last_state!=facts->last_state) {
+     490:	f8db 101c 	ldr.w	r1, [fp, #28]
+     494:	f8d8 3000 	ldr.w	r3, [r8]
+     498:	4299      	cmp	r1, r3
+     49a:	d00a      	beq.n	4b2 <CoreProfileMain+0xd6>
+		    PLT_STATUS_PIN_CLEAR;   /* Set on port pin to low. */
+     49c:	4813      	ldr	r0, [pc, #76]	; (4ec <CoreProfileMain+0x110>)
+			PLT_STATUS_PIN_SET;     /* Set on port pin to high again. */
+     49e:	4a14      	ldr	r2, [pc, #80]	; (4f0 <CoreProfileMain+0x114>)
+				exit(0);
+            setTimers(facts);      
+#else
+		/* A0 slot, after workload, verify final result of previous iterations */
+		if (last_state!=facts->last_state) {
+		    PLT_STATUS_PIN_CLEAR;   /* Set on port pin to low. */
+     4a0:	f44f 6100 	mov.w	r1, #2048	; 0x800
+     4a4:	6001      	str	r1, [r0, #0]
+			PLT_STATUS_PIN_SET;     /* Set on port pin to high again. */
+     4a6:	6011      	str	r1, [r2, #0]
+			errors++;
+     4a8:	f8da 3000 	ldr.w	r3, [sl]
+     4ac:	3301      	adds	r3, #1
+     4ae:	f8ca 3000 	str.w	r3, [sl]
+		}
+ #if DEBUG
+			if (++outer_iterations>16)
+				exit(0);
+ #endif
+			if (work_id>=(sizeof(defaults)/sizeof(vfacts)))
+     4b2:	6820      	ldr	r0, [r4, #0]
+     4b4:	4a07      	ldr	r2, [pc, #28]	; (4d4 <CoreProfileMain+0xf8>)
+ Set timers for wakeups
+*/
+void setTimers(vfacts *facts)
+{
+	int i;
+	tesSlotTimerSet(timers[0], 0 /*slot*/, 0 /*param*/);  /* Always register for slot 0 */
+     4b6:	4b0c      	ldr	r3, [pc, #48]	; (4e8 <CoreProfileMain+0x10c>)
+		}
+ #if DEBUG
+			if (++outer_iterations>16)
+				exit(0);
+ #endif
+			if (work_id>=(sizeof(defaults)/sizeof(vfacts)))
+     4b8:	2803      	cmp	r0, #3
+				work_id=0;
+     4ba:	bf88      	it	hi
+     4bc:	6017      	strhi	r7, [r2, #0]
+ Set timers for wakeups
+*/
+void setTimers(vfacts *facts)
+{
+	int i;
+	tesSlotTimerSet(timers[0], 0 /*slot*/, 0 /*param*/);  /* Always register for slot 0 */
+     4be:	2200      	movs	r2, #0
+     4c0:	4611      	mov	r1, r2
+     4c2:	6818      	ldr	r0, [r3, #0]
+     4c4:	f000 fb5e 	bl	b84 <tesSlotTimerSet>
+     4c8:	e7ab      	b.n	422 <CoreProfileMain+0x46>
+     4ca:	bf00      	nop
+     4cc:	10001000 	.word	0x10001000
+     4d0:	100011d4 	.word	0x100011d4
+     4d4:	10001164 	.word	0x10001164
+     4d8:	10001040 	.word	0x10001040
+     4dc:	100011c8 	.word	0x100011c8
+     4e0:	10001038 	.word	0x10001038
+     4e4:	100011c0 	.word	0x100011c0
+     4e8:	10001160 	.word	0x10001160
+     4ec:	40010098 	.word	0x40010098
+     4f0:	40010090 	.word	0x40010090
+     4f4:	10001190 	.word	0x10001190
+     4f8:	100011b0 	.word	0x100011b0
+     4fc:	10001194 	.word	0x10001194
+
+00000500 <bin2LCD>:
+*/
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+     500:	2900      	cmp	r1, #0
+     502:	f000 8097 	beq.w	634 <bin2LCD+0x134>
+	The values written are based on the value of the bin parameter, and actual value to write
+	is picked from the lcd_7segment_ascii_table.
+	
+*/
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+     506:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+     50a:	4d4c      	ldr	r5, [pc, #304]	; (63c <bin2LCD+0x13c>)
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+     50c:	f002 037f 	and.w	r3, r2, #127	; 0x7f
+     510:	442b      	add	r3, r5
+     512:	4604      	mov	r4, r0
+     514:	f893 6020 	ldrb.w	r6, [r3, #32]
+     518:	f804 6b01 	strb.w	r6, [r4], #1
+     51c:	4408      	add	r0, r1
+*/
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+     51e:	42a0      	cmp	r0, r4
+     520:	f101 31ff 	add.w	r1, r1, #4294967295
+     524:	f001 0707 	and.w	r7, r1, #7
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+      bin = (bin>>4);
+     528:	ea4f 1312 	mov.w	r3, r2, lsr #4
+*/
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+     52c:	f000 8083 	beq.w	636 <bin2LCD+0x136>
+     530:	2f00      	cmp	r7, #0
+     532:	d045      	beq.n	5c0 <bin2LCD+0xc0>
+     534:	2f01      	cmp	r7, #1
+     536:	d039      	beq.n	5ac <bin2LCD+0xac>
+     538:	2f02      	cmp	r7, #2
+     53a:	d02f      	beq.n	59c <bin2LCD+0x9c>
+     53c:	2f03      	cmp	r7, #3
+     53e:	d025      	beq.n	58c <bin2LCD+0x8c>
+     540:	2f04      	cmp	r7, #4
+     542:	d01b      	beq.n	57c <bin2LCD+0x7c>
+     544:	2f05      	cmp	r7, #5
+     546:	d011      	beq.n	56c <bin2LCD+0x6c>
+     548:	2f06      	cmp	r7, #6
+     54a:	d007      	beq.n	55c <bin2LCD+0x5c>
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+     54c:	f003 037f 	and.w	r3, r3, #127	; 0x7f
+     550:	18ee      	adds	r6, r5, r3
+      bin = (bin>>4);
+     552:	0a13      	lsrs	r3, r2, #8
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+     554:	f896 2020 	ldrb.w	r2, [r6, #32]
+     558:	f804 2b01 	strb.w	r2, [r4], #1
+     55c:	f003 087f 	and.w	r8, r3, #127	; 0x7f
+     560:	44a8      	add	r8, r5
+      bin = (bin>>4);
+     562:	091b      	lsrs	r3, r3, #4
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+     564:	f898 1020 	ldrb.w	r1, [r8, #32]
+     568:	f804 1b01 	strb.w	r1, [r4], #1
+     56c:	f003 0c7f 	and.w	ip, r3, #127	; 0x7f
+     570:	44ac      	add	ip, r5
+      bin = (bin>>4);
+     572:	091b      	lsrs	r3, r3, #4
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+     574:	f89c 7020 	ldrb.w	r7, [ip, #32]
+     578:	f804 7b01 	strb.w	r7, [r4], #1
+     57c:	f003 067f 	and.w	r6, r3, #127	; 0x7f
+     580:	442e      	add	r6, r5
+      bin = (bin>>4);
+     582:	091b      	lsrs	r3, r3, #4
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+     584:	f896 2020 	ldrb.w	r2, [r6, #32]
+     588:	f804 2b01 	strb.w	r2, [r4], #1
+     58c:	f003 087f 	and.w	r8, r3, #127	; 0x7f
+     590:	44a8      	add	r8, r5
+      bin = (bin>>4);
+     592:	091b      	lsrs	r3, r3, #4
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+     594:	f898 1020 	ldrb.w	r1, [r8, #32]
+     598:	f804 1b01 	strb.w	r1, [r4], #1
+     59c:	f003 0c7f 	and.w	ip, r3, #127	; 0x7f
+     5a0:	44ac      	add	ip, r5
+      bin = (bin>>4);
+     5a2:	091b      	lsrs	r3, r3, #4
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+     5a4:	f89c 7020 	ldrb.w	r7, [ip, #32]
+     5a8:	f804 7b01 	strb.w	r7, [r4], #1
+     5ac:	f003 067f 	and.w	r6, r3, #127	; 0x7f
+     5b0:	442e      	add	r6, r5
+      bin = (bin>>4);
+     5b2:	091b      	lsrs	r3, r3, #4
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+     5b4:	f896 2020 	ldrb.w	r2, [r6, #32]
+     5b8:	f804 2b01 	strb.w	r2, [r4], #1
+*/
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+     5bc:	42a0      	cmp	r0, r4
+     5be:	d037      	beq.n	630 <bin2LCD+0x130>
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+     5c0:	f003 087f 	and.w	r8, r3, #127	; 0x7f
+     5c4:	44a8      	add	r8, r5
+     5c6:	4622      	mov	r2, r4
+     5c8:	f898 1020 	ldrb.w	r1, [r8, #32]
+     5cc:	f802 1b01 	strb.w	r1, [r2], #1
+     5d0:	f3c3 1c06 	ubfx	ip, r3, #4, #7
+     5d4:	f3c3 2e06 	ubfx	lr, r3, #8, #7
+     5d8:	f3c3 3706 	ubfx	r7, r3, #12, #7
+     5dc:	f3c3 4606 	ubfx	r6, r3, #16, #7
+     5e0:	44ae      	add	lr, r5
+     5e2:	f3c3 5106 	ubfx	r1, r3, #20, #7
+     5e6:	44ac      	add	ip, r5
+     5e8:	442f      	add	r7, r5
+     5ea:	442e      	add	r6, r5
+     5ec:	4429      	add	r1, r5
+     5ee:	eb05 6313 	add.w	r3, r5, r3, lsr #24
+     5f2:	f89e 8020 	ldrb.w	r8, [lr, #32]
+     5f6:	f89c c020 	ldrb.w	ip, [ip, #32]
+     5fa:	f884 c001 	strb.w	ip, [r4, #1]
+     5fe:	f897 e020 	ldrb.w	lr, [r7, #32]
+     602:	f882 8001 	strb.w	r8, [r2, #1]
+     606:	f896 7020 	ldrb.w	r7, [r6, #32]
+     60a:	f895 2020 	ldrb.w	r2, [r5, #32]
+     60e:	f891 6020 	ldrb.w	r6, [r1, #32]
+     612:	f893 1020 	ldrb.w	r1, [r3, #32]
+     616:	f884 e003 	strb.w	lr, [r4, #3]
+     61a:	7127      	strb	r7, [r4, #4]
+     61c:	7166      	strb	r6, [r4, #5]
+     61e:	71a1      	strb	r1, [r4, #6]
+     620:	71e2      	strb	r2, [r4, #7]
+     622:	3408      	adds	r4, #8
+*/
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+     624:	42a0      	cmp	r0, r4
+      lcd[i] = lcd_7segment_ascii_table[(bin & 0x7F) + 0x20];
+      bin = (bin>>4);
+     626:	f04f 0300 	mov.w	r3, #0
+*/
+void bin2LCD(ulp_u1 *lcd, unsigned int size, ulp_u4 bin)
+{
+    unsigned int i;
+    
+    for(i=0;i<size;i++){
+     62a:	d1c9      	bne.n	5c0 <bin2LCD+0xc0>
+     62c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+     630:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+     634:	4770      	bx	lr
+     636:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+     63a:	bf00      	nop
+     63c:	00001300 	.word	0x00001300
+
+00000640 <math_int16>:
+ulp_u2 math_int16(ulp_u2 x, ulp_u2 y, ulp_u2 offset, ulp_u2 gain)
+{
+   ulp_u2 result;
+   
+   /* Linear Approximation and Scale */
+   result = ((ulp_u2)(x - offset + y - offset)>>(ulp_u2)1) * gain;
+     640:	1a80      	subs	r0, r0, r2
+     642:	4401      	add	r1, r0
+     644:	1a89      	subs	r1, r1, r2
+   
+#if DEBUG>3
+		printf("math16.res1,%x\n",result);
+#endif     
+   
+   integrator_sum += ((((int32_t) result << 16) - integrator_sum) >> 14);
+     646:	4a08      	ldr	r2, [pc, #32]	; (668 <math_int16+0x28>)
+ulp_u2 math_int16(ulp_u2 x, ulp_u2 y, ulp_u2 offset, ulp_u2 gain)
+{
+   ulp_u2 result;
+   
+   /* Linear Approximation and Scale */
+   result = ((ulp_u2)(x - offset + y - offset)>>(ulp_u2)1) * gain;
+     648:	f3c1 0c4e 	ubfx	ip, r1, #1, #15
+     64c:	fb1c f003 	smulbb	r0, ip, r3
+   
+#if DEBUG>3
+		printf("math16.res1,%x\n",result);
+#endif     
+   
+   integrator_sum += ((((int32_t) result << 16) - integrator_sum) >> 14);
+     650:	6813      	ldr	r3, [r2, #0]
+ulp_u2 math_int16(ulp_u2 x, ulp_u2 y, ulp_u2 offset, ulp_u2 gain)
+{
+   ulp_u2 result;
+   
+   /* Linear Approximation and Scale */
+   result = ((ulp_u2)(x - offset + y - offset)>>(ulp_u2)1) * gain;
+     652:	fa1f fc80 	uxth.w	ip, r0
+   
+#if DEBUG>3
+		printf("math16.res1,%x\n",result);
+#endif     
+   
+   integrator_sum += ((((int32_t) result << 16) - integrator_sum) >> 14);
+     656:	ebc3 410c 	rsb	r1, r3, ip, lsl #16
+     65a:	eb03 33a1 	add.w	r3, r3, r1, asr #14
+#endif     
+   result -= (ulp_u2)(integrator_sum >> 16);
+#if DEBUG>3
+		printf("math16.res2,%x\n",result);
+#endif     
+   return (result);
+     65e:	ebac 4013 	sub.w	r0, ip, r3, lsr #16
+   
+}
+     662:	b280      	uxth	r0, r0
+   
+#if DEBUG>3
+		printf("math16.res1,%x\n",result);
+#endif     
+   
+   integrator_sum += ((((int32_t) result << 16) - integrator_sum) >> 14);
+     664:	6013      	str	r3, [r2, #0]
+#if DEBUG>3
+		printf("math16.res2,%x\n",result);
+#endif     
+   return (result);
+   
+}
+     666:	4770      	bx	lr
+     668:	100011b4 	.word	0x100011b4
+
+0000066c <math_int8>:
+   /* Linear Approximation and Scale */
+   result = ((ulp_u1)(x - offset + y - offset)>>(ulp_u1)1) * gain;
+#if DEBUG>3
+		printf("math8.res,%x\n",result);
+#endif     
+   return (result);
+     66c:	1a80      	subs	r0, r0, r2
+     66e:	4401      	add	r1, r0
+     670:	1a89      	subs	r1, r1, r2
+     672:	f3c1 0246 	ubfx	r2, r1, #1, #7
+     676:	fb02 f203 	mul.w	r2, r2, r3
+  
+}
+     67a:	b2d0      	uxtb	r0, r2
+     67c:	4770      	bx	lr
+     67e:	bf00      	nop
+
+00000680 <math_int_init>:
+
+ void math_int_init(void) {
+	integrator_sum=0;
+     680:	4b01      	ldr	r3, [pc, #4]	; (688 <math_int_init+0x8>)
+     682:	2200      	movs	r2, #0
+     684:	601a      	str	r2, [r3, #0]
+     686:	4770      	bx	lr
+     688:	100011b4 	.word	0x100011b4
+
+0000068c <ip>:
+	The function modifies a value using simple 8b math.
+	
+*/
+ulp_u1 ip(ulp_u1 i)
+{
+	return (ulp_u1)57 - (ulp_u1)((i & (ulp_u1)0x07) << (ulp_u1)(ulp_u1)3) + (ulp_u1)((i >> (ulp_u1)2) & (ulp_u1)0x06) - (ulp_u1)((i >> (ulp_u1)5) & (ulp_u1)0x01);
+     68c:	0882      	lsrs	r2, r0, #2
+     68e:	00c3      	lsls	r3, r0, #3
+     690:	f002 0106 	and.w	r1, r2, #6
+     694:	f003 0238 	and.w	r2, r3, #56	; 0x38
+     698:	1a8b      	subs	r3, r1, r2
+     69a:	f3c0 1040 	ubfx	r0, r0, #5, #1
+     69e:	1a19      	subs	r1, r3, r0
+     6a0:	3139      	adds	r1, #57	; 0x39
+}
+     6a2:	b2c8      	uxtb	r0, r1
+     6a4:	4770      	bx	lr
+     6a6:	bf00      	nop
+
+000006a8 <permute>:
+ulp_u1 *in,
+ulp_u1 (*func)(ulp_u1),
+ulp_u1 permutes,
+ulp_u1 size_mask
+)
+{
+     6a8:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+     6ac:	3b01      	subs	r3, #1
+	do
+	{
+		permutes--;
+     6ae:	b2dc      	uxtb	r4, r3
+ulp_u1 *in,
+ulp_u1 (*func)(ulp_u1),
+ulp_u1 permutes,
+ulp_u1 size_mask
+)
+{
+     6b0:	4605      	mov	r5, r0
+	do
+	{
+		permutes--;
+		putBit(out, permutes, getBit(in, func(permutes),size_mask),size_mask);
+     6b2:	4620      	mov	r0, r4
+ulp_u1 *in,
+ulp_u1 (*func)(ulp_u1),
+ulp_u1 permutes,
+ulp_u1 size_mask
+)
+{
+     6b4:	f89d 8020 	ldrb.w	r8, [sp, #32]
+     6b8:	460e      	mov	r6, r1
+     6ba:	4617      	mov	r7, r2
+     6bc:	f003 0a01 	and.w	sl, r3, #1
+	do
+	{
+		permutes--;
+		putBit(out, permutes, getBit(in, func(permutes),size_mask),size_mask);
+     6c0:	4790      	blx	r2
+	This function is used to select a bit from a value in the input table parameter
+	
+*/
+ulp_u1 getBit(ulp_u1 *table, ulp_u1 index, ulp_u1 size_mask)
+{
+	return (table[index & size_mask] & (0x80 >> (index & 0x07)));
+     6c2:	ea00 0108 	and.w	r1, r0, r8
+	
+*/
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+	unsigned char m = 0x80 >> (index & 0x07);
+     6c6:	f04f 0980 	mov.w	r9, #128	; 0x80
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     6ca:	f816 c001 	ldrb.w	ip, [r6, r1]
+     6ce:	f000 0007 	and.w	r0, r0, #7
+     6d2:	fa49 f100 	asr.w	r1, r9, r0
+	The bit is set if the value parameter is not 0, unset otherwise.
+	
+*/
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+     6d6:	ea04 0208 	and.w	r2, r4, r8
+	unsigned char m = 0x80 >> (index & 0x07);
+     6da:	f004 0307 	and.w	r3, r4, #7
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     6de:	ea1c 0f01 	tst.w	ip, r1
+	The bit is set if the value parameter is not 0, unset otherwise.
+	
+*/
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+     6e2:	442a      	add	r2, r5
+	unsigned char m = 0x80 >> (index & 0x07);
+     6e4:	fa49 f003 	asr.w	r0, r9, r3
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     6e8:	d06a      	beq.n	7c0 <permute+0x118>
+     6ea:	7811      	ldrb	r1, [r2, #0]
+     6ec:	4308      	orrs	r0, r1
+     6ee:	b2c0      	uxtb	r0, r0
+     6f0:	7010      	strb	r0, [r2, #0]
+	do
+	{
+		permutes--;
+		putBit(out, permutes, getBit(in, func(permutes),size_mask),size_mask);
+	}
+	while (permutes);
+     6f2:	2c00      	cmp	r4, #0
+     6f4:	d062      	beq.n	7bc <permute+0x114>
+     6f6:	f1ba 0f00 	cmp.w	sl, #0
+     6fa:	d023      	beq.n	744 <permute+0x9c>
+ulp_u1 size_mask
+)
+{
+	do
+	{
+		permutes--;
+     6fc:	3c01      	subs	r4, #1
+     6fe:	b2e4      	uxtb	r4, r4
+		putBit(out, permutes, getBit(in, func(permutes),size_mask),size_mask);
+     700:	4620      	mov	r0, r4
+     702:	47b8      	blx	r7
+	This function is used to select a bit from a value in the input table parameter
+	
+*/
+ulp_u1 getBit(ulp_u1 *table, ulp_u1 index, ulp_u1 size_mask)
+{
+	return (table[index & size_mask] & (0x80 >> (index & 0x07)));
+     704:	ea00 0208 	and.w	r2, r0, r8
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+	unsigned char m = 0x80 >> (index & 0x07);
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     708:	f000 0a07 	and.w	sl, r0, #7
+     70c:	f816 c002 	ldrb.w	ip, [r6, r2]
+	The bit is set if the value parameter is not 0, unset otherwise.
+	
+*/
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+     710:	ea04 0208 	and.w	r2, r4, r8
+     714:	442a      	add	r2, r5
+	unsigned char m = 0x80 >> (index & 0x07);
+     716:	f004 0307 	and.w	r3, r4, #7
+     71a:	fa49 f003 	asr.w	r0, r9, r3
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     71e:	fa49 f10a 	asr.w	r1, r9, sl
+     722:	7813      	ldrb	r3, [r2, #0]
+     724:	ea1c 0f01 	tst.w	ip, r1
+     728:	bf16      	itet	ne
+     72a:	4318      	orrne	r0, r3
+     72c:	ea23 0000 	biceq.w	r0, r3, r0
+     730:	b2c0      	uxtbne	r0, r0
+     732:	7010      	strb	r0, [r2, #0]
+	do
+	{
+		permutes--;
+		putBit(out, permutes, getBit(in, func(permutes),size_mask),size_mask);
+	}
+	while (permutes);
+     734:	b934      	cbnz	r4, 744 <permute+0x9c>
+     736:	e047      	b.n	7c8 <permute+0x120>
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+	unsigned char m = 0x80 >> (index & 0x07);
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     738:	5ca9      	ldrb	r1, [r5, r2]
+     73a:	430b      	orrs	r3, r1
+     73c:	b2d8      	uxtb	r0, r3
+     73e:	54a8      	strb	r0, [r5, r2]
+	do
+	{
+		permutes--;
+		putBit(out, permutes, getBit(in, func(permutes),size_mask),size_mask);
+	}
+	while (permutes);
+     740:	2c00      	cmp	r4, #0
+     742:	d039      	beq.n	7b8 <permute+0x110>
+ulp_u1 size_mask
+)
+{
+	do
+	{
+		permutes--;
+     744:	f104 3eff 	add.w	lr, r4, #4294967295
+     748:	fa5f f48e 	uxtb.w	r4, lr
+		putBit(out, permutes, getBit(in, func(permutes),size_mask),size_mask);
+     74c:	4620      	mov	r0, r4
+     74e:	47b8      	blx	r7
+	This function is used to select a bit from a value in the input table parameter
+	
+*/
+ulp_u1 getBit(ulp_u1 *table, ulp_u1 index, ulp_u1 size_mask)
+{
+	return (table[index & size_mask] & (0x80 >> (index & 0x07)));
+     750:	ea00 0208 	and.w	r2, r0, r8
+	
+*/
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+	unsigned char m = 0x80 >> (index & 0x07);
+     754:	f004 0107 	and.w	r1, r4, #7
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     758:	f816 c002 	ldrb.w	ip, [r6, r2]
+	The bit is set if the value parameter is not 0, unset otherwise.
+	
+*/
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+     75c:	ea04 0208 	and.w	r2, r4, r8
+	unsigned char m = 0x80 >> (index & 0x07);
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     760:	f000 0a07 	and.w	sl, r0, #7
+	
+*/
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+	unsigned char m = 0x80 >> (index & 0x07);
+     764:	fa49 f301 	asr.w	r3, r9, r1
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     768:	fa49 f00a 	asr.w	r0, r9, sl
+     76c:	5ca9      	ldrb	r1, [r5, r2]
+     76e:	ea1c 0f00 	tst.w	ip, r0
+     772:	bf18      	it	ne
+     774:	430b      	orrne	r3, r1
+ulp_u1 size_mask
+)
+{
+	do
+	{
+		permutes--;
+     776:	f104 34ff 	add.w	r4, r4, #4294967295
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+	unsigned char m = 0x80 >> (index & 0x07);
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     77a:	bf0c      	ite	eq
+     77c:	ea21 0303 	biceq.w	r3, r1, r3
+     780:	b2db      	uxtbne	r3, r3
+ulp_u1 size_mask
+)
+{
+	do
+	{
+		permutes--;
+     782:	b2e4      	uxtb	r4, r4
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+	unsigned char m = 0x80 >> (index & 0x07);
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     784:	54ab      	strb	r3, [r5, r2]
+)
+{
+	do
+	{
+		permutes--;
+		putBit(out, permutes, getBit(in, func(permutes),size_mask),size_mask);
+     786:	4620      	mov	r0, r4
+     788:	47b8      	blx	r7
+	This function is used to select a bit from a value in the input table parameter
+	
+*/
+ulp_u1 getBit(ulp_u1 *table, ulp_u1 index, ulp_u1 size_mask)
+{
+	return (table[index & size_mask] & (0x80 >> (index & 0x07)));
+     78a:	ea00 0a08 	and.w	sl, r0, r8
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+	unsigned char m = 0x80 >> (index & 0x07);
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     78e:	f000 0c07 	and.w	ip, r0, #7
+     792:	f816 100a 	ldrb.w	r1, [r6, sl]
+     796:	fa49 f00c 	asr.w	r0, r9, ip
+	
+*/
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+	unsigned char m = 0x80 >> (index & 0x07);
+     79a:	f004 0307 	and.w	r3, r4, #7
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     79e:	4201      	tst	r1, r0
+	
+*/
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+	unsigned char m = 0x80 >> (index & 0x07);
+     7a0:	fa49 f303 	asr.w	r3, r9, r3
+	The bit is set if the value parameter is not 0, unset otherwise.
+	
+*/
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+     7a4:	ea04 0208 	and.w	r2, r4, r8
+	unsigned char m = 0x80 >> (index & 0x07);
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     7a8:	d1c6      	bne.n	738 <permute+0x90>
+     7aa:	f815 e002 	ldrb.w	lr, [r5, r2]
+     7ae:	ea2e 0003 	bic.w	r0, lr, r3
+     7b2:	54a8      	strb	r0, [r5, r2]
+	do
+	{
+		permutes--;
+		putBit(out, permutes, getBit(in, func(permutes),size_mask),size_mask);
+	}
+	while (permutes);
+     7b4:	2c00      	cmp	r4, #0
+     7b6:	d1c5      	bne.n	744 <permute+0x9c>
+     7b8:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+     7bc:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+void putBit(ulp_u1 *table, ulp_u1 index, ulp_u1 value, ulp_u1 size_mask)
+{
+	unsigned char *p = &table[index & size_mask];
+	unsigned char m = 0x80 >> (index & 0x07);
+
+	*p = (value!=0) ? (m | *p) : (~m & *p);
+     7c0:	7813      	ldrb	r3, [r2, #0]
+     7c2:	ea23 0000 	bic.w	r0, r3, r0
+     7c6:	e793      	b.n	6f0 <permute+0x48>
+     7c8:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+000007cc <bubblesort>:
+	
+	Implements a simple bubble sort for 8b data.
+	
+*/
+ulp_u1 bubblesort(ulp_u1 * ptr, int n, unsigned int resultindex)
+{
+     7cc:	b5f0      	push	{r4, r5, r6, r7, lr}
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+     7ce:	f1b1 0e01 	subs.w	lr, r1, #1
+     7d2:	f000 80bd 	beq.w	950 <bubblesort+0x184>
+     7d6:	4676      	mov	r6, lr
+     7d8:	2701      	movs	r7, #1
+      for ( j = 0; j < n-i; ++j)
+     7da:	2e00      	cmp	r6, #0
+     7dc:	f000 80b2 	beq.w	944 <bubblesort+0x178>
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     7e0:	4603      	mov	r3, r0
+     7e2:	1e74      	subs	r4, r6, #1
+     7e4:	f813 1b01 	ldrb.w	r1, [r3], #1
+     7e8:	f004 0407 	and.w	r4, r4, #7
+     7ec:	2501      	movs	r5, #1
+     7ee:	b131      	cbz	r1, 7fe <bubblesort+0x32>
+     7f0:	f890 c001 	ldrb.w	ip, [r0, #1]
+     7f4:	4561      	cmp	r1, ip
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     7f6:	bf84      	itt	hi
+     7f8:	f803 cc01 	strbhi.w	ip, [r3, #-1]
+             ptr[j+1] = temp;
+     7fc:	7041      	strbhi	r1, [r0, #1]
+{
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+     7fe:	42b5      	cmp	r5, r6
+     800:	f080 80a0 	bcs.w	944 <bubblesort+0x178>
+     804:	2c00      	cmp	r4, #0
+     806:	d056      	beq.n	8b6 <bubblesort+0xea>
+     808:	2c01      	cmp	r4, #1
+     80a:	d048      	beq.n	89e <bubblesort+0xd2>
+     80c:	2c02      	cmp	r4, #2
+     80e:	d03b      	beq.n	888 <bubblesort+0xbc>
+     810:	2c03      	cmp	r4, #3
+     812:	d02f      	beq.n	874 <bubblesort+0xa8>
+     814:	2c04      	cmp	r4, #4
+     816:	d022      	beq.n	85e <bubblesort+0x92>
+     818:	2c05      	cmp	r4, #5
+     81a:	d016      	beq.n	84a <bubblesort+0x7e>
+     81c:	2c06      	cmp	r4, #6
+     81e:	d009      	beq.n	834 <bubblesort+0x68>
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     820:	7841      	ldrb	r1, [r0, #1]
+     822:	3301      	adds	r3, #1
+     824:	2502      	movs	r5, #2
+     826:	b129      	cbz	r1, 834 <bubblesort+0x68>
+     828:	781c      	ldrb	r4, [r3, #0]
+     82a:	42a1      	cmp	r1, r4
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     82c:	bf84      	itt	hi
+     82e:	f803 4c01 	strbhi.w	r4, [r3, #-1]
+             ptr[j+1] = temp;
+     832:	7019      	strbhi	r1, [r3, #0]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     834:	f813 1b01 	ldrb.w	r1, [r3], #1
+     838:	3501      	adds	r5, #1
+     83a:	b131      	cbz	r1, 84a <bubblesort+0x7e>
+     83c:	f893 c000 	ldrb.w	ip, [r3]
+     840:	4561      	cmp	r1, ip
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     842:	bf84      	itt	hi
+     844:	f803 cc01 	strbhi.w	ip, [r3, #-1]
+             ptr[j+1] = temp;
+     848:	7019      	strbhi	r1, [r3, #0]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     84a:	f813 1b01 	ldrb.w	r1, [r3], #1
+     84e:	3501      	adds	r5, #1
+     850:	b129      	cbz	r1, 85e <bubblesort+0x92>
+     852:	781c      	ldrb	r4, [r3, #0]
+     854:	42a1      	cmp	r1, r4
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     856:	bf84      	itt	hi
+     858:	f803 4c01 	strbhi.w	r4, [r3, #-1]
+             ptr[j+1] = temp;
+     85c:	7019      	strbhi	r1, [r3, #0]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     85e:	f813 1b01 	ldrb.w	r1, [r3], #1
+     862:	3501      	adds	r5, #1
+     864:	b131      	cbz	r1, 874 <bubblesort+0xa8>
+     866:	f893 c000 	ldrb.w	ip, [r3]
+     86a:	4561      	cmp	r1, ip
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     86c:	bf84      	itt	hi
+     86e:	f803 cc01 	strbhi.w	ip, [r3, #-1]
+             ptr[j+1] = temp;
+     872:	7019      	strbhi	r1, [r3, #0]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     874:	f813 1b01 	ldrb.w	r1, [r3], #1
+     878:	3501      	adds	r5, #1
+     87a:	b129      	cbz	r1, 888 <bubblesort+0xbc>
+     87c:	781c      	ldrb	r4, [r3, #0]
+     87e:	42a1      	cmp	r1, r4
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     880:	bf84      	itt	hi
+     882:	f803 4c01 	strbhi.w	r4, [r3, #-1]
+             ptr[j+1] = temp;
+     886:	7019      	strbhi	r1, [r3, #0]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     888:	f813 1b01 	ldrb.w	r1, [r3], #1
+     88c:	3501      	adds	r5, #1
+     88e:	b131      	cbz	r1, 89e <bubblesort+0xd2>
+     890:	f893 c000 	ldrb.w	ip, [r3]
+     894:	4561      	cmp	r1, ip
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     896:	bf84      	itt	hi
+     898:	f803 cc01 	strbhi.w	ip, [r3, #-1]
+             ptr[j+1] = temp;
+     89c:	7019      	strbhi	r1, [r3, #0]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     89e:	f813 1b01 	ldrb.w	r1, [r3], #1
+     8a2:	3501      	adds	r5, #1
+     8a4:	b129      	cbz	r1, 8b2 <bubblesort+0xe6>
+     8a6:	781c      	ldrb	r4, [r3, #0]
+     8a8:	42a1      	cmp	r1, r4
+     8aa:	d902      	bls.n	8b2 <bubblesort+0xe6>
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     8ac:	f803 4c01 	strb.w	r4, [r3, #-1]
+             ptr[j+1] = temp;
+     8b0:	7019      	strb	r1, [r3, #0]
+{
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+     8b2:	42b5      	cmp	r5, r6
+     8b4:	d246      	bcs.n	944 <bubblesort+0x178>
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     8b6:	461c      	mov	r4, r3
+     8b8:	3501      	adds	r5, #1
+     8ba:	f814 1b01 	ldrb.w	r1, [r4], #1
+     8be:	b129      	cbz	r1, 8cc <bubblesort+0x100>
+     8c0:	785b      	ldrb	r3, [r3, #1]
+     8c2:	4299      	cmp	r1, r3
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     8c4:	bf84      	itt	hi
+     8c6:	f804 3c01 	strbhi.w	r3, [r4, #-1]
+             ptr[j+1] = temp;
+     8ca:	7021      	strbhi	r1, [r4, #0]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     8cc:	4623      	mov	r3, r4
+     8ce:	f813 1b01 	ldrb.w	r1, [r3], #1
+     8d2:	b131      	cbz	r1, 8e2 <bubblesort+0x116>
+     8d4:	f894 c001 	ldrb.w	ip, [r4, #1]
+     8d8:	4561      	cmp	r1, ip
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     8da:	bf84      	itt	hi
+     8dc:	f803 cc01 	strbhi.w	ip, [r3, #-1]
+             ptr[j+1] = temp;
+     8e0:	7061      	strbhi	r1, [r4, #1]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     8e2:	7863      	ldrb	r3, [r4, #1]
+     8e4:	b123      	cbz	r3, 8f0 <bubblesort+0x124>
+     8e6:	78a1      	ldrb	r1, [r4, #2]
+     8e8:	428b      	cmp	r3, r1
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     8ea:	bf84      	itt	hi
+     8ec:	7061      	strbhi	r1, [r4, #1]
+             ptr[j+1] = temp;
+     8ee:	70a3      	strbhi	r3, [r4, #2]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     8f0:	78a3      	ldrb	r3, [r4, #2]
+     8f2:	b123      	cbz	r3, 8fe <bubblesort+0x132>
+     8f4:	78e1      	ldrb	r1, [r4, #3]
+     8f6:	428b      	cmp	r3, r1
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     8f8:	bf84      	itt	hi
+     8fa:	70a1      	strbhi	r1, [r4, #2]
+             ptr[j+1] = temp;
+     8fc:	70e3      	strbhi	r3, [r4, #3]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     8fe:	78e3      	ldrb	r3, [r4, #3]
+     900:	b123      	cbz	r3, 90c <bubblesort+0x140>
+     902:	7921      	ldrb	r1, [r4, #4]
+     904:	428b      	cmp	r3, r1
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     906:	bf84      	itt	hi
+     908:	70e1      	strbhi	r1, [r4, #3]
+             ptr[j+1] = temp;
+     90a:	7123      	strbhi	r3, [r4, #4]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     90c:	7923      	ldrb	r3, [r4, #4]
+     90e:	b123      	cbz	r3, 91a <bubblesort+0x14e>
+     910:	7961      	ldrb	r1, [r4, #5]
+     912:	428b      	cmp	r3, r1
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     914:	bf84      	itt	hi
+     916:	7121      	strbhi	r1, [r4, #4]
+             ptr[j+1] = temp;
+     918:	7163      	strbhi	r3, [r4, #5]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     91a:	7963      	ldrb	r3, [r4, #5]
+     91c:	b123      	cbz	r3, 928 <bubblesort+0x15c>
+     91e:	79a1      	ldrb	r1, [r4, #6]
+     920:	428b      	cmp	r3, r1
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     922:	bf84      	itt	hi
+     924:	7161      	strbhi	r1, [r4, #5]
+             ptr[j+1] = temp;
+     926:	71a3      	strbhi	r3, [r4, #6]
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+         if ((ptr[j]!=0) && (ptr[j] > ptr[j+1]))
+     928:	79a1      	ldrb	r1, [r4, #6]
+     92a:	3507      	adds	r5, #7
+     92c:	1de3      	adds	r3, r4, #7
+     92e:	2900      	cmp	r1, #0
+     930:	d0bf      	beq.n	8b2 <bubblesort+0xe6>
+     932:	f894 c007 	ldrb.w	ip, [r4, #7]
+     936:	4561      	cmp	r1, ip
+         {
+             temp = ptr[j];
+             ptr[j]   = ptr[j+1];
+     938:	bf84      	itt	hi
+     93a:	f803 cc01 	strbhi.w	ip, [r3, #-1]
+             ptr[j+1] = temp;
+     93e:	71e1      	strbhi	r1, [r4, #7]
+{
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+      for ( j = 0; j < n-i; ++j)
+     940:	42b5      	cmp	r5, r6
+     942:	d3b8      	bcc.n	8b6 <bubblesort+0xea>
+ulp_u1 bubblesort(ulp_u1 * ptr, int n, unsigned int resultindex)
+{
+   unsigned int i, j;
+   ulp_u1 temp;
+
+   for (i = 1; i <= n-1; ++i)
+     944:	3701      	adds	r7, #1
+     946:	4577      	cmp	r7, lr
+     948:	f106 36ff 	add.w	r6, r6, #4294967295
+     94c:	f67f af45 	bls.w	7da <bubblesort+0xe>
+             ptr[j]   = ptr[j+1];
+             ptr[j+1] = temp;
+         }
+
+   return ptr[resultindex];
+}
+     950:	5c80      	ldrb	r0, [r0, r2]
+     952:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+00000954 <state_machine>:
+{
+  unsigned int state = 0;
+   
+   /* do some state machine processing */
+   /* we have a state machine of 8 states (3 Bits) and wake through different states depending of the new and old state */
+   state = next_state ^ (new_state & 0x01);
+     954:	4a18      	ldr	r2, [pc, #96]	; (9b8 <state_machine+0x64>)
+     956:	6813      	ldr	r3, [r2, #0]
+                              
+   switch (state & 0x07){
+     958:	f000 0001 	and.w	r0, r0, #1
+     95c:	4058      	eors	r0, r3
+     95e:	f000 0107 	and.w	r1, r0, #7
+     962:	f101 3cff 	add.w	ip, r1, #4294967295
+     966:	f1bc 0f06 	cmp.w	ip, #6
+     96a:	d809      	bhi.n	980 <state_machine+0x2c>
+     96c:	e8df f00c 	tbb	[pc, ip]
+     970:	1814100c 	.word	0x1814100c
+     974:	041c      	.short	0x041c
+     976:	20          	.byte	0x20
+     977:	00          	.byte	0x00
+       break;
+     case 5:
+       next_state = 0;
+       break;
+     case 6:
+       next_state = 7;
+     978:	2307      	movs	r3, #7
+     97a:	6013      	str	r3, [r2, #0]
+       break;   
+     default:
+       next_state = 0;
+       break;
+   }
+   return (next_state);
+     97c:	6810      	ldr	r0, [r2, #0]
+}
+     97e:	4770      	bx	lr
+   /* we have a state machine of 8 states (3 Bits) and wake through different states depending of the new and old state */
+   state = next_state ^ (new_state & 0x01);
+                              
+   switch (state & 0x07){
+     case 0:
+       next_state = 1;
+     980:	2301      	movs	r3, #1
+     982:	6013      	str	r3, [r2, #0]
+       break;   
+     default:
+       next_state = 0;
+       break;
+   }
+   return (next_state);
+     984:	6810      	ldr	r0, [r2, #0]
+}
+     986:	4770      	bx	lr
+   switch (state & 0x07){
+     case 0:
+       next_state = 1;
+       break;
+     case 1:
+       next_state = 6;
+     988:	2106      	movs	r1, #6
+     98a:	6011      	str	r1, [r2, #0]
+       break;   
+     default:
+       next_state = 0;
+       break;
+   }
+   return (next_state);
+     98c:	6810      	ldr	r0, [r2, #0]
+}
+     98e:	4770      	bx	lr
+       break;
+     case 1:
+       next_state = 6;
+       break;
+     case 2:
+       next_state = 3;
+     990:	2003      	movs	r0, #3
+     992:	6010      	str	r0, [r2, #0]
+       break;   
+     default:
+       next_state = 0;
+       break;
+   }
+   return (next_state);
+     994:	6810      	ldr	r0, [r2, #0]
+}
+     996:	4770      	bx	lr
+       break;
+     case 2:
+       next_state = 3;
+       break;
+     case 3:
+       next_state = 4;
+     998:	2304      	movs	r3, #4
+     99a:	6013      	str	r3, [r2, #0]
+       break;   
+     default:
+       next_state = 0;
+       break;
+   }
+   return (next_state);
+     99c:	6810      	ldr	r0, [r2, #0]
+}
+     99e:	4770      	bx	lr
+       break;
+     case 3:
+       next_state = 4;
+       break;
+     case 4:
+       next_state = 5;
+     9a0:	2105      	movs	r1, #5
+     9a2:	6011      	str	r1, [r2, #0]
+       break;   
+     default:
+       next_state = 0;
+       break;
+   }
+   return (next_state);
+     9a4:	6810      	ldr	r0, [r2, #0]
+}
+     9a6:	4770      	bx	lr
+       break;
+     case 4:
+       next_state = 5;
+       break;
+     case 5:
+       next_state = 0;
+     9a8:	2000      	movs	r0, #0
+     9aa:	6010      	str	r0, [r2, #0]
+       break;   
+     default:
+       next_state = 0;
+       break;
+   }
+   return (next_state);
+     9ac:	6810      	ldr	r0, [r2, #0]
+}
+     9ae:	4770      	bx	lr
+       break;
+     case 6:
+       next_state = 7;
+       break;
+     case 7:
+       next_state = 2;
+     9b0:	2002      	movs	r0, #2
+     9b2:	6010      	str	r0, [r2, #0]
+       break;   
+     default:
+       next_state = 0;
+       break;
+   }
+   return (next_state);
+     9b4:	6810      	ldr	r0, [r2, #0]
+}
+     9b6:	4770      	bx	lr
+     9b8:	100011b8 	.word	0x100011b8
+
+000009bc <reset_state>:
+
+void reset_state(void) {
+	next_state=0;
+     9bc:	4b01      	ldr	r3, [pc, #4]	; (9c4 <reset_state+0x8>)
+     9be:	2200      	movs	r2, #0
+     9c0:	601a      	str	r2, [r3, #0]
+     9c2:	4770      	bx	lr
+     9c4:	100011b8 	.word	0x100011b8
+
+000009c8 <pltStatusPinFlash>:
+}
+
+//=============================================================================
+// Platform IO Pin Flash - See note above for PLT_FLASH_COUNT
+void pltStatusPinFlash(ulp_u1 numFlashes)
+{
+     9c8:	b470      	push	{r4, r5, r6}
+//=============================================================================
+// Platform Flash Spin - See note above for PLT_FLASH_COUNT
+void pltFlashSpin(void)
+{
+    volatile ulp_u4 i;        // use volatile to avoid optimizing away
+    for (i = 0; i < PLT_FLASH_COUNT; i++);
+     9ca:	4a14      	ldr	r2, [pc, #80]	; (a1c <pltStatusPinFlash+0x54>)
+//=============================================================================
+// Platform IO Pin Flash - See note above for PLT_FLASH_COUNT
+void pltStatusPinFlash(ulp_u1 numFlashes)
+{
+    while (numFlashes--) {
+        PLT_STATUS_PIN_SET;
+     9cc:	4e14      	ldr	r6, [pc, #80]	; (a20 <pltStatusPinFlash+0x58>)
+        pltFlashSpin();         // spin while pin = 1
+        PLT_STATUS_PIN_CLEAR;
+     9ce:	4d15      	ldr	r5, [pc, #84]	; (a24 <pltStatusPinFlash+0x5c>)
+}
+
+//=============================================================================
+// Platform IO Pin Flash - See note above for PLT_FLASH_COUNT
+void pltStatusPinFlash(ulp_u1 numFlashes)
+{
+     9d0:	b083      	sub	sp, #12
+    while (numFlashes--) {
+        PLT_STATUS_PIN_SET;
+     9d2:	f44f 6400 	mov.w	r4, #2048	; 0x800
+//=============================================================================
+// Platform Flash Spin - See note above for PLT_FLASH_COUNT
+void pltFlashSpin(void)
+{
+    volatile ulp_u4 i;        // use volatile to avoid optimizing away
+    for (i = 0; i < PLT_FLASH_COUNT; i++);
+     9d6:	2100      	movs	r1, #0
+
+//=============================================================================
+// Platform IO Pin Flash - See note above for PLT_FLASH_COUNT
+void pltStatusPinFlash(ulp_u1 numFlashes)
+{
+    while (numFlashes--) {
+     9d8:	3801      	subs	r0, #1
+     9da:	b2c0      	uxtb	r0, r0
+     9dc:	28ff      	cmp	r0, #255	; 0xff
+     9de:	d019      	beq.n	a14 <pltStatusPinFlash+0x4c>
+        PLT_STATUS_PIN_SET;
+     9e0:	6034      	str	r4, [r6, #0]
+//=============================================================================
+// Platform Flash Spin - See note above for PLT_FLASH_COUNT
+void pltFlashSpin(void)
+{
+    volatile ulp_u4 i;        // use volatile to avoid optimizing away
+    for (i = 0; i < PLT_FLASH_COUNT; i++);
+     9e2:	9101      	str	r1, [sp, #4]
+     9e4:	9b01      	ldr	r3, [sp, #4]
+     9e6:	4293      	cmp	r3, r2
+     9e8:	d805      	bhi.n	9f6 <pltStatusPinFlash+0x2e>
+     9ea:	9b01      	ldr	r3, [sp, #4]
+     9ec:	3301      	adds	r3, #1
+     9ee:	9301      	str	r3, [sp, #4]
+     9f0:	9b01      	ldr	r3, [sp, #4]
+     9f2:	4293      	cmp	r3, r2
+     9f4:	d9f9      	bls.n	9ea <pltStatusPinFlash+0x22>
+void pltStatusPinFlash(ulp_u1 numFlashes)
+{
+    while (numFlashes--) {
+        PLT_STATUS_PIN_SET;
+        pltFlashSpin();         // spin while pin = 1
+        PLT_STATUS_PIN_CLEAR;
+     9f6:	602c      	str	r4, [r5, #0]
+//=============================================================================
+// Platform Flash Spin - See note above for PLT_FLASH_COUNT
+void pltFlashSpin(void)
+{
+    volatile ulp_u4 i;        // use volatile to avoid optimizing away
+    for (i = 0; i < PLT_FLASH_COUNT; i++);
+     9f8:	9100      	str	r1, [sp, #0]
+     9fa:	9b00      	ldr	r3, [sp, #0]
+     9fc:	4293      	cmp	r3, r2
+     9fe:	d8eb      	bhi.n	9d8 <pltStatusPinFlash+0x10>
+     a00:	9b00      	ldr	r3, [sp, #0]
+     a02:	3301      	adds	r3, #1
+     a04:	9300      	str	r3, [sp, #0]
+     a06:	9b00      	ldr	r3, [sp, #0]
+     a08:	4293      	cmp	r3, r2
+     a0a:	d9f9      	bls.n	a00 <pltStatusPinFlash+0x38>
+
+//=============================================================================
+// Platform IO Pin Flash - See note above for PLT_FLASH_COUNT
+void pltStatusPinFlash(ulp_u1 numFlashes)
+{
+    while (numFlashes--) {
+     a0c:	3801      	subs	r0, #1
+     a0e:	b2c0      	uxtb	r0, r0
+     a10:	28ff      	cmp	r0, #255	; 0xff
+     a12:	d1e5      	bne.n	9e0 <pltStatusPinFlash+0x18>
+        PLT_STATUS_PIN_SET;
+        pltFlashSpin();         // spin while pin = 1
+        PLT_STATUS_PIN_CLEAR;
+        pltFlashSpin();         // spin while pin = 0
+    }
+}
+     a14:	b003      	add	sp, #12
+     a16:	bc70      	pop	{r4, r5, r6}
+     a18:	4770      	bx	lr
+     a1a:	bf00      	nop
+     a1c:	000249ef 	.word	0x000249ef
+     a20:	40010090 	.word	0x40010090
+     a24:	40010098 	.word	0x40010098
+
+00000a28 <pltSleep>:
+void pltSleep( void )
+{
+    //
+    // Enter deep sleep.
+    //
+    AM_REG(SYSCTRL, SCR) = AM_REG_SYSCTRL_SCR_SLEEPDEEP_M; 
+     a28:	4b02      	ldr	r3, [pc, #8]	; (a34 <pltSleep+0xc>)
+     a2a:	2204      	movs	r2, #4
+     a2c:	601a      	str	r2, [r3, #0]
+    // WFI
+    //
+    #if defined(__ARMCC_VERSION)
+        __wfi();            // ARM/Keil intrinsic
+    #else
+        __asm("    wfi");   // GCC version
+     a2e:	bf30      	wfi
+     a30:	4770      	bx	lr
+     a32:	bf00      	nop
+     a34:	e000ed10 	.word	0xe000ed10
+
+00000a38 <main>:
+}
+
+//=============================================================================
+// Main function. Initialize and call Primary Thread's main function.
+int main( void )
+{	
+     a38:	b510      	push	{r4, lr}
+    //   Unused MCU peripherals turned off.
+    //   Set StatusPin to output mode.
+    //   Select clock source/mode when benchmark is executing.
+    //   Select sleep mode when benchmark is not executing.
+    //   Start 1-second timer interrupt.   
+    hardware_setup_part1();
+     a3a:	f7ff fb41 	bl	c0 <hardware_setup_part1>
+
+    // $$$ If desired, do a single flash of the StatusPin to indicate MCU is alive.
+    pltStatusPinFlash(1);
+     a3e:	2001      	movs	r0, #1
+     a40:	f7ff ffc2 	bl	9c8 <pltStatusPinFlash>
+
+    //
+    // Initialize TES
+    //
+    threadMainFunction = tesInitialize();
+     a44:	f000 f882 	bl	b4c <tesInitialize>
+     a48:	4604      	mov	r4, r0
+
+    //   Select clock source/mode when benchmark is executing.
+    //   Select sleep mode when benchmark is not executing.
+    //   Start 1-second timer interrupt.
+    hardware_setup_part2();
+     a4a:	f7ff fb87 	bl	15c <hardware_setup_part2>
+
+    threadMainFunction();       // run the Primary Thread's Main function, no return
+     a4e:	47a0      	blx	r4
+
+    return 0;
+}
+     a50:	2000      	movs	r0, #0
+     a52:	bd10      	pop	{r4, pc}
+
+00000a54 <tesEventPrepare>:
+
+//=============================================================================
+// Verify Event is free, init Event values
+// If thread == 0, then use current tesActiveThread
+ulp_u1 tesEventPrepare( TesEvent * event, ulp_u1 type, ulp_u1 param, TesThread * thread )
+{
+     a54:	b410      	push	{r4}
+    if (event->next != TES_LIST_FREE) {
+     a56:	6804      	ldr	r4, [r0, #0]
+     a58:	b11c      	cbz	r4, a62 <tesEventPrepare+0xe>
+        return TES_ERROR_EVENT_ON_LIST;
+     a5a:	2002      	movs	r0, #2
+    event->type = type;
+    event->param = param;
+    event->thread = (thread) ? thread : tesActiveThread;
+
+    return TES_ERROR_OK;
+}
+     a5c:	f85d 4b04 	ldr.w	r4, [sp], #4
+     a60:	4770      	bx	lr
+{
+    if (event->next != TES_LIST_FREE) {
+        return TES_ERROR_EVENT_ON_LIST;
+    }
+
+    event->type = type;
+     a62:	7101      	strb	r1, [r0, #4]
+    event->param = param;
+     a64:	7142      	strb	r2, [r0, #5]
+    event->thread = (thread) ? thread : tesActiveThread;
+     a66:	b113      	cbz	r3, a6e <tesEventPrepare+0x1a>
+     a68:	6083      	str	r3, [r0, #8]
+
+    return TES_ERROR_OK;
+     a6a:	2000      	movs	r0, #0
+     a6c:	e7f6      	b.n	a5c <tesEventPrepare+0x8>
+        return TES_ERROR_EVENT_ON_LIST;
+    }
+
+    event->type = type;
+    event->param = param;
+    event->thread = (thread) ? thread : tesActiveThread;
+     a6e:	4b01      	ldr	r3, [pc, #4]	; (a74 <tesEventPrepare+0x20>)
+     a70:	681b      	ldr	r3, [r3, #0]
+     a72:	e7f9      	b.n	a68 <tesEventPrepare+0x14>
+     a74:	100011f0 	.word	0x100011f0
+
+00000a78 <tesEventWait>:
+}
+
+//=============================================================================
+// Threads call this to wait for the next event
+TesEvent * tesEventWait( void )
+{
+     a78:	b538      	push	{r3, r4, r5, lr}
+// Dispatch queued ready Events to owning Thread.
+// Sleep when no events are queued.
+void tesEventDispatchReady( void )
+{
+    for (;;) {
+        if (tesEventReadyQueue.first != TES_LIST_END) {
+     a7a:	4c10      	ldr	r4, [pc, #64]	; (abc <tesEventWait+0x44>)
+     a7c:	6823      	ldr	r3, [r4, #0]
+     a7e:	2b01      	cmp	r3, #1
+     a80:	d104      	bne.n	a8c <tesEventWait+0x14>
+            TesEvent * event = (TesEvent*)tesEventReadyQueue.first;
+            tesThreadRun(event->thread);
+            return;
+        }
+        pltSleep();
+     a82:	f7ff ffd1 	bl	a28 <pltSleep>
+// Dispatch queued ready Events to owning Thread.
+// Sleep when no events are queued.
+void tesEventDispatchReady( void )
+{
+    for (;;) {
+        if (tesEventReadyQueue.first != TES_LIST_END) {
+     a86:	6820      	ldr	r0, [r4, #0]
+     a88:	2801      	cmp	r0, #1
+     a8a:	d0fa      	beq.n	a82 <tesEventWait+0xa>
+            TesEvent * event = (TesEvent*)tesEventReadyQueue.first;
+     a8c:	6821      	ldr	r1, [r4, #0]
+     a8e:	4d0b      	ldr	r5, [pc, #44]	; (abc <tesEventWait+0x44>)
+            tesThreadRun(event->thread);
+     a90:	6888      	ldr	r0, [r1, #8]
+     a92:	f000 f853 	bl	b3c <tesThreadRun>
+
+//=============================================================================
+// Removes first ready event and returns it
+TesEvent * tesEventRemoveReady( void )
+{
+    TesEvent * event = (TesEvent*)tesEventReadyQueue.first;
+     a96:	6824      	ldr	r4, [r4, #0]
+
+    PLT_INTERRUPTS_OFF;     // synchronize with interrupt handlers
+     a98:	f000 fb0e 	bl	10b8 <am_hal_interrupt_master_disable>
+    if ((event->next) != TES_LIST_END) {
+     a9c:	6822      	ldr	r2, [r4, #0]
+     a9e:	2a01      	cmp	r2, #1
+        tesEventReadyQueue.first = (TesListElement*)event->next;
+     aa0:	bf18      	it	ne
+     aa2:	602a      	strne	r2, [r5, #0]
+TesEvent * tesEventRemoveReady( void )
+{
+    TesEvent * event = (TesEvent*)tesEventReadyQueue.first;
+
+    PLT_INTERRUPTS_OFF;     // synchronize with interrupt handlers
+    if ((event->next) != TES_LIST_END) {
+     aa4:	d005      	beq.n	ab2 <tesEventWait+0x3a>
+        tesEventReadyQueue.first = (TesListElement*)event->next;
+    } else {
+        tesQueueSetEmpty(&tesEventReadyQueue);
+    }
+    PLT_INTERRUPTS_ON;
+     aa6:	f000 fb03 	bl	10b0 <am_hal_interrupt_master_enable>
+
+    event->next = TES_LIST_FREE;
+     aaa:	2300      	movs	r3, #0
+     aac:	6023      	str	r3, [r4, #0]
+TesEvent * tesEventWait( void )
+{
+    tesEventDispatchReady();
+    // returns here only when there is an event for this thread
+    return tesEventRemoveReady();
+}
+     aae:	4620      	mov	r0, r4
+     ab0:	bd38      	pop	{r3, r4, r5, pc}
+
+    PLT_INTERRUPTS_OFF;     // synchronize with interrupt handlers
+    if ((event->next) != TES_LIST_END) {
+        tesEventReadyQueue.first = (TesListElement*)event->next;
+    } else {
+        tesQueueSetEmpty(&tesEventReadyQueue);
+     ab2:	4628      	mov	r0, r5
+     ab4:	f000 f83e 	bl	b34 <tesQueueSetEmpty>
+     ab8:	e7f5      	b.n	aa6 <tesEventWait+0x2e>
+     aba:	bf00      	nop
+     abc:	100011dc 	.word	0x100011dc
+
+00000ac0 <tesEventQueuesInit>:
+
+//=============================================================================
+// Initialize all Event lists (to empty)
+void tesEventQueuesInit(void)
+{
+    tesQueueSetEmpty(&tesEventReadyQueue);
+     ac0:	4801      	ldr	r0, [pc, #4]	; (ac8 <tesEventQueuesInit+0x8>)
+     ac2:	f000 b837 	b.w	b34 <tesQueueSetEmpty>
+     ac6:	bf00      	nop
+     ac8:	100011dc 	.word	0x100011dc
+
+00000acc <tesEventToReady>:
+// Put the ready Event on the tesEventReadyQueue
+// NOTE: Caller must ensure PLT_INTERRUPTS_OFF !
+// Usually only called from interrupt handler environment
+void tesEventToReady( TesEvent * event )
+{
+    tesQueueAppend(&tesEventReadyQueue, (TesListElement*)event);
+     acc:	4601      	mov	r1, r0
+     ace:	4801      	ldr	r0, [pc, #4]	; (ad4 <tesEventToReady+0x8>)
+     ad0:	f000 b818 	b.w	b04 <tesQueueAppend>
+     ad4:	100011dc 	.word	0x100011dc
+
+00000ad8 <tesEventQueueToReady>:
+// Move an entire list of ready Events to the tesEventReadyQueue
+// NOTE: Caller must ensure PLT_INTERRUPTS_OFF !
+// Should only be called from interrupt handler environment
+void tesEventQueueToReady( TesQueueHeader * queueHeader )
+{
+    if (tesEventReadyQueue.first == TES_LIST_END) {
+     ad8:	4b09      	ldr	r3, [pc, #36]	; (b00 <tesEventQueueToReady+0x28>)
+     ada:	681a      	ldr	r2, [r3, #0]
+     adc:	2a01      	cmp	r2, #1
+     ade:	d009      	beq.n	af4 <tesEventQueueToReady+0x1c>
+        tesEventReadyQueue.first = queueHeader->first;
+        tesEventReadyQueue.last = queueHeader->last;
+    } else {
+        TesEvent * last = (TesEvent*)tesEventReadyQueue.last;
+     ae0:	6859      	ldr	r1, [r3, #4]
+//=============================================================================
+// Move an entire list of ready Events to the tesEventReadyQueue
+// NOTE: Caller must ensure PLT_INTERRUPTS_OFF !
+// Should only be called from interrupt handler environment
+void tesEventQueueToReady( TesQueueHeader * queueHeader )
+{
+     ae2:	b410      	push	{r4}
+    if (tesEventReadyQueue.first == TES_LIST_END) {
+        tesEventReadyQueue.first = queueHeader->first;
+        tesEventReadyQueue.last = queueHeader->last;
+    } else {
+        TesEvent * last = (TesEvent*)tesEventReadyQueue.last;
+        last->next = (TesEvent*)queueHeader->first;
+     ae4:	6804      	ldr	r4, [r0, #0]
+        tesEventReadyQueue.last = queueHeader->last;
+     ae6:	6842      	ldr	r2, [r0, #4]
+    if (tesEventReadyQueue.first == TES_LIST_END) {
+        tesEventReadyQueue.first = queueHeader->first;
+        tesEventReadyQueue.last = queueHeader->last;
+    } else {
+        TesEvent * last = (TesEvent*)tesEventReadyQueue.last;
+        last->next = (TesEvent*)queueHeader->first;
+     ae8:	600c      	str	r4, [r1, #0]
+        tesEventReadyQueue.last = queueHeader->last;
+    }
+    tesQueueSetEmpty(queueHeader);
+}
+     aea:	f85d 4b04 	ldr.w	r4, [sp], #4
+        tesEventReadyQueue.first = queueHeader->first;
+        tesEventReadyQueue.last = queueHeader->last;
+    } else {
+        TesEvent * last = (TesEvent*)tesEventReadyQueue.last;
+        last->next = (TesEvent*)queueHeader->first;
+        tesEventReadyQueue.last = queueHeader->last;
+     aee:	605a      	str	r2, [r3, #4]
+    }
+    tesQueueSetEmpty(queueHeader);
+     af0:	f000 b820 	b.w	b34 <tesQueueSetEmpty>
+// NOTE: Caller must ensure PLT_INTERRUPTS_OFF !
+// Should only be called from interrupt handler environment
+void tesEventQueueToReady( TesQueueHeader * queueHeader )
+{
+    if (tesEventReadyQueue.first == TES_LIST_END) {
+        tesEventReadyQueue.first = queueHeader->first;
+     af4:	6801      	ldr	r1, [r0, #0]
+     af6:	6019      	str	r1, [r3, #0]
+        tesEventReadyQueue.last = queueHeader->last;
+     af8:	6842      	ldr	r2, [r0, #4]
+     afa:	605a      	str	r2, [r3, #4]
+    } else {
+        TesEvent * last = (TesEvent*)tesEventReadyQueue.last;
+        last->next = (TesEvent*)queueHeader->first;
+        tesEventReadyQueue.last = queueHeader->last;
+    }
+    tesQueueSetEmpty(queueHeader);
+     afc:	f000 b81a 	b.w	b34 <tesQueueSetEmpty>
+     b00:	100011dc 	.word	0x100011dc
+
+00000b04 <tesQueueAppend>:
+}
+
+//=============================================================================
+// Append Event to the end of the list
+void tesQueueAppend( TesQueueHeader * queueHeader, TesListElement * element )
+{
+     b04:	b538      	push	{r3, r4, r5, lr}
+     b06:	4604      	mov	r4, r0
+     b08:	460d      	mov	r5, r1
+    PLT_INTERRUPTS_OFF;     // synchronize with interrupt handlers
+     b0a:	f000 fad5 	bl	10b8 <am_hal_interrupt_master_disable>
+    if (queueHeader->first == TES_LIST_END) {
+     b0e:	6823      	ldr	r3, [r4, #0]
+     b10:	2b01      	cmp	r3, #1
+     b12:	d008      	beq.n	b26 <tesQueueAppend+0x22>
+        queueHeader->first = queueHeader->last = element;
+        element->next = TES_LIST_END;
+    } else {
+        tesListInsertAfter(queueHeader->last, element);
+     b14:	6860      	ldr	r0, [r4, #4]
+//=============================================================================
+// Insert Event in list after prev Event
+// NOTE: Caller must ensure PLT_INTERRUPTS_OFF !
+void tesListInsertAfter( TesListElement * prev, TesListElement * element )
+{
+    element->next = prev->next;
+     b16:	6802      	ldr	r2, [r0, #0]
+     b18:	602a      	str	r2, [r5, #0]
+    prev->next = element;
+     b1a:	6005      	str	r5, [r0, #0]
+    if (queueHeader->first == TES_LIST_END) {
+        queueHeader->first = queueHeader->last = element;
+        element->next = TES_LIST_END;
+    } else {
+        tesListInsertAfter(queueHeader->last, element);
+        queueHeader->last = element;
+     b1c:	6065      	str	r5, [r4, #4]
+    }
+    PLT_INTERRUPTS_ON;
+}
+     b1e:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
+        element->next = TES_LIST_END;
+    } else {
+        tesListInsertAfter(queueHeader->last, element);
+        queueHeader->last = element;
+    }
+    PLT_INTERRUPTS_ON;
+     b22:	f000 bac5 	b.w	10b0 <am_hal_interrupt_master_enable>
+// Append Event to the end of the list
+void tesQueueAppend( TesQueueHeader * queueHeader, TesListElement * element )
+{
+    PLT_INTERRUPTS_OFF;     // synchronize with interrupt handlers
+    if (queueHeader->first == TES_LIST_END) {
+        queueHeader->first = queueHeader->last = element;
+     b26:	6065      	str	r5, [r4, #4]
+     b28:	6025      	str	r5, [r4, #0]
+        element->next = TES_LIST_END;
+     b2a:	602b      	str	r3, [r5, #0]
+    } else {
+        tesListInsertAfter(queueHeader->last, element);
+        queueHeader->last = element;
+    }
+    PLT_INTERRUPTS_ON;
+}
+     b2c:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
+        element->next = TES_LIST_END;
+    } else {
+        tesListInsertAfter(queueHeader->last, element);
+        queueHeader->last = element;
+    }
+    PLT_INTERRUPTS_ON;
+     b30:	f000 babe 	b.w	10b0 <am_hal_interrupt_master_enable>
+
+00000b34 <tesQueueSetEmpty>:
+//=============================================================================
+// Initialize an Event list to empty
+// NOTE: Caller must ensure PLT_INTERRUPTS_OFF ! (if necessary)
+void tesQueueSetEmpty( TesQueueHeader * queueHeader )
+{
+    queueHeader->first = queueHeader->last = TES_LIST_END;
+     b34:	2301      	movs	r3, #1
+     b36:	6043      	str	r3, [r0, #4]
+     b38:	6003      	str	r3, [r0, #0]
+     b3a:	4770      	bx	lr
+
+00000b3c <tesThreadRun>:
+}
+//=============================================================================
+// Run a Thread. The triggering Event is at the front of the tesEventReadyQueue
+void tesThreadRun( TesThread * thread )
+{
+    if (thread != tesActiveThread) {
+     b3c:	4b02      	ldr	r3, [pc, #8]	; (b48 <tesThreadRun+0xc>)
+     b3e:	6819      	ldr	r1, [r3, #0]
+     b40:	4281      	cmp	r1, r0
+     b42:	d000      	beq.n	b46 <tesThreadRun+0xa>
+     b44:	e7fe      	b.n	b44 <tesThreadRun+0x8>
+     b46:	4770      	bx	lr
+     b48:	100011f0 	.word	0x100011f0
+
+00000b4c <tesInitialize>:
+    }
+}
+
+//=============================================================================
+// Initialize TES for the Main and other Threads
+VoidFunctionPtr tesInitialize( void ) {
+     b4c:	b508      	push	{r3, lr}
+    tesTimerQueuesInit();
+     b4e:	f000 f80d 	bl	b6c <tesTimerQueuesInit>
+
+    tesEventQueuesInit();
+     b52:	f7ff ffb5 	bl	ac0 <tesEventQueuesInit>
+    // prepare to run multiple threads (if any)
+    tesThreadMultipleStart();
+#endif  // TES_MULTIPLE_THREAD_STARTS
+
+    // initialize main thread
+    tesActiveThread = &tesPrimaryThread;
+     b56:	4b02      	ldr	r3, [pc, #8]	; (b60 <tesInitialize+0x14>)
+     b58:	4a02      	ldr	r2, [pc, #8]	; (b64 <tesInitialize+0x18>)
+     b5a:	601a      	str	r2, [r3, #0]
+
+    return TES_PRIMARY_THREAD_MAIN;    // return main function
+}
+     b5c:	4802      	ldr	r0, [pc, #8]	; (b68 <tesInitialize+0x1c>)
+     b5e:	bd08      	pop	{r3, pc}
+     b60:	100011f0 	.word	0x100011f0
+     b64:	100011e4 	.word	0x100011e4
+     b68:	000003dd 	.word	0x000003dd
+
+00000b6c <tesTimerQueuesInit>:
+TesTimeSlot tesNextSlot = 0;            // next TimeSlot value, up counter
+
+//=============================================================================
+// Initialize all Timer lists to empty
+void tesTimerQueuesInit(void)
+{
+     b6c:	b508      	push	{r3, lr}
+    ulp_u1 i;
+    for (i = 0; i < TES_NUM_TIME_SLOTS; i++) {
+        tesQueueSetEmpty(&tesSlotTimerQueues[i]);
+     b6e:	4803      	ldr	r0, [pc, #12]	; (b7c <tesTimerQueuesInit+0x10>)
+     b70:	f7ff ffe0 	bl	b34 <tesQueueSetEmpty>
+    }
+    tesPeriodTimerList = (TesPeriodTimer*)TES_LIST_END;
+     b74:	4b02      	ldr	r3, [pc, #8]	; (b80 <tesTimerQueuesInit+0x14>)
+     b76:	2201      	movs	r2, #1
+     b78:	601a      	str	r2, [r3, #0]
+     b7a:	bd08      	pop	{r3, pc}
+     b7c:	100011f8 	.word	0x100011f8
+     b80:	100011f4 	.word	0x100011f4
+
+00000b84 <tesSlotTimerSet>:
+// Add a SlotTimer to the list
+ulp_u1 tesSlotTimerSet(TesEvent * timer, TesTimeSlot slot, ulp_u1 param)
+{
+    ulp_u1 error;
+
+    if (slot == TES_NEXT_SLOT) {
+     b84:	29ff      	cmp	r1, #255	; 0xff
+}
+
+//=============================================================================
+// Add a SlotTimer to the list
+ulp_u1 tesSlotTimerSet(TesEvent * timer, TesTimeSlot slot, ulp_u1 param)
+{
+     b86:	b570      	push	{r4, r5, r6, lr}
+     b88:	4606      	mov	r6, r0
+    ulp_u1 error;
+
+    if (slot == TES_NEXT_SLOT) {
+     b8a:	d003      	beq.n	b94 <tesSlotTimerSet+0x10>
+     b8c:	460d      	mov	r5, r1
+        slot = tesNextSlot;
+    } else if (slot >= TES_NUM_TIME_SLOTS) {
+     b8e:	b119      	cbz	r1, b98 <tesSlotTimerSet+0x14>
+        return TES_ERROR_NO_TIME_SLOT;  // no such time slot
+     b90:	2004      	movs	r0, #4
+     b92:	bd70      	pop	{r4, r5, r6, pc}
+ulp_u1 tesSlotTimerSet(TesEvent * timer, TesTimeSlot slot, ulp_u1 param)
+{
+    ulp_u1 error;
+
+    if (slot == TES_NEXT_SLOT) {
+        slot = tesNextSlot;
+     b94:	4b08      	ldr	r3, [pc, #32]	; (bb8 <tesSlotTimerSet+0x34>)
+     b96:	781d      	ldrb	r5, [r3, #0]
+    } else if (slot >= TES_NUM_TIME_SLOTS) {
+        return TES_ERROR_NO_TIME_SLOT;  // no such time slot
+    }
+    error = tesEventPrepare(timer, TES_TIMER_SLOT, param, 0/*thread*/);
+     b98:	2300      	movs	r3, #0
+     b9a:	2101      	movs	r1, #1
+     b9c:	4630      	mov	r0, r6
+     b9e:	f7ff ff59 	bl	a54 <tesEventPrepare>
+    if (!error) {
+     ba2:	4604      	mov	r4, r0
+     ba4:	b100      	cbz	r0, ba8 <tesSlotTimerSet+0x24>
+        tesQueueAppend(&tesSlotTimerQueues[slot], (TesListElement*)timer);
+    }
+    return error;
+}
+     ba6:	bd70      	pop	{r4, r5, r6, pc}
+    } else if (slot >= TES_NUM_TIME_SLOTS) {
+        return TES_ERROR_NO_TIME_SLOT;  // no such time slot
+    }
+    error = tesEventPrepare(timer, TES_TIMER_SLOT, param, 0/*thread*/);
+    if (!error) {
+        tesQueueAppend(&tesSlotTimerQueues[slot], (TesListElement*)timer);
+     ba8:	4804      	ldr	r0, [pc, #16]	; (bbc <tesSlotTimerSet+0x38>)
+     baa:	4631      	mov	r1, r6
+     bac:	eb00 00c5 	add.w	r0, r0, r5, lsl #3
+     bb0:	f7ff ffa8 	bl	b04 <tesQueueAppend>
+     bb4:	4620      	mov	r0, r4
+     bb6:	bd70      	pop	{r4, r5, r6, pc}
+     bb8:	100011be 	.word	0x100011be
+     bbc:	100011f8 	.word	0x100011f8
+
+00000bc0 <tesTimerInterrupt>:
+
+//=============================================================================
+// A Timer Interrupt has occurred, update systemTime and check for Timers
+// Should only be called from interrupt handler environment
+void tesTimerInterrupt( void )
+{
+     bc0:	b538      	push	{r3, r4, r5, lr}
+    TesQueueHeader * queueHeader;
+
+    if (tesNextSlot == 0) {
+     bc2:	4d1a      	ldr	r5, [pc, #104]	; (c2c <tesTimerInterrupt+0x6c>)
+     bc4:	782a      	ldrb	r2, [r5, #0]
+     bc6:	b982      	cbnz	r2, bea <tesTimerInterrupt+0x2a>
+        // all periodTimers with numPeriods = 0 are ready
+        for (;;) {
+            TesPeriodTimer * timer;
+            ulp_u2 numPeriods;
+            if ( (timer = tesPeriodTimerList) == (TesPeriodTimer*)TES_LIST_END) {
+     bc8:	4c19      	ldr	r4, [pc, #100]	; (c30 <tesTimerInterrupt+0x70>)
+     bca:	6820      	ldr	r0, [r4, #0]
+     bcc:	2801      	cmp	r0, #1
+     bce:	d028      	beq.n	c22 <tesTimerInterrupt+0x62>
+                 break;     // no entries on PeriodTimer list
+            }
+            if ( (numPeriods = timer->numPeriods) != 0) {
+     bd0:	8981      	ldrh	r1, [r0, #12]
+     bd2:	b111      	cbz	r1, bda <tesTimerInterrupt+0x1a>
+     bd4:	e020      	b.n	c18 <tesTimerInterrupt+0x58>
+     bd6:	8981      	ldrh	r1, [r0, #12]
+     bd8:	b9e9      	cbnz	r1, c16 <tesTimerInterrupt+0x56>
+                timer->numPeriods = numPeriods - 1;   // decrement wait time
+                break;      // next entry is not ready yet
+            }
+            // else this PeriodTimer is ready
+            tesPeriodTimerList = (TesPeriodTimer*)timer->event.next;
+     bda:	6803      	ldr	r3, [r0, #0]
+     bdc:	6023      	str	r3, [r4, #0]
+            tesEventToReady(&timer->event);
+     bde:	f7ff ff75 	bl	acc <tesEventToReady>
+    if (tesNextSlot == 0) {
+        // all periodTimers with numPeriods = 0 are ready
+        for (;;) {
+            TesPeriodTimer * timer;
+            ulp_u2 numPeriods;
+            if ( (timer = tesPeriodTimerList) == (TesPeriodTimer*)TES_LIST_END) {
+     be2:	6820      	ldr	r0, [r4, #0]
+     be4:	2801      	cmp	r0, #1
+     be6:	d1f6      	bne.n	bd6 <tesTimerInterrupt+0x16>
+     be8:	782a      	ldrb	r2, [r5, #0]
+            tesEventToReady(&timer->event);
+        }
+    }
+
+    queueHeader = &tesSlotTimerQueues[tesNextSlot];
+    if (queueHeader->first != TES_LIST_END) {
+     bea:	4812      	ldr	r0, [pc, #72]	; (c34 <tesTimerInterrupt+0x74>)
+     bec:	f850 3032 	ldr.w	r3, [r0, r2, lsl #3]
+     bf0:	2b01      	cmp	r3, #1
+     bf2:	d004      	beq.n	bfe <tesTimerInterrupt+0x3e>
+            tesPeriodTimerList = (TesPeriodTimer*)timer->event.next;
+            tesEventToReady(&timer->event);
+        }
+    }
+
+    queueHeader = &tesSlotTimerQueues[tesNextSlot];
+     bf4:	eb00 00c2 	add.w	r0, r0, r2, lsl #3
+    if (queueHeader->first != TES_LIST_END) {
+        tesEventQueueToReady(queueHeader);      // all Timers for this slot are ready
+     bf8:	f7ff ff6e 	bl	ad8 <tesEventQueueToReady>
+     bfc:	782a      	ldrb	r2, [r5, #0]
+    }
+
+    // compute next slot and period
+    if (++tesNextSlot >= TES_NUM_TIME_SLOTS) {
+     bfe:	3201      	adds	r2, #1
+     c00:	b2d4      	uxtb	r4, r2
+     c02:	702c      	strb	r4, [r5, #0]
+     c04:	b134      	cbz	r4, c14 <tesTimerInterrupt+0x54>
+        tesNextSlot = 0;    // roll over slot number
+        ++tesNextPeriod;
+     c06:	480c      	ldr	r0, [pc, #48]	; (c38 <tesTimerInterrupt+0x78>)
+     c08:	8803      	ldrh	r3, [r0, #0]
+        tesEventQueueToReady(queueHeader);      // all Timers for this slot are ready
+    }
+
+    // compute next slot and period
+    if (++tesNextSlot >= TES_NUM_TIME_SLOTS) {
+        tesNextSlot = 0;    // roll over slot number
+     c0a:	2100      	movs	r1, #0
+        ++tesNextPeriod;
+     c0c:	3301      	adds	r3, #1
+        tesEventQueueToReady(queueHeader);      // all Timers for this slot are ready
+    }
+
+    // compute next slot and period
+    if (++tesNextSlot >= TES_NUM_TIME_SLOTS) {
+        tesNextSlot = 0;    // roll over slot number
+     c0e:	7029      	strb	r1, [r5, #0]
+        ++tesNextPeriod;
+     c10:	8003      	strh	r3, [r0, #0]
+    }
+}
+     c12:	bd38      	pop	{r3, r4, r5, pc}
+     c14:	bd38      	pop	{r3, r4, r5, pc}
+     c16:	782a      	ldrb	r2, [r5, #0]
+            ulp_u2 numPeriods;
+            if ( (timer = tesPeriodTimerList) == (TesPeriodTimer*)TES_LIST_END) {
+                 break;     // no entries on PeriodTimer list
+            }
+            if ( (numPeriods = timer->numPeriods) != 0) {
+                timer->numPeriods = numPeriods - 1;   // decrement wait time
+     c18:	f101 3cff 	add.w	ip, r1, #4294967295
+     c1c:	f8a0 c00c 	strh.w	ip, [r0, #12]
+                break;      // next entry is not ready yet
+     c20:	e7e3      	b.n	bea <tesTimerInterrupt+0x2a>
+            tesEventToReady(&timer->event);
+        }
+    }
+
+    queueHeader = &tesSlotTimerQueues[tesNextSlot];
+    if (queueHeader->first != TES_LIST_END) {
+     c22:	4804      	ldr	r0, [pc, #16]	; (c34 <tesTimerInterrupt+0x74>)
+     c24:	6802      	ldr	r2, [r0, #0]
+     c26:	2a01      	cmp	r2, #1
+     c28:	d1e6      	bne.n	bf8 <tesTimerInterrupt+0x38>
+     c2a:	e7ec      	b.n	c06 <tesTimerInterrupt+0x46>
+     c2c:	100011be 	.word	0x100011be
+     c30:	100011f4 	.word	0x100011f4
+     c34:	100011f8 	.word	0x100011f8
+     c38:	100011bc 	.word	0x100011bc
+
+00000c3c <tesBytesCopy>:
+      len   -   Number of bytes to copy
+    Returns:
+      dest
+*/
+
+void * tesBytesCopy(void * RESTRICT dest, const void * RESTRICT src, ulp_u2 len) {
+     c3c:	b510      	push	{r4, lr}
+     c3e:	4604      	mov	r4, r0
+     ulp_u2 i;
+     ulp_u1 * RESTRICT d = dest;
+     const ulp_u1 * RESTRICT s = src;
+     for (i = 0; i < len; i++) {
+     c40:	b122      	cbz	r2, c4c <tesBytesCopy+0x10>
+     c42:	3a01      	subs	r2, #1
+     c44:	b292      	uxth	r2, r2
+     c46:	3201      	adds	r2, #1
+     c48:	f000 faa8 	bl	119c <memcpy>
+         d[i] = s[i];
+     }
+     return d;
+}
+     c4c:	4620      	mov	r0, r4
+     c4e:	bd10      	pop	{r4, pc}
+
+00000c50 <tesStringSearch>:
+      hay       - String to search in
+      needle    - String pattern to search for
+    Returns:
+      Null if not found, otherwise pointer to the first byte of the pattern in hay
+*/
+const ulp_u1 *tesStringSearch(const ulp_u1 *hay, const ulp_u1 *needle) {
+     c50:	b430      	push	{r4, r5}
+    if (*needle == 0) {
+     c52:	780d      	ldrb	r5, [r1, #0]
+     c54:	b175      	cbz	r5, c74 <tesStringSearch+0x24>
+        /* special case: empty pattern string */
+        return (ulp_u1 *)hay;
+    }
+    while (*hay) {
+     c56:	7803      	ldrb	r3, [r0, #0]
+     c58:	b193      	cbz	r3, c80 <tesStringSearch+0x30>
+        ulp_u1 i = 0;
+        while (1) {
+            if (needle[i] == 0) {
+                return (ulp_u1 *)hay;
+            }
+            if (hay[i] != needle[i]) {
+     c5a:	7803      	ldrb	r3, [r0, #0]
+     c5c:	42ab      	cmp	r3, r5
+     c5e:	d10b      	bne.n	c78 <tesStringSearch+0x28>
+     c60:	2300      	movs	r3, #0
+     c62:	e002      	b.n	c6a <tesStringSearch+0x1a>
+     c64:	5cc4      	ldrb	r4, [r0, r3]
+     c66:	4294      	cmp	r4, r2
+     c68:	d106      	bne.n	c78 <tesStringSearch+0x28>
+                break;
+            }
+            i++;
+     c6a:	3301      	adds	r3, #1
+     c6c:	b2db      	uxtb	r3, r3
+        return (ulp_u1 *)hay;
+    }
+    while (*hay) {
+        ulp_u1 i = 0;
+        while (1) {
+            if (needle[i] == 0) {
+     c6e:	5cca      	ldrb	r2, [r1, r3]
+     c70:	2a00      	cmp	r2, #0
+     c72:	d1f7      	bne.n	c64 <tesStringSearch+0x14>
+            i++;
+        }
+        hay++;
+    }
+    return 0;   // not found
+}
+     c74:	bc30      	pop	{r4, r5}
+     c76:	4770      	bx	lr
+const ulp_u1 *tesStringSearch(const ulp_u1 *hay, const ulp_u1 *needle) {
+    if (*needle == 0) {
+        /* special case: empty pattern string */
+        return (ulp_u1 *)hay;
+    }
+    while (*hay) {
+     c78:	f810 3f01 	ldrb.w	r3, [r0, #1]!
+     c7c:	2b00      	cmp	r3, #0
+     c7e:	d1ec      	bne.n	c5a <tesStringSearch+0xa>
+            }
+            i++;
+        }
+        hay++;
+    }
+    return 0;   // not found
+     c80:	4618      	mov	r0, r3
+     c82:	e7f7      	b.n	c74 <tesStringSearch+0x24>
+
+00000c84 <tesStringLength>:
+    Returns:
+      Number of bytes in the array until terminating 0 byte.
+*/
+ulp_u2 tesStringLength(const ulp_u1 *s) {
+     const ulp_u1 *start = s;
+     while (*s) {
+     c84:	7802      	ldrb	r2, [r0, #0]
+     c86:	b13a      	cbz	r2, c98 <tesStringLength+0x14>
+     c88:	4603      	mov	r3, r0
+     c8a:	f813 1f01 	ldrb.w	r1, [r3, #1]!
+     c8e:	2900      	cmp	r1, #0
+     c90:	d1fb      	bne.n	c8a <tesStringLength+0x6>
+     c92:	1a18      	subs	r0, r3, r0
+     c94:	b280      	uxth	r0, r0
+     c96:	4770      	bx	lr
+     c98:	4610      	mov	r0, r2
+         s++;
+     }
+     return (ulp_u2)(s - start);
+}
+     c9a:	4770      	bx	lr
+
+00000c9c <am_devices_led_array_init>:
+    uint32_t i;
+
+    //
+    // Loop through the list of LEDs, configuring each one individually.
+    //
+    for ( i = 0; i < ui32NumLEDs; i++ )
+     c9c:	2900      	cmp	r1, #0
+     c9e:	f000 80e8 	beq.w	e72 <am_devices_led_array_init+0x1d6>
+    else
+    {
+        //
+        // Configure the pin as a tri-state GPIO.
+        //
+        am_hal_gpio_pin_config(psLED->ui32GPIONumber, AM_HAL_GPIO_3STATE);
+     ca2:	f3ef 8310 	mrs	r3, PRIMASK
+//! @return None.
+//
+//*****************************************************************************
+void
+am_devices_led_array_init(am_devices_led_t *psLEDs, uint32_t ui32NumLEDs)
+{
+     ca6:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     caa:	b085      	sub	sp, #20
+    else
+    {
+        //
+        // Configure the pin as a tri-state GPIO.
+        //
+        am_hal_gpio_pin_config(psLED->ui32GPIONumber, AM_HAL_GPIO_3STATE);
+     cac:	461a      	mov	r2, r3
+     cae:	eb00 01c1 	add.w	r1, r0, r1, lsl #3
+     cb2:	9300      	str	r3, [sp, #0]
+     cb4:	f8df e1d4 	ldr.w	lr, [pc, #468]	; e8c <am_devices_led_array_init+0x1f0>
+    if ( AM_DEVICES_LED_POL_DIRECT_DRIVE_M & psLED->ui32Polarity )
+    {
+        //
+        // Configure the pin as a push-pull GPIO output.
+        //
+        am_hal_gpio_pin_config(psLED->ui32GPIONumber, AM_HAL_GPIO_OUTPUT);
+     cb8:	9201      	str	r2, [sp, #4]
+     cba:	4603      	mov	r3, r0
+
+        //
+        // Disable the output driver, and set the output value to the LEDs "ON"
+        // state.
+        //
+        am_hal_gpio_out_enable_bit_clear(psLED->ui32GPIONumber);
+     cbc:	2601      	movs	r6, #1
+     cbe:	3004      	adds	r0, #4
+    else
+    {
+        //
+        // Configure the pin as a tri-state GPIO.
+        //
+        am_hal_gpio_pin_config(psLED->ui32GPIONumber, AM_HAL_GPIO_3STATE);
+     cc0:	f04f 0c07 	mov.w	ip, #7
+     cc4:	27ff      	movs	r7, #255	; 0xff
+     cc6:	f04f 0818 	mov.w	r8, #24
+     cca:	4689      	mov	r9, r1
+     ccc:	e06a      	b.n	da4 <am_devices_led_array_init+0x108>
+    if ( AM_DEVICES_LED_POL_DIRECT_DRIVE_M & psLED->ui32Polarity )
+    {
+        //
+        // Configure the pin as a push-pull GPIO output.
+        //
+        am_hal_gpio_pin_config(psLED->ui32GPIONumber, AM_HAL_GPIO_OUTPUT);
+     cce:	f850 2c04 	ldr.w	r2, [r0, #-4]
+     cd2:	2a31      	cmp	r2, #49	; 0x31
+     cd4:	d847      	bhi.n	d66 <am_devices_led_array_init+0xca>
+     cd6:	9c01      	ldr	r4, [sp, #4]
+     cd8:	9402      	str	r4, [sp, #8]
+     cda:	b672      	cpsid	i
+     cdc:	2173      	movs	r1, #115	; 0x73
+     cde:	f8ce 1000 	str.w	r1, [lr]
+     ce2:	f850 2c04 	ldr.w	r2, [r0, #-4]
+     ce6:	4d63      	ldr	r5, [pc, #396]	; (e74 <am_devices_led_array_init+0x1d8>)
+     ce8:	4c63      	ldr	r4, [pc, #396]	; (e78 <am_devices_led_array_init+0x1dc>)
+     cea:	0851      	lsrs	r1, r2, #1
+     cec:	f001 0a7c 	and.w	sl, r1, #124	; 0x7c
+     cf0:	4455      	add	r5, sl
+     cf2:	0092      	lsls	r2, r2, #2
+     cf4:	6829      	ldr	r1, [r5, #0]
+     cf6:	f002 0b1c 	and.w	fp, r2, #28
+     cfa:	fa0c f20b 	lsl.w	r2, ip, fp
+     cfe:	ea21 0a02 	bic.w	sl, r1, r2
+     d02:	2102      	movs	r1, #2
+     d04:	fa01 fb0b 	lsl.w	fp, r1, fp
+     d08:	ea4a 020b 	orr.w	r2, sl, fp
+     d0c:	602a      	str	r2, [r5, #0]
+     d0e:	f850 5c04 	ldr.w	r5, [r0, #-4]
+     d12:	f005 0afc 	and.w	sl, r5, #252	; 0xfc
+     d16:	f10a 4180 	add.w	r1, sl, #1073741824	; 0x40000000
+     d1a:	f501 3b80 	add.w	fp, r1, #65536	; 0x10000
+     d1e:	00ea      	lsls	r2, r5, #3
+     d20:	f002 0118 	and.w	r1, r2, #24
+     d24:	f8db 5000 	ldr.w	r5, [fp]
+     d28:	fa07 f201 	lsl.w	r2, r7, r1
+     d2c:	ea25 0502 	bic.w	r5, r5, r2
+     d30:	fa08 f101 	lsl.w	r1, r8, r1
+     d34:	430d      	orrs	r5, r1
+     d36:	f8cb 5000 	str.w	r5, [fp]
+     d3a:	f850 2c04 	ldr.w	r2, [r0, #-4]
+     d3e:	f002 0afc 	and.w	sl, r2, #252	; 0xfc
+     d42:	4454      	add	r4, sl
+     d44:	00d5      	lsls	r5, r2, #3
+     d46:	6821      	ldr	r1, [r4, #0]
+     d48:	f005 0b18 	and.w	fp, r5, #24
+     d4c:	fa07 f20b 	lsl.w	r2, r7, fp
+     d50:	ea21 0502 	bic.w	r5, r1, r2
+     d54:	2100      	movs	r1, #0
+     d56:	6025      	str	r5, [r4, #0]
+     d58:	f8ce 1000 	str.w	r1, [lr]
+     d5c:	9c02      	ldr	r4, [sp, #8]
+     d5e:	f384 8810 	msr	PRIMASK, r4
+     d62:	f850 2c04 	ldr.w	r2, [r0, #-4]
+
+        //
+        // Enable the output driver, and set the output value to the LEDs "ON"
+        // state.
+        //
+        am_hal_gpio_out_enable_bit_set(psLED->ui32GPIONumber);
+     d66:	4d45      	ldr	r5, [pc, #276]	; (e7c <am_devices_led_array_init+0x1e0>)
+     d68:	08d1      	lsrs	r1, r2, #3
+     d6a:	f001 0a04 	and.w	sl, r1, #4
+     d6e:	4455      	add	r5, sl
+     d70:	f002 041f 	and.w	r4, r2, #31
+     d74:	fa06 f204 	lsl.w	r2, r6, r4
+     d78:	602a      	str	r2, [r5, #0]
+        am_hal_gpio_out_bit_replace(psLED->ui32GPIONumber,
+     d7a:	685d      	ldr	r5, [r3, #4]
+     d7c:	f850 2c04 	ldr.w	r2, [r0, #-4]
+     d80:	f015 0f01 	tst.w	r5, #1
+     d84:	d070      	beq.n	e68 <am_devices_led_array_init+0x1cc>
+        //
+        // Disable the output driver, and set the output value to the LEDs "ON"
+        // state.
+        //
+        am_hal_gpio_out_enable_bit_clear(psLED->ui32GPIONumber);
+        am_hal_gpio_out_bit_replace(psLED->ui32GPIONumber,
+     d86:	493e      	ldr	r1, [pc, #248]	; (e80 <am_devices_led_array_init+0x1e4>)
+     d88:	08d4      	lsrs	r4, r2, #3
+     d8a:	f004 0b04 	and.w	fp, r4, #4
+     d8e:	f002 0a1f 	and.w	sl, r2, #31
+     d92:	4459      	add	r1, fp
+     d94:	3308      	adds	r3, #8
+     d96:	fa06 f20a 	lsl.w	r2, r6, sl
+    uint32_t i;
+
+    //
+    // Loop through the list of LEDs, configuring each one individually.
+    //
+    for ( i = 0; i < ui32NumLEDs; i++ )
+     d9a:	4599      	cmp	r9, r3
+        //
+        // Disable the output driver, and set the output value to the LEDs "ON"
+        // state.
+        //
+        am_hal_gpio_out_enable_bit_clear(psLED->ui32GPIONumber);
+        am_hal_gpio_out_bit_replace(psLED->ui32GPIONumber,
+     d9c:	600a      	str	r2, [r1, #0]
+     d9e:	f100 0008 	add.w	r0, r0, #8
+    uint32_t i;
+
+    //
+    // Loop through the list of LEDs, configuring each one individually.
+    //
+    for ( i = 0; i < ui32NumLEDs; i++ )
+     da2:	d063      	beq.n	e6c <am_devices_led_array_init+0x1d0>
+am_devices_led_init(am_devices_led_t *psLED)
+{
+    //
+    // Handle Direct Drive Versus 3-State (with pull-up or no buffer).
+    //
+    if ( AM_DEVICES_LED_POL_DIRECT_DRIVE_M & psLED->ui32Polarity )
+     da4:	685c      	ldr	r4, [r3, #4]
+     da6:	f014 0202 	ands.w	r2, r4, #2
+     daa:	d190      	bne.n	cce <am_devices_led_array_init+0x32>
+    else
+    {
+        //
+        // Configure the pin as a tri-state GPIO.
+        //
+        am_hal_gpio_pin_config(psLED->ui32GPIONumber, AM_HAL_GPIO_3STATE);
+     dac:	f850 1c04 	ldr.w	r1, [r0, #-4]
+     db0:	2931      	cmp	r1, #49	; 0x31
+     db2:	d849      	bhi.n	e48 <am_devices_led_array_init+0x1ac>
+     db4:	9d00      	ldr	r5, [sp, #0]
+     db6:	9503      	str	r5, [sp, #12]
+     db8:	b672      	cpsid	i
+     dba:	2173      	movs	r1, #115	; 0x73
+     dbc:	f8ce 1000 	str.w	r1, [lr]
+     dc0:	f850 4c04 	ldr.w	r4, [r0, #-4]
+     dc4:	4d2b      	ldr	r5, [pc, #172]	; (e74 <am_devices_led_array_init+0x1d8>)
+     dc6:	492c      	ldr	r1, [pc, #176]	; (e78 <am_devices_led_array_init+0x1dc>)
+     dc8:	ea4f 0a54 	mov.w	sl, r4, lsr #1
+     dcc:	f00a 0b7c 	and.w	fp, sl, #124	; 0x7c
+     dd0:	445d      	add	r5, fp
+     dd2:	00a4      	lsls	r4, r4, #2
+     dd4:	f8d5 a000 	ldr.w	sl, [r5]
+     dd8:	f004 041c 	and.w	r4, r4, #28
+     ddc:	fa0c fb04 	lsl.w	fp, ip, r4
+     de0:	ea2a 0a0b 	bic.w	sl, sl, fp
+     de4:	f04f 0b06 	mov.w	fp, #6
+     de8:	fa0b f404 	lsl.w	r4, fp, r4
+     dec:	ea4a 0404 	orr.w	r4, sl, r4
+     df0:	602c      	str	r4, [r5, #0]
+     df2:	f850 4c04 	ldr.w	r4, [r0, #-4]
+     df6:	f004 05fc 	and.w	r5, r4, #252	; 0xfc
+     dfa:	f105 4a80 	add.w	sl, r5, #1073741824	; 0x40000000
+     dfe:	f50a 3580 	add.w	r5, sl, #65536	; 0x10000
+     e02:	00e4      	lsls	r4, r4, #3
+     e04:	f8d5 a000 	ldr.w	sl, [r5]
+     e08:	f004 0418 	and.w	r4, r4, #24
+     e0c:	fa07 fb04 	lsl.w	fp, r7, r4
+     e10:	ea2a 0a0b 	bic.w	sl, sl, fp
+     e14:	fa08 f404 	lsl.w	r4, r8, r4
+     e18:	ea4a 0404 	orr.w	r4, sl, r4
+     e1c:	602c      	str	r4, [r5, #0]
+     e1e:	f850 4c04 	ldr.w	r4, [r0, #-4]
+     e22:	f004 05fc 	and.w	r5, r4, #252	; 0xfc
+     e26:	4429      	add	r1, r5
+     e28:	00e4      	lsls	r4, r4, #3
+     e2a:	680d      	ldr	r5, [r1, #0]
+     e2c:	f004 0b18 	and.w	fp, r4, #24
+     e30:	fa07 fa0b 	lsl.w	sl, r7, fp
+     e34:	ea25 040a 	bic.w	r4, r5, sl
+     e38:	600c      	str	r4, [r1, #0]
+     e3a:	f8ce 2000 	str.w	r2, [lr]
+     e3e:	9a03      	ldr	r2, [sp, #12]
+     e40:	f382 8810 	msr	PRIMASK, r2
+     e44:	f850 1c04 	ldr.w	r1, [r0, #-4]
+
+        //
+        // Disable the output driver, and set the output value to the LEDs "ON"
+        // state.
+        //
+        am_hal_gpio_out_enable_bit_clear(psLED->ui32GPIONumber);
+     e48:	4d0e      	ldr	r5, [pc, #56]	; (e84 <am_devices_led_array_init+0x1e8>)
+     e4a:	08cc      	lsrs	r4, r1, #3
+     e4c:	f004 0b04 	and.w	fp, r4, #4
+     e50:	f001 021f 	and.w	r2, r1, #31
+     e54:	445d      	add	r5, fp
+     e56:	fa06 f102 	lsl.w	r1, r6, r2
+     e5a:	6029      	str	r1, [r5, #0]
+        am_hal_gpio_out_bit_replace(psLED->ui32GPIONumber,
+     e5c:	685d      	ldr	r5, [r3, #4]
+     e5e:	f850 2c04 	ldr.w	r2, [r0, #-4]
+     e62:	f015 0f01 	tst.w	r5, #1
+     e66:	d18e      	bne.n	d86 <am_devices_led_array_init+0xea>
+     e68:	4907      	ldr	r1, [pc, #28]	; (e88 <am_devices_led_array_init+0x1ec>)
+     e6a:	e78d      	b.n	d88 <am_devices_led_array_init+0xec>
+    //
+    for ( i = 0; i < ui32NumLEDs; i++ )
+    {
+        am_devices_led_init(psLEDs + i);
+    }
+}
+     e6c:	b005      	add	sp, #20
+     e6e:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+     e72:	4770      	bx	lr
+     e74:	40010040 	.word	0x40010040
+     e78:	400100e0 	.word	0x400100e0
+     e7c:	400100a8 	.word	0x400100a8
+     e80:	40010090 	.word	0x40010090
+     e84:	400100b4 	.word	0x400100b4
+     e88:	40010098 	.word	0x40010098
+     e8c:	40010060 	.word	0x40010060
+
+00000e90 <am_devices_led_off>:
+am_devices_led_off(am_devices_led_t *psLEDs, uint32_t ui32LEDNum)
+{
+    //
+    // Handle Direct Drive Versus 3-State (with pull-up or no buffer).
+    //
+    if ( AM_DEVICES_LED_POL_DIRECT_DRIVE_M & psLEDs[ui32LEDNum].ui32Polarity )
+     e90:	eb00 03c1 	add.w	r3, r0, r1, lsl #3
+     e94:	685b      	ldr	r3, [r3, #4]
+     e96:	079a      	lsls	r2, r3, #30
+     e98:	d511      	bpl.n	ebe <am_devices_led_off+0x2e>
+    {
+        //
+        // Set the output to the correct state for the LED.
+        //
+        am_hal_gpio_out_bit_replace(psLEDs[ui32LEDNum].ui32GPIONumber,
+     e9a:	f013 0f01 	tst.w	r3, #1
+     e9e:	f850 1031 	ldr.w	r1, [r0, r1, lsl #3]
+     ea2:	bf0c      	ite	eq
+     ea4:	4808      	ldreq	r0, [pc, #32]	; (ec8 <am_devices_led_off+0x38>)
+     ea6:	4809      	ldrne	r0, [pc, #36]	; (ecc <am_devices_led_off+0x3c>)
+    else
+    {
+        //
+        // Turn off the output driver for the LED.
+        //
+        am_hal_gpio_out_enable_bit_clear(psLEDs[ui32LEDNum].ui32GPIONumber);
+     ea8:	08ca      	lsrs	r2, r1, #3
+     eaa:	f002 0c04 	and.w	ip, r2, #4
+     eae:	f001 031f 	and.w	r3, r1, #31
+     eb2:	2101      	movs	r1, #1
+     eb4:	fa01 f203 	lsl.w	r2, r1, r3
+     eb8:	f84c 2000 	str.w	r2, [ip, r0]
+     ebc:	4770      	bx	lr
+     ebe:	f850 1031 	ldr.w	r1, [r0, r1, lsl #3]
+     ec2:	4803      	ldr	r0, [pc, #12]	; (ed0 <am_devices_led_off+0x40>)
+     ec4:	e7f0      	b.n	ea8 <am_devices_led_off+0x18>
+     ec6:	bf00      	nop
+     ec8:	40010090 	.word	0x40010090
+     ecc:	40010098 	.word	0x40010098
+     ed0:	400100b4 	.word	0x400100b4
+
+00000ed4 <am_nmi_isr>:
+// by a debugger.
+//
+//*****************************************************************************
+void
+am_nmi_isr(void)
+{
+     ed4:	e7fe      	b.n	ed4 <am_nmi_isr>
+     ed6:	bf00      	nop
+
+00000ed8 <am_adc_isr>:
+// for examination by a debugger.
+//
+//*****************************************************************************
+void
+am_default_isr(void)
+{
+     ed8:	e7fe      	b.n	ed8 <am_adc_isr>
+     eda:	bf00      	nop
+
+00000edc <am_reset_isr>:
+am_reset_isr(void)
+{
+    //
+    // Set the vector table pointer.
+    //
+    __asm("    ldr    r0, =0xE000ED08\n"
+     edc:	4811      	ldr	r0, [pc, #68]	; (f24 <zero_loop+0x12>)
+     ede:	4912      	ldr	r1, [pc, #72]	; (f28 <zero_loop+0x16>)
+     ee0:	6001      	str	r1, [r0, #0]
+          "    str    r1, [r0]");
+
+    //
+    // Set the stack pointer.
+    //
+    __asm("    ldr    sp, [r1]");
+     ee2:	f8d1 d000 	ldr.w	sp, [r1]
+#ifndef NOFPU
+    //
+    // Enable the FPU.
+    //
+    __asm("ldr  r0, =0xE000ED88\n"
+     ee6:	4811      	ldr	r0, [pc, #68]	; (f2c <zero_loop+0x1a>)
+     ee8:	6801      	ldr	r1, [r0, #0]
+     eea:	f441 0170 	orr.w	r1, r1, #15728640	; 0xf00000
+     eee:	6001      	str	r1, [r0, #0]
+     ef0:	f3bf 8f4f 	dsb	sy
+     ef4:	f3bf 8f6f 	isb	sy
+          "isb\n");
+#endif
+    //
+    // Copy the data segment initializers from flash to SRAM.
+    //
+    __asm("    ldr     r0, =_init_data\n"
+     ef8:	480d      	ldr	r0, [pc, #52]	; (f30 <zero_loop+0x1e>)
+     efa:	490e      	ldr	r1, [pc, #56]	; (f34 <zero_loop+0x22>)
+     efc:	4a0e      	ldr	r2, [pc, #56]	; (f38 <zero_loop+0x26>)
+
+00000efe <copy_loop>:
+     efe:	f850 3b04 	ldr.w	r3, [r0], #4
+     f02:	f841 3b04 	str.w	r3, [r1], #4
+     f06:	4291      	cmp	r1, r2
+     f08:	dbf9      	blt.n	efe <copy_loop>
+          "        cmp     r1, r2\n"
+          "        blt     copy_loop\n");
+    //
+    // Zero fill the bss segment.
+    //
+    __asm("    ldr     r0, =_sbss\n"
+     f0a:	480c      	ldr	r0, [pc, #48]	; (f3c <zero_loop+0x2a>)
+     f0c:	490c      	ldr	r1, [pc, #48]	; (f40 <zero_loop+0x2e>)
+     f0e:	f04f 0200 	mov.w	r2, #0
+
+00000f12 <zero_loop>:
+     f12:	4288      	cmp	r0, r1
+     f14:	bfb8      	it	lt
+     f16:	f840 2b04 	strlt.w	r2, [r0], #4
+     f1a:	dbfa      	blt.n	f12 <zero_loop>
+          "        blt     zero_loop");
+
+    //
+    // Call the application's entry point.
+    //
+    main();
+     f1c:	f7ff fd8c 	bl	a38 <main>
+
+    //
+    // If main returns then execute a break point instruction
+    //
+    __asm("    bkpt     ");
+     f20:	be00      	bkpt	0x0000
+     f22:	0000      	.short	0x0000
+     f24:	e000ed08 	.word	0xe000ed08
+     f28:	00000000 	.word	0x00000000
+     f2c:	e000ed88 	.word	0xe000ed88
+     f30:	000013b0 	.word	0x000013b0
+     f34:	10001000 	.word	0x10001000
+     f38:	10001190 	.word	0x10001190
+     f3c:	10001190 	.word	0x10001190
+     f40:	10001200 	.word	0x10001200
+
+00000f44 <am_fault_isr>:
+//*****************************************************************************
+#if defined(__GNUC_STDC_INLINE__)
+uint32_t __attribute__((naked))
+am_fault_isr(void)
+{
+    __asm("    push    {r7,lr}");
+     f44:	b580      	push	{r7, lr}
+    __asm("    mov     r0, sp");
+     f46:	4668      	mov	r0, sp
+    __asm("    adds    r0, #(2*4)");
+     f48:	3008      	adds	r0, #8
+    __asm("    bl      am_util_faultisr_collect_data");
+     f4a:	f000 f805 	bl	f58 <am_util_faultisr_collect_data>
+    __asm("    pop     {r0,pc}");
+     f4e:	bd01      	pop	{r0, pc}
+
+00000f50 <getStackedReg>:
+}
+
+uint32_t __attribute__((naked))
+getStackedReg(uint32_t regnum, uint32_t u32SP)
+{
+    __asm("    lsls    r0, r0, #2");
+     f50:	0080      	lsls	r0, r0, #2
+    __asm("    adds    r0, r1");
+     f52:	1840      	adds	r0, r0, r1
+    __asm("    ldr     r0, [r0]");
+     f54:	6800      	ldr	r0, [r0, #0]
+    __asm("    bx      lr");
+     f56:	4770      	bx	lr
+
+00000f58 <am_util_faultisr_collect_data>:
+// am_fault_isr() was called.
+//
+//*****************************************************************************
+void
+am_util_faultisr_collect_data(uint32_t u32IsrSP)
+{
+     f58:	b500      	push	{lr}
+     f5a:	b093      	sub	sp, #76	; 0x4c
+    volatile am_fault_t sFaultData;
+    am_hal_mcuctrl_fault_t sHalFaultData = {0};
+     f5c:	2300      	movs	r3, #0
+    // a breakpoint at the end of the routine.  If the printing is not used,
+    // we'll get a compiler warning; so to avoid that warning, we'll use it
+    // in a dummy assignment here.
+    //
+    sFaultData.u32CFSR = u32Mask;       // Avoid compiler warning
+    sFaultData.u32CFSR = AM_REGVAL(AM_REG_SYSCTRL_CFSR_O);
+     f5e:	4a2d      	ldr	r2, [pc, #180]	; (1014 <am_util_faultisr_collect_data+0xbc>)
+    // u32Mask is used for 2 things: 1) in the print loop, 2) as a spot to set
+    // a breakpoint at the end of the routine.  If the printing is not used,
+    // we'll get a compiler warning; so to avoid that warning, we'll use it
+    // in a dummy assignment here.
+    //
+    sFaultData.u32CFSR = u32Mask;       // Avoid compiler warning
+     f60:	9310      	str	r3, [sp, #64]	; 0x40
+//*****************************************************************************
+void
+am_util_faultisr_collect_data(uint32_t u32IsrSP)
+{
+    volatile am_fault_t sFaultData;
+    am_hal_mcuctrl_fault_t sHalFaultData = {0};
+     f62:	9301      	str	r3, [sp, #4]
+     f64:	9300      	str	r3, [sp, #0]
+     f66:	9302      	str	r3, [sp, #8]
+     f68:	9303      	str	r3, [sp, #12]
+     f6a:	9304      	str	r3, [sp, #16]
+     f6c:	9305      	str	r3, [sp, #20]
+    // a breakpoint at the end of the routine.  If the printing is not used,
+    // we'll get a compiler warning; so to avoid that warning, we'll use it
+    // in a dummy assignment here.
+    //
+    sFaultData.u32CFSR = u32Mask;       // Avoid compiler warning
+    sFaultData.u32CFSR = AM_REGVAL(AM_REG_SYSCTRL_CFSR_O);
+     f6e:	6811      	ldr	r1, [r2, #0]
+     f70:	9110      	str	r1, [sp, #64]	; 0x40
+    sFaultData.u8MMSR  = (sFaultData.u32CFSR >> 0)  & 0xff;
+     f72:	9b10      	ldr	r3, [sp, #64]	; 0x40
+     f74:	b2d9      	uxtb	r1, r3
+     f76:	f88d 1044 	strb.w	r1, [sp, #68]	; 0x44
+    sFaultData.u8BFSR  = (sFaultData.u32CFSR >> 8)  & 0xff;
+     f7a:	9b10      	ldr	r3, [sp, #64]	; 0x40
+     f7c:	f3c3 2107 	ubfx	r1, r3, #8, #8
+     f80:	f88d 1045 	strb.w	r1, [sp, #69]	; 0x45
+    sFaultData.u16UFSR = (sFaultData.u32CFSR >> 16) & 0xffff;
+     f84:	9b10      	ldr	r3, [sp, #64]	; 0x40
+     f86:	0c19      	lsrs	r1, r3, #16
+     f88:	f8ad 1046 	strh.w	r1, [sp, #70]	; 0x46
+
+    //
+    // The address of the location that caused the fault.  e.g. if accessing an
+    // invalid data location caused the fault, that address will appear here.
+    //
+    sFaultData.u32BFAR = AM_REGVAL(AM_REG_SYSCTRL_BFAR_O);
+     f8c:	6912      	ldr	r2, [r2, #16]
+     f8e:	920f      	str	r2, [sp, #60]	; 0x3c
+
+    //
+    // The address of the instruction that caused the fault is the stacked PC
+    // if BFSR bit1 is set.
+    //
+    sFaultData.u32FaultAddr = (sFaultData.u8BFSR & 0x02) ? getStackedReg(6, u32IsrSP) : 0xffffffff;
+     f90:	f89d 1045 	ldrb.w	r1, [sp, #69]	; 0x45
+     f94:	078a      	lsls	r2, r1, #30
+// am_fault_isr() was called.
+//
+//*****************************************************************************
+void
+am_util_faultisr_collect_data(uint32_t u32IsrSP)
+{
+     f96:	4603      	mov	r3, r0
+
+    //
+    // The address of the instruction that caused the fault is the stacked PC
+    // if BFSR bit1 is set.
+    //
+    sFaultData.u32FaultAddr = (sFaultData.u8BFSR & 0x02) ? getStackedReg(6, u32IsrSP) : 0xffffffff;
+     f98:	d436      	bmi.n	1008 <am_util_faultisr_collect_data+0xb0>
+     f9a:	f04f 32ff 	mov.w	r2, #4294967295
+
+    //
+    // Get the stacked registers.
+    // Note - the address of the instruction that caused the fault is u32PC.
+    //
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+     f9e:	4619      	mov	r1, r3
+     fa0:	2000      	movs	r0, #0
+
+    //
+    // The address of the instruction that caused the fault is the stacked PC
+    // if BFSR bit1 is set.
+    //
+    sFaultData.u32FaultAddr = (sFaultData.u8BFSR & 0x02) ? getStackedReg(6, u32IsrSP) : 0xffffffff;
+     fa2:	920e      	str	r2, [sp, #56]	; 0x38
+
+    //
+    // Get the stacked registers.
+    // Note - the address of the instruction that caused the fault is u32PC.
+    //
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+     fa4:	f7ff ffd4 	bl	f50 <getStackedReg>
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+     fa8:	4619      	mov	r1, r3
+
+    //
+    // Get the stacked registers.
+    // Note - the address of the instruction that caused the fault is u32PC.
+    //
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+     faa:	4602      	mov	r2, r0
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+     fac:	2001      	movs	r0, #1
+
+    //
+    // Get the stacked registers.
+    // Note - the address of the instruction that caused the fault is u32PC.
+    //
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+     fae:	9206      	str	r2, [sp, #24]
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+     fb0:	f7ff ffce 	bl	f50 <getStackedReg>
+    sFaultData.u32R2  = getStackedReg(2, u32IsrSP);
+     fb4:	4619      	mov	r1, r3
+    //
+    // Get the stacked registers.
+    // Note - the address of the instruction that caused the fault is u32PC.
+    //
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+     fb6:	4602      	mov	r2, r0
+    sFaultData.u32R2  = getStackedReg(2, u32IsrSP);
+     fb8:	2002      	movs	r0, #2
+    //
+    // Get the stacked registers.
+    // Note - the address of the instruction that caused the fault is u32PC.
+    //
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+     fba:	9207      	str	r2, [sp, #28]
+    sFaultData.u32R2  = getStackedReg(2, u32IsrSP);
+     fbc:	f7ff ffc8 	bl	f50 <getStackedReg>
+    sFaultData.u32R3  = getStackedReg(3, u32IsrSP);
+     fc0:	4619      	mov	r1, r3
+    // Get the stacked registers.
+    // Note - the address of the instruction that caused the fault is u32PC.
+    //
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+    sFaultData.u32R2  = getStackedReg(2, u32IsrSP);
+     fc2:	4602      	mov	r2, r0
+    sFaultData.u32R3  = getStackedReg(3, u32IsrSP);
+     fc4:	2003      	movs	r0, #3
+    // Get the stacked registers.
+    // Note - the address of the instruction that caused the fault is u32PC.
+    //
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+    sFaultData.u32R2  = getStackedReg(2, u32IsrSP);
+     fc6:	9208      	str	r2, [sp, #32]
+    sFaultData.u32R3  = getStackedReg(3, u32IsrSP);
+     fc8:	f7ff ffc2 	bl	f50 <getStackedReg>
+    sFaultData.u32R12 = getStackedReg(4, u32IsrSP);
+     fcc:	4619      	mov	r1, r3
+    // Note - the address of the instruction that caused the fault is u32PC.
+    //
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+    sFaultData.u32R2  = getStackedReg(2, u32IsrSP);
+    sFaultData.u32R3  = getStackedReg(3, u32IsrSP);
+     fce:	4602      	mov	r2, r0
+    sFaultData.u32R12 = getStackedReg(4, u32IsrSP);
+     fd0:	2004      	movs	r0, #4
+    // Note - the address of the instruction that caused the fault is u32PC.
+    //
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+    sFaultData.u32R2  = getStackedReg(2, u32IsrSP);
+    sFaultData.u32R3  = getStackedReg(3, u32IsrSP);
+     fd2:	9209      	str	r2, [sp, #36]	; 0x24
+    sFaultData.u32R12 = getStackedReg(4, u32IsrSP);
+     fd4:	f7ff ffbc 	bl	f50 <getStackedReg>
+     fd8:	4602      	mov	r2, r0
+    sFaultData.u32LR  = getStackedReg(5, u32IsrSP);
+     fda:	4619      	mov	r1, r3
+     fdc:	2005      	movs	r0, #5
+    //
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+    sFaultData.u32R2  = getStackedReg(2, u32IsrSP);
+    sFaultData.u32R3  = getStackedReg(3, u32IsrSP);
+    sFaultData.u32R12 = getStackedReg(4, u32IsrSP);
+     fde:	920a      	str	r2, [sp, #40]	; 0x28
+    sFaultData.u32LR  = getStackedReg(5, u32IsrSP);
+     fe0:	f7ff ffb6 	bl	f50 <getStackedReg>
+     fe4:	4602      	mov	r2, r0
+    sFaultData.u32PC  = getStackedReg(6, u32IsrSP);
+     fe6:	4619      	mov	r1, r3
+     fe8:	2006      	movs	r0, #6
+    sFaultData.u32R0  = getStackedReg(0, u32IsrSP);
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+    sFaultData.u32R2  = getStackedReg(2, u32IsrSP);
+    sFaultData.u32R3  = getStackedReg(3, u32IsrSP);
+    sFaultData.u32R12 = getStackedReg(4, u32IsrSP);
+    sFaultData.u32LR  = getStackedReg(5, u32IsrSP);
+     fea:	920b      	str	r2, [sp, #44]	; 0x2c
+    sFaultData.u32PC  = getStackedReg(6, u32IsrSP);
+     fec:	f7ff ffb0 	bl	f50 <getStackedReg>
+     ff0:	4602      	mov	r2, r0
+    sFaultData.u32PSR = getStackedReg(7, u32IsrSP);
+     ff2:	4619      	mov	r1, r3
+     ff4:	2007      	movs	r0, #7
+    sFaultData.u32R1  = getStackedReg(1, u32IsrSP);
+    sFaultData.u32R2  = getStackedReg(2, u32IsrSP);
+    sFaultData.u32R3  = getStackedReg(3, u32IsrSP);
+    sFaultData.u32R12 = getStackedReg(4, u32IsrSP);
+    sFaultData.u32LR  = getStackedReg(5, u32IsrSP);
+    sFaultData.u32PC  = getStackedReg(6, u32IsrSP);
+     ff6:	920c      	str	r2, [sp, #48]	; 0x30
+    sFaultData.u32PSR = getStackedReg(7, u32IsrSP);
+     ff8:	f7ff ffaa 	bl	f50 <getStackedReg>
+     ffc:	4601      	mov	r1, r0
+
+    //
+    // Use the HAL MCUCTRL functions to read the fault data.
+    //
+    am_hal_mcuctrl_fault_status(&sHalFaultData);
+     ffe:	4668      	mov	r0, sp
+    sFaultData.u32R2  = getStackedReg(2, u32IsrSP);
+    sFaultData.u32R3  = getStackedReg(3, u32IsrSP);
+    sFaultData.u32R12 = getStackedReg(4, u32IsrSP);
+    sFaultData.u32LR  = getStackedReg(5, u32IsrSP);
+    sFaultData.u32PC  = getStackedReg(6, u32IsrSP);
+    sFaultData.u32PSR = getStackedReg(7, u32IsrSP);
+    1000:	910d      	str	r1, [sp, #52]	; 0x34
+
+    //
+    // Use the HAL MCUCTRL functions to read the fault data.
+    //
+    am_hal_mcuctrl_fault_status(&sHalFaultData);
+    1002:	f000 f85d 	bl	10c0 <am_hal_mcuctrl_fault_status>
+    1006:	e7fe      	b.n	1006 <am_util_faultisr_collect_data+0xae>
+
+    //
+    // The address of the instruction that caused the fault is the stacked PC
+    // if BFSR bit1 is set.
+    //
+    sFaultData.u32FaultAddr = (sFaultData.u8BFSR & 0x02) ? getStackedReg(6, u32IsrSP) : 0xffffffff;
+    1008:	4601      	mov	r1, r0
+    100a:	2006      	movs	r0, #6
+    100c:	f7ff ffa0 	bl	f50 <getStackedReg>
+    1010:	4602      	mov	r2, r0
+    1012:	e7c4      	b.n	f9e <am_util_faultisr_collect_data+0x46>
+    1014:	e000ed28 	.word	0xe000ed28
+
+00001018 <am_hal_clkgen_sysclk_select>:
+//! @return None.
+//
+//*****************************************************************************
+void
+am_hal_clkgen_sysclk_select(uint32_t ui32ClockSetting)
+{
+    1018:	b510      	push	{r4, lr}
+    am_hal_debug_assert_msg(ui32ClockSetting == AM_HAL_CLKGEN_SYSCLK_48MHZ,
+    101a:	4604      	mov	r4, r0
+    101c:	b120      	cbz	r0, 1028 <am_hal_clkgen_sysclk_select+0x10>
+    101e:	4a06      	ldr	r2, [pc, #24]	; (1038 <am_hal_clkgen_sysclk_select+0x20>)
+    1020:	4806      	ldr	r0, [pc, #24]	; (103c <am_hal_clkgen_sysclk_select+0x24>)
+    1022:	2150      	movs	r1, #80	; 0x50
+    1024:	f000 f81a 	bl	105c <am_hal_debug_error>
+        "am_hal_clkgen_sysclk_select(): invalid clock setting.");
+
+    //
+    // Unlock the clock control register.
+    //
+    AM_REG(CLKGEN, CLKKEY) = AM_REG_CLKGEN_CLKKEY_KEYVAL;
+    1028:	4b05      	ldr	r3, [pc, #20]	; (1040 <am_hal_clkgen_sysclk_select+0x28>)
+
+    //
+    // Set the HFRC divisor to the user-selected value.
+    //
+    AM_REG(CLKGEN, CCTRL) = ui32ClockSetting;
+    102a:	4906      	ldr	r1, [pc, #24]	; (1044 <am_hal_clkgen_sysclk_select+0x2c>)
+        "am_hal_clkgen_sysclk_select(): invalid clock setting.");
+
+    //
+    // Unlock the clock control register.
+    //
+    AM_REG(CLKGEN, CLKKEY) = AM_REG_CLKGEN_CLKKEY_KEYVAL;
+    102c:	2047      	movs	r0, #71	; 0x47
+    AM_REG(CLKGEN, CCTRL) = ui32ClockSetting;
+
+    //
+    // Lock the clock configuration registers.
+    //
+    AM_REG(CLKGEN, CLKKEY) = 0;
+    102e:	2200      	movs	r2, #0
+        "am_hal_clkgen_sysclk_select(): invalid clock setting.");
+
+    //
+    // Unlock the clock control register.
+    //
+    AM_REG(CLKGEN, CLKKEY) = AM_REG_CLKGEN_CLKKEY_KEYVAL;
+    1030:	6018      	str	r0, [r3, #0]
+
+    //
+    // Set the HFRC divisor to the user-selected value.
+    //
+    AM_REG(CLKGEN, CCTRL) = ui32ClockSetting;
+    1032:	600c      	str	r4, [r1, #0]
+
+    //
+    // Lock the clock configuration registers.
+    //
+    AM_REG(CLKGEN, CLKKEY) = 0;
+    1034:	601a      	str	r2, [r3, #0]
+    1036:	bd10      	pop	{r4, pc}
+    1038:	00001360 	.word	0x00001360
+    103c:	00001398 	.word	0x00001398
+    1040:	40004014 	.word	0x40004014
+    1044:	40004018 	.word	0x40004018
+
+00001048 <am_hal_clkgen_osc_stop>:
+//
+//*****************************************************************************
+void
+am_hal_clkgen_osc_stop(uint32_t ui32OscFlags)
+{
+    if ( ui32OscFlags & (AM_HAL_CLKGEN_OSC_LFRC | AM_HAL_CLKGEN_OSC_XT) )
+    1048:	0783      	lsls	r3, r0, #30
+    104a:	d003      	beq.n	1054 <am_hal_clkgen_osc_stop+0xc>
+    {
+        //
+        // Stop the oscillator(s).
+        // Note that these bits are set in order to stop the oscillator.
+        //
+        AM_REG(CLKGEN, OCTRL) |= ui32OscFlags;
+    104c:	4a02      	ldr	r2, [pc, #8]	; (1058 <am_hal_clkgen_osc_stop+0x10>)
+    104e:	6813      	ldr	r3, [r2, #0]
+    1050:	4318      	orrs	r0, r3
+    1052:	6010      	str	r0, [r2, #0]
+    1054:	4770      	bx	lr
+    1056:	bf00      	nop
+    1058:	4000400c 	.word	0x4000400c
+
+0000105c <am_hal_debug_error>:
+__weak void
+#else
+void __attribute__((weak))
+#endif
+am_hal_debug_error(const char *pcFile, uint32_t ui32Line, const char *pcMessage)
+{
+    105c:	e7fe      	b.n	105c <am_hal_debug_error>
+    105e:	bf00      	nop
+
+00001060 <am_hal_interrupt_enable>:
+am_hal_interrupt_enable(uint32_t ui32Interrupt)
+{
+    //
+    // Check to see what type of interrupt this is.
+    //
+    if ( ui32Interrupt > 15 )
+    1060:	280f      	cmp	r0, #15
+    1062:	d80b      	bhi.n	107c <am_hal_interrupt_enable+0x1c>
+    {
+        //
+        // If this is an ARM internal interrupt number, route it to the
+        // appropriate enable register.
+        //
+        switch(ui32Interrupt)
+    1064:	2805      	cmp	r0, #5
+    1066:	d013      	beq.n	1090 <am_hal_interrupt_enable+0x30>
+    1068:	2806      	cmp	r0, #6
+    106a:	d017      	beq.n	109c <am_hal_interrupt_enable+0x3c>
+    106c:	2804      	cmp	r0, #4
+    106e:	d104      	bne.n	107a <am_hal_interrupt_enable+0x1a>
+            case AM_HAL_INTERRUPT_USAGEFAULT:
+                AM_BFW(SYSCTRL, SHCSR, USAGEFAULTENA, 1);
+            break;
+
+            case AM_HAL_INTERRUPT_MPUFAULT:
+                AM_BFW(SYSCTRL, SHCSR, MEMFAULTENA, 1);
+    1070:	4a0d      	ldr	r2, [pc, #52]	; (10a8 <am_hal_interrupt_enable+0x48>)
+    1072:	6813      	ldr	r3, [r2, #0]
+    1074:	f443 3080 	orr.w	r0, r3, #65536	; 0x10000
+    1078:	6010      	str	r0, [r2, #0]
+    107a:	4770      	bx	lr
+    {
+        //
+        // If this ISR number corresponds to a "normal" peripheral interrupt,
+        // enable it using the NVIC register.
+        //
+        AM_REG(NVIC, ISER0) = 0x1 << ((ui32Interrupt - 16) & 0x1F);
+    107c:	f1a0 0310 	sub.w	r3, r0, #16
+    1080:	f003 0c1f 	and.w	ip, r3, #31
+    1084:	2001      	movs	r0, #1
+    1086:	4909      	ldr	r1, [pc, #36]	; (10ac <am_hal_interrupt_enable+0x4c>)
+    1088:	fa00 f20c 	lsl.w	r2, r0, ip
+    108c:	600a      	str	r2, [r1, #0]
+    108e:	4770      	bx	lr
+        // appropriate enable register.
+        //
+        switch(ui32Interrupt)
+        {
+            case AM_HAL_INTERRUPT_BUSFAULT:
+                AM_BFW(SYSCTRL, SHCSR, BUSFAULTENA, 1);
+    1090:	4805      	ldr	r0, [pc, #20]	; (10a8 <am_hal_interrupt_enable+0x48>)
+    1092:	6801      	ldr	r1, [r0, #0]
+    1094:	f441 3200 	orr.w	r2, r1, #131072	; 0x20000
+    1098:	6002      	str	r2, [r0, #0]
+            break;
+    109a:	4770      	bx	lr
+
+            case AM_HAL_INTERRUPT_USAGEFAULT:
+                AM_BFW(SYSCTRL, SHCSR, USAGEFAULTENA, 1);
+    109c:	4902      	ldr	r1, [pc, #8]	; (10a8 <am_hal_interrupt_enable+0x48>)
+    109e:	680a      	ldr	r2, [r1, #0]
+    10a0:	f442 2380 	orr.w	r3, r2, #262144	; 0x40000
+    10a4:	600b      	str	r3, [r1, #0]
+            break;
+    10a6:	4770      	bx	lr
+    10a8:	e000ed24 	.word	0xe000ed24
+    10ac:	e000e100 	.word	0xe000e100
+
+000010b0 <am_hal_interrupt_master_enable>:
+//*****************************************************************************
+#if defined(__GNUC_STDC_INLINE__)
+uint32_t __attribute__((naked))
+am_hal_interrupt_master_enable(void)
+{
+    __asm("    mrs     r0, PRIMASK");
+    10b0:	f3ef 8010 	mrs	r0, PRIMASK
+    __asm("    cpsie i");
+    10b4:	b662      	cpsie	i
+    __asm("    bx lr");
+    10b6:	4770      	bx	lr
+
+000010b8 <am_hal_interrupt_master_disable>:
+//*****************************************************************************
+#if defined(__GNUC_STDC_INLINE__)
+uint32_t __attribute__((naked))
+am_hal_interrupt_master_disable(void)
+{
+    __asm("    mrs     r0, PRIMASK");
+    10b8:	f3ef 8010 	mrs	r0, PRIMASK
+    __asm("    cpsid i");
+    10bc:	b672      	cpsid	i
+    __asm("    bx lr");
+    10be:	4770      	bx	lr
+
+000010c0 <am_hal_mcuctrl_fault_status>:
+    psFault->bSYS = (ui32FaultStat & AM_REG_MCUCTRL_FAULTSTATUS_SYS_M);
+
+    //
+    // Read the DCODE fault capture address register.
+    //
+    psFault->ui32DCODE = AM_REG(MCUCTRL, DCODEFAULTADDR);
+    10c0:	4a0d      	ldr	r2, [pc, #52]	; (10f8 <am_hal_mcuctrl_fault_status+0x38>)
+    uint32_t ui32FaultStat;
+
+    //
+    // Read the Fault Status Register.
+    //
+    ui32FaultStat = AM_REG(MCUCTRL, FAULTSTATUS);
+    10c2:	4b0e      	ldr	r3, [pc, #56]	; (10fc <am_hal_mcuctrl_fault_status+0x3c>)
+    psFault->ui32DCODE = AM_REG(MCUCTRL, DCODEFAULTADDR);
+
+    //
+    // Read the ICODE fault capture address register.
+    //
+    psFault->ui32ICODE |= AM_REG(MCUCTRL, ICODEFAULTADDR);
+    10c4:	490e      	ldr	r1, [pc, #56]	; (1100 <am_hal_mcuctrl_fault_status+0x40>)
+    uint32_t ui32FaultStat;
+
+    //
+    // Read the Fault Status Register.
+    //
+    ui32FaultStat = AM_REG(MCUCTRL, FAULTSTATUS);
+    10c6:	681b      	ldr	r3, [r3, #0]
+//! @return None
+//
+//*****************************************************************************
+void
+am_hal_mcuctrl_fault_status(am_hal_mcuctrl_fault_t *psFault)
+{
+    10c8:	b470      	push	{r4, r5, r6}
+    psFault->bSYS = (ui32FaultStat & AM_REG_MCUCTRL_FAULTSTATUS_SYS_M);
+
+    //
+    // Read the DCODE fault capture address register.
+    //
+    psFault->ui32DCODE = AM_REG(MCUCTRL, DCODEFAULTADDR);
+    10ca:	6814      	ldr	r4, [r2, #0]
+    10cc:	60c4      	str	r4, [r0, #12]
+
+    //
+    // Read the ICODE fault capture address register.
+    //
+    psFault->ui32ICODE |= AM_REG(MCUCTRL, ICODEFAULTADDR);
+    10ce:	6809      	ldr	r1, [r1, #0]
+    10d0:	6845      	ldr	r5, [r0, #4]
+
+    //
+    // Read the ICODE fault capture address register.
+    //
+    psFault->ui32SYS |= AM_REG(MCUCTRL, SYSFAULTADDR);
+    10d2:	6944      	ldr	r4, [r0, #20]
+    psFault->ui32DCODE = AM_REG(MCUCTRL, DCODEFAULTADDR);
+
+    //
+    // Read the ICODE fault capture address register.
+    //
+    psFault->ui32ICODE |= AM_REG(MCUCTRL, ICODEFAULTADDR);
+    10d4:	4329      	orrs	r1, r5
+
+    //
+    // Read the ICODE fault capture address register.
+    //
+    psFault->ui32SYS |= AM_REG(MCUCTRL, SYSFAULTADDR);
+    10d6:	3204      	adds	r2, #4
+    psFault->ui32DCODE = AM_REG(MCUCTRL, DCODEFAULTADDR);
+
+    //
+    // Read the ICODE fault capture address register.
+    //
+    psFault->ui32ICODE |= AM_REG(MCUCTRL, ICODEFAULTADDR);
+    10d8:	6041      	str	r1, [r0, #4]
+
+    //
+    // Read the ICODE fault capture address register.
+    //
+    psFault->ui32SYS |= AM_REG(MCUCTRL, SYSFAULTADDR);
+    10da:	6812      	ldr	r2, [r2, #0]
+
+    //
+    // Read the Fault Status Register.
+    //
+    ui32FaultStat = AM_REG(MCUCTRL, FAULTSTATUS);
+    psFault->bICODE = (ui32FaultStat & AM_REG_MCUCTRL_FAULTSTATUS_ICODE_M);
+    10dc:	f003 0601 	and.w	r6, r3, #1
+    psFault->ui32ICODE |= AM_REG(MCUCTRL, ICODEFAULTADDR);
+
+    //
+    // Read the ICODE fault capture address register.
+    //
+    psFault->ui32SYS |= AM_REG(MCUCTRL, SYSFAULTADDR);
+    10e0:	4322      	orrs	r2, r4
+
+    //
+    // Read the Fault Status Register.
+    //
+    ui32FaultStat = AM_REG(MCUCTRL, FAULTSTATUS);
+    psFault->bICODE = (ui32FaultStat & AM_REG_MCUCTRL_FAULTSTATUS_ICODE_M);
+    10e2:	7006      	strb	r6, [r0, #0]
+    psFault->bDCODE = (ui32FaultStat & AM_REG_MCUCTRL_FAULTSTATUS_DCODE_M);
+    10e4:	f3c3 0640 	ubfx	r6, r3, #1, #1
+    psFault->bSYS = (ui32FaultStat & AM_REG_MCUCTRL_FAULTSTATUS_SYS_M);
+    10e8:	f3c3 0380 	ubfx	r3, r3, #2, #1
+    //
+    // Read the Fault Status Register.
+    //
+    ui32FaultStat = AM_REG(MCUCTRL, FAULTSTATUS);
+    psFault->bICODE = (ui32FaultStat & AM_REG_MCUCTRL_FAULTSTATUS_ICODE_M);
+    psFault->bDCODE = (ui32FaultStat & AM_REG_MCUCTRL_FAULTSTATUS_DCODE_M);
+    10ec:	7206      	strb	r6, [r0, #8]
+    psFault->bSYS = (ui32FaultStat & AM_REG_MCUCTRL_FAULTSTATUS_SYS_M);
+    10ee:	7403      	strb	r3, [r0, #16]
+    psFault->ui32ICODE |= AM_REG(MCUCTRL, ICODEFAULTADDR);
+
+    //
+    // Read the ICODE fault capture address register.
+    //
+    psFault->ui32SYS |= AM_REG(MCUCTRL, SYSFAULTADDR);
+    10f0:	6142      	str	r2, [r0, #20]
+}
+    10f2:	bc70      	pop	{r4, r5, r6}
+    10f4:	4770      	bx	lr
+    10f6:	bf00      	nop
+    10f8:	400201c4 	.word	0x400201c4
+    10fc:	400201cc 	.word	0x400201cc
+    1100:	400201c0 	.word	0x400201c0
+
+00001104 <am_hal_rtc_osc_select>:
+    // Set XT if flag is set.
+    // Otherwise configure for LFRC.
+    //
+    if (ui32OSC)
+    {
+        AM_REG(CLKGEN, OCTRL) |= AM_REG_CLKGEN_OCTRL_OSEL_M;
+    1104:	4a05      	ldr	r2, [pc, #20]	; (111c <am_hal_rtc_osc_select+0x18>)
+    1106:	6813      	ldr	r3, [r2, #0]
+{
+    //
+    // Set XT if flag is set.
+    // Otherwise configure for LFRC.
+    //
+    if (ui32OSC)
+    1108:	b918      	cbnz	r0, 1112 <am_hal_rtc_osc_select+0xe>
+    {
+        AM_REG(CLKGEN, OCTRL) |= AM_REG_CLKGEN_OCTRL_OSEL_M;
+    }
+    else
+    {
+        AM_REG(CLKGEN, OCTRL) &= ~AM_REG_CLKGEN_OCTRL_OSEL_M;
+    110a:	f023 0080 	bic.w	r0, r3, #128	; 0x80
+    110e:	6010      	str	r0, [r2, #0]
+    1110:	4770      	bx	lr
+    // Set XT if flag is set.
+    // Otherwise configure for LFRC.
+    //
+    if (ui32OSC)
+    {
+        AM_REG(CLKGEN, OCTRL) |= AM_REG_CLKGEN_OCTRL_OSEL_M;
+    1112:	f043 0180 	orr.w	r1, r3, #128	; 0x80
+    1116:	6011      	str	r1, [r2, #0]
+    1118:	4770      	bx	lr
+    111a:	bf00      	nop
+    111c:	4000400c 	.word	0x4000400c
+
+00001120 <am_hal_rtc_osc_enable>:
+am_hal_rtc_osc_enable(void)
+{
+    //
+    // Start the RTC Oscillator.
+    //
+    AM_REG(RTC, RTCCTL) &= ~AM_REG_RTC_RTCCTL_RSTOP(1);
+    1120:	4a02      	ldr	r2, [pc, #8]	; (112c <am_hal_rtc_osc_enable+0xc>)
+    1122:	6813      	ldr	r3, [r2, #0]
+    1124:	f023 0010 	bic.w	r0, r3, #16
+    1128:	6010      	str	r0, [r2, #0]
+    112a:	4770      	bx	lr
+    112c:	40004050 	.word	0x40004050
+
+00001130 <am_hal_rtc_int_enable>:
+am_hal_rtc_int_enable(uint32_t ui32Interrupt)
+{
+    //
+    // Enable the interrupts.
+    //
+    AM_REG(RTC, INTEN) |= ui32Interrupt;
+    1130:	4a02      	ldr	r2, [pc, #8]	; (113c <am_hal_rtc_int_enable+0xc>)
+    1132:	6813      	ldr	r3, [r2, #0]
+    1134:	4318      	orrs	r0, r3
+    1136:	6010      	str	r0, [r2, #0]
+    1138:	4770      	bx	lr
+    113a:	bf00      	nop
+    113c:	40004100 	.word	0x40004100
+
+00001140 <am_hal_rtc_int_clear>:
+am_hal_rtc_int_clear(uint32_t ui32Interrupt)
+{
+    //
+    // Clear the interrupts.
+    //
+    AM_REG(RTC, INTCLR) = ui32Interrupt;
+    1140:	4b01      	ldr	r3, [pc, #4]	; (1148 <am_hal_rtc_int_clear+0x8>)
+    1142:	6018      	str	r0, [r3, #0]
+    1144:	4770      	bx	lr
+    1146:	bf00      	nop
+    1148:	40004108 	.word	0x40004108
+
+0000114c <am_hal_rtc_alarm_interval_set>:
+void
+am_hal_rtc_alarm_interval_set(uint32_t ui32RepeatInterval)
+{
+    uint32_t ui32RptInt, ui32Alm100, ui32Value;
+
+    switch(ui32RepeatInterval)
+    114c:	2808      	cmp	r0, #8
+//! @return None.
+//
+//*****************************************************************************
+void
+am_hal_rtc_alarm_interval_set(uint32_t ui32RepeatInterval)
+{
+    114e:	b410      	push	{r4}
+    uint32_t ui32RptInt, ui32Alm100, ui32Value;
+
+    switch(ui32RepeatInterval)
+    1150:	d01c      	beq.n	118c <am_hal_rtc_alarm_interval_set+0x40>
+    1152:	2809      	cmp	r0, #9
+    1154:	d110      	bne.n	1178 <am_hal_rtc_alarm_interval_set+0x2c>
+    1156:	230e      	movs	r3, #14
+        //
+        // If repeat every 100th set RPT and ALM100 field accordinly
+        //
+        case AM_HAL_RTC_ALM_RPT_100TH:
+            ui32RptInt = AM_HAL_RTC_ALM_RPT_SEC;
+            ui32Alm100 = AM_HAL_RTC_ALM100_100TH;
+    1158:	22ff      	movs	r2, #255	; 0xff
+    }
+
+    //
+    // Write the interval to the register.
+    //
+    AM_BFW(RTC, RTCCTL, RPT, ui32RptInt);
+    115a:	4c0e      	ldr	r4, [pc, #56]	; (1194 <am_hal_rtc_alarm_interval_set+0x48>)
+
+    //
+    // Write the Alarm 100 bits in the ALM100 register.
+    //
+    AM_BFW(RTC, ALMLOW, ALM100, ui32Alm100);
+    115c:	490e      	ldr	r1, [pc, #56]	; (1198 <am_hal_rtc_alarm_interval_set+0x4c>)
+    }
+
+    //
+    // Write the interval to the register.
+    //
+    AM_BFW(RTC, RTCCTL, RPT, ui32RptInt);
+    115e:	6820      	ldr	r0, [r4, #0]
+    1160:	f020 000e 	bic.w	r0, r0, #14
+    1164:	4318      	orrs	r0, r3
+    1166:	6020      	str	r0, [r4, #0]
+
+    //
+    // Write the Alarm 100 bits in the ALM100 register.
+    //
+    AM_BFW(RTC, ALMLOW, ALM100, ui32Alm100);
+    1168:	680b      	ldr	r3, [r1, #0]
+    116a:	f023 04ff 	bic.w	r4, r3, #255	; 0xff
+    116e:	4322      	orrs	r2, r4
+    1170:	600a      	str	r2, [r1, #0]
+}
+    1172:	f85d 4b04 	ldr.w	r4, [sp], #4
+    1176:	4770      	bx	lr
+        //
+        default:
+            //
+            // Get the current value of the ALM100 field.
+            //
+            ui32Value = AM_BFR(RTC, ALMLOW, ALM100);
+    1178:	4b07      	ldr	r3, [pc, #28]	; (1198 <am_hal_rtc_alarm_interval_set+0x4c>)
+    117a:	681a      	ldr	r2, [r3, #0]
+    117c:	b2d2      	uxtb	r2, r2
+    117e:	0040      	lsls	r0, r0, #1
+
+            //
+            // If ALM100 was previous EVERY_10TH or EVERY_100TH reset to zero
+            // otherwise keep previous setting.
+            //
+            ui32Alm100 = ui32Value >= 0xF0 ? 0 : ui32Value;
+    1180:	2aef      	cmp	r2, #239	; 0xef
+    1182:	f000 030e 	and.w	r3, r0, #14
+    1186:	d9e8      	bls.n	115a <am_hal_rtc_alarm_interval_set+0xe>
+    1188:	2200      	movs	r2, #0
+    118a:	e7e6      	b.n	115a <am_hal_rtc_alarm_interval_set+0xe>
+void
+am_hal_rtc_alarm_interval_set(uint32_t ui32RepeatInterval)
+{
+    uint32_t ui32RptInt, ui32Alm100, ui32Value;
+
+    switch(ui32RepeatInterval)
+    118c:	230e      	movs	r3, #14
+        //
+        // If repeat every 10th set RPT and ALM100 field accordinly
+        //
+        case AM_HAL_RTC_ALM_RPT_10TH:
+            ui32RptInt = AM_HAL_RTC_ALM_RPT_SEC;
+            ui32Alm100 = AM_HAL_RTC_ALM100_10TH;
+    118e:	22f0      	movs	r2, #240	; 0xf0
+    1190:	e7e3      	b.n	115a <am_hal_rtc_alarm_interval_set+0xe>
+    1192:	bf00      	nop
+    1194:	40004050 	.word	0x40004050
+    1198:	40004048 	.word	0x40004048
+
+0000119c <memcpy>:
+    119c:	b510      	push	{r4, lr}
+    119e:	1e43      	subs	r3, r0, #1
+    11a0:	440a      	add	r2, r1
+    11a2:	4291      	cmp	r1, r2
+    11a4:	d004      	beq.n	11b0 <memcpy+0x14>
+    11a6:	f811 4b01 	ldrb.w	r4, [r1], #1
+    11aa:	f803 4f01 	strb.w	r4, [r3, #1]!
+    11ae:	e7f8      	b.n	11a2 <memcpy+0x6>
+    11b0:	bd10      	pop	{r4, pc}
+    11b2:	0000      	movs	r0, r0
+    11b4:	00474f44 	.word	0x00474f44
+    11b8:	00656854 	.word	0x00656854
+    11bc:	00454854 	.word	0x00454854
+    11c0:	20454854 	.word	0x20454854
+    11c4:	574f5242 	.word	0x574f5242
+    11c8:	4f46204e 	.word	0x4f46204e
+    11cc:	554a2058 	.word	0x554a2058
+    11d0:	2053504d 	.word	0x2053504d
+    11d4:	5245564f 	.word	0x5245564f
+    11d8:	45485420 	.word	0x45485420
+    11dc:	5a414c20 	.word	0x5a414c20
+    11e0:	4f442059 	.word	0x4f442059
+    11e4:	54202147 	.word	0x54202147
+    11e8:	42206568 	.word	0x42206568
+    11ec:	6e776f72 	.word	0x6e776f72
+    11f0:	786f4620 	.word	0x786f4620
+    11f4:	6d756a20 	.word	0x6d756a20
+    11f8:	4f207370 	.word	0x4f207370
+    11fc:	20726576 	.word	0x20726576
+    1200:	20656854 	.word	0x20656854
+    1204:	7a7a614c 	.word	0x7a7a614c
+    1208:	6f442079 	.word	0x6f442079
+    120c:	00002167 	.word	0x00002167
+    1210:	20454854 	.word	0x20454854
+    1214:	54544557 	.word	0x54544557
+    1218:	41432045 	.word	0x41432045
+    121c:	554a2054 	.word	0x554a2054
+    1220:	2053504d 	.word	0x2053504d
+    1224:	5245564f 	.word	0x5245564f
+    1228:	45485420 	.word	0x45485420
+    122c:	5a414c20 	.word	0x5a414c20
+    1230:	4f442059 	.word	0x4f442059
+    1234:	54202147 	.word	0x54202147
+    1238:	42206568 	.word	0x42206568
+    123c:	6e776f72 	.word	0x6e776f72
+    1240:	786f4620 	.word	0x786f4620
+    1244:	6d756a20 	.word	0x6d756a20
+    1248:	4f207370 	.word	0x4f207370
+    124c:	20726576 	.word	0x20726576
+    1250:	20656854 	.word	0x20656854
+    1254:	7a7a614c 	.word	0x7a7a614c
+    1258:	6f442079 	.word	0x6f442079
+    125c:	00002167 	.word	0x00002167
+    1260:	20454854 	.word	0x20454854
+    1264:	54494857 	.word	0x54494857
+    1268:	4f462045 	.word	0x4f462045
+    126c:	554a2058 	.word	0x554a2058
+    1270:	2053504d 	.word	0x2053504d
+    1274:	5245564f 	.word	0x5245564f
+    1278:	45485420 	.word	0x45485420
+    127c:	5a414c20 	.word	0x5a414c20
+    1280:	4f442059 	.word	0x4f442059
+    1284:	54202147 	.word	0x54202147
+    1288:	42206568 	.word	0x42206568
+    128c:	6e776f72 	.word	0x6e776f72
+    1290:	786f4620 	.word	0x786f4620
+    1294:	6d756a20 	.word	0x6d756a20
+    1298:	4f207370 	.word	0x4f207370
+    129c:	20726576 	.word	0x20726576
+    12a0:	20656854 	.word	0x20656854
+    12a4:	7a7a614c 	.word	0x7a7a614c
+    12a8:	6f442079 	.word	0x6f442079
+    12ac:	00002167 	.word	0x00002167
+    12b0:	20454854 	.word	0x20454854
+    12b4:	4d415453 	.word	0x4d415453
+    12b8:	41432050 	.word	0x41432050
+    12bc:	554a2054 	.word	0x554a2054
+    12c0:	2053504d 	.word	0x2053504d
+    12c4:	5245564f 	.word	0x5245564f
+    12c8:	45485420 	.word	0x45485420
+    12cc:	5a414c20 	.word	0x5a414c20
+    12d0:	4f442059 	.word	0x4f442059
+    12d4:	54202147 	.word	0x54202147
+    12d8:	42206568 	.word	0x42206568
+    12dc:	6e776f72 	.word	0x6e776f72
+    12e0:	786f4620 	.word	0x786f4620
+    12e4:	6d756a20 	.word	0x6d756a20
+    12e8:	4f207370 	.word	0x4f207370
+    12ec:	20726576 	.word	0x20726576
+    12f0:	20656854 	.word	0x20656854
+    12f4:	7a7a614c 	.word	0x7a7a614c
+    12f8:	6f442079 	.word	0x6f442079
+    12fc:	00002167 	.word	0x00002167
+
+00001300 <lcd_7segment_ascii_table>:
+    1300:	00210000 0100006d 00000f39 06004000     ..!.m...9....@..
+    1310:	4f5b063f 077d6d66 00006f7f 53004800     ?.[Ofm}..o...H.S
+    1320:	397c7700 3d71795e 7c1f0676 3f3e3e38     .w|9^yq=v..|8>>?
+    1330:	6d776773 3e3e1c78 395b6e76 08010f30     sgwmx.>>vn[90...
+    1340:	587c5f02 6f717b5e 7c1f0474 5c545406     ._|X^{qot..|.TT\
+    1350:	6d506773 1c1c1c78 395b6e76 00000f30     sgPmx...vn[90...
+    1360:	685f6d61 635f6c61 65676b6c 79735f6e     am_hal_clkgen_sy
+    1370:	6b6c6373 6c65735f 28746365 69203a29     sclk_select(): i
+    1380:	6c61766e 63206469 6b636f6c 74657320     nvalid clock set
+    1390:	676e6974 0000002e 2e5c2e2e 6d615c2e     ting......\..\am
+    13a0:	6c61685f 6b6c635f 2e6e6567 00000063     _hal_clkgen.c...

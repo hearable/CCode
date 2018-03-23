@@ -1,0 +1,13 @@
+.\bin\heap_2.o: ../../../../../third_party/FreeRTOS9/Source/portable/MemMang/heap_2.c
+.\bin\heap_2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\bin\heap_2.o: ../../../../../third_party/FreeRTOS9/Source/include/FreeRTOS.h
+.\bin\heap_2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\bin\heap_2.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\bin\heap_2.o: ../src/FreeRTOSConfig.h
+.\bin\heap_2.o: ../../../../../third_party/FreeRTOS9/Source/include/projdefs.h
+.\bin\heap_2.o: ../../../../../third_party/FreeRTOS9/Source/include/portable.h
+.\bin\heap_2.o: ../../../../../third_party/FreeRTOS9/Source/include/deprecated_definitions.h
+.\bin\heap_2.o: ../../../../../third_party/FreeRTOS9/Source/portable/Keil/AMapollo2/portmacro.h
+.\bin\heap_2.o: ../../../../../third_party/FreeRTOS9/Source/include/mpu_wrappers.h
+.\bin\heap_2.o: ../../../../../third_party/FreeRTOS9/Source/include/task.h
+.\bin\heap_2.o: ../../../../../third_party/FreeRTOS9/Source/include/list.h

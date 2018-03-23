@@ -1,0 +1,15 @@
+.\bin\queue.o: ../../../../../third_party/FreeRTOS9/Source/queue.c
+.\bin\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\bin\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\bin\queue.o: ../../../../../third_party/FreeRTOS9/Source/include/FreeRTOS.h
+.\bin\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\bin\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\bin\queue.o: ../src/FreeRTOSConfig.h
+.\bin\queue.o: ../../../../../third_party/FreeRTOS9/Source/include/projdefs.h
+.\bin\queue.o: ../../../../../third_party/FreeRTOS9/Source/include/portable.h
+.\bin\queue.o: ../../../../../third_party/FreeRTOS9/Source/include/deprecated_definitions.h
+.\bin\queue.o: ../../../../../third_party/FreeRTOS9/Source/portable/Keil/AMapollo2/portmacro.h
+.\bin\queue.o: ../../../../../third_party/FreeRTOS9/Source/include/mpu_wrappers.h
+.\bin\queue.o: ../../../../../third_party/FreeRTOS9/Source/include/task.h
+.\bin\queue.o: ../../../../../third_party/FreeRTOS9/Source/include/list.h
+.\bin\queue.o: ../../../../../third_party/FreeRTOS9/Source/include/queue.h

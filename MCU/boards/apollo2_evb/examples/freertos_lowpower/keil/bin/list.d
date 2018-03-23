@@ -1,0 +1,12 @@
+.\bin\list.o: ../../../../../third_party/FreeRTOS9/Source/list.c
+.\bin\list.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\bin\list.o: ../../../../../third_party/FreeRTOS9/Source/include/FreeRTOS.h
+.\bin\list.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\bin\list.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\bin\list.o: ../src/FreeRTOSConfig.h
+.\bin\list.o: ../../../../../third_party/FreeRTOS9/Source/include/projdefs.h
+.\bin\list.o: ../../../../../third_party/FreeRTOS9/Source/include/portable.h
+.\bin\list.o: ../../../../../third_party/FreeRTOS9/Source/include/deprecated_definitions.h
+.\bin\list.o: ../../../../../third_party/FreeRTOS9/Source/portable/Keil/AMapollo2/portmacro.h
+.\bin\list.o: ../../../../../third_party/FreeRTOS9/Source/include/mpu_wrappers.h
+.\bin\list.o: ../../../../../third_party/FreeRTOS9/Source/include/list.h

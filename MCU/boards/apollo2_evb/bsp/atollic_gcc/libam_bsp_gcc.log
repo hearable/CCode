@@ -1,0 +1,17 @@
+Create.
+Opening 'am_bsp_gcc'.
+Refreshing '/am_bsp_gcc'.
+10:55:27 **** Clean-only build of configuration bin for project am_bsp_gcc ****
+rm -f am_bsp.o libam_bsp_gcc.a am_bsp.d 
+
+10:55:27 Build Finished (took 117ms)
+
+10:55:27 **** Rebuild of configuration bin for project am_bsp_gcc ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\..\am_bsp.c -mthumb -mcpu=cortex-m4 -std=c99 -DAM_PACKAGE_BGA -DAM_PART_APOLLO2 -IC:/jenkins/jobs/ambiqsuite-checkout/workspace/ambiqsuite-sdk/boards/apollo2_evb/bsp/atollic_gcc/../../../../mcu/apollo2 -IC:/jenkins/jobs/ambiqsuite-checkout/workspace/ambiqsuite-sdk/boards/apollo2_evb/bsp/atollic_gcc/../../../../devices -O3 -ffunction-sections -fdata-sections -g -Wall -mthumb -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=softfp -ffunction-sections -fdata-sections -MMD -MP -O3 -funroll-loops -Dgcc -o am_bsp.o 
+arm-atollic-eabi-ar -rsvc libam_bsp_gcc.a am_bsp.o 
+a - am_bsp.o
+Info: Parallel threads used: 1
+
+10:55:28 Build Finished (took 614ms)
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<index schemaVersion="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PackIndex.xsd">
+  <vendor>AmbiqMicro</vendor>
+  <!-- url for this CMSIS-Pack index file -->
+  <url>http://s3.ambiqmicro.com/pack/</url>
+  <!-- time of last update -->
+  <timestamp>2017-03-10T12:00:00</timestamp>
+  <!-- list of all CMSIS-Packs hosted by vendor AmbiqMicro -->
+  <pindex>
+    <pdsc url="http://s3.ambiqmicro.com/pack/" vendor="AmbiqMicro" name="Apollo_DFP" version="1.0.0" date="2017-03-10"/>
+  </pindex>
+</index>

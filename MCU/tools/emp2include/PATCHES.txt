@@ -1,0 +1,19 @@
+0000000_META_hci_patches_v4_iram.emp
+Format Version                      1
+Container ID                       44
+Build number                     3089
+User Build                          0
+
+0000000_META_hci_patches_v4_otp.emp
+Format Version                      2
+Container ID                       44
+Build number                     3089
+User Build                          0
+
+0001642_PROD_boot_overhead.emp
+AM_02_01_BootOverhead.emp
+Format Version                      1
+Container ID                       43
+Build number                     3089
+User Build                          0
+ 
