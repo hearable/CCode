@@ -1,5 +1,5 @@
 Dependencies for Project 'adc_lpmode0', Target 'adc_lpmode0': (DO NOT MODIFY !)
-F (ADC.c)(0x5AB52478)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 -Otime --apcs=interwork --split_sections -I ../bsp -I ../ -I ../utils -I ../devices -I ../mcu/apollo2-I.\RTE\_adc_lpmode0-IC:\Keil_v5\ARM\PACK\AmbiqMicro\Apollo_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DAPOLLO2_1024 -DAM_PACKAGE_BGA -DAM_PART_APOLLO2 -Dkeil-o .\bin\adc.o --omf_browse .\bin\adc.crf --depend .\bin\adc.d)
+F (ADC.c)(0x5AB8E4F5)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 -Otime --apcs=interwork --split_sections -I ../bsp -I ../ -I ../utils -I ../devices -I ../mcu/apollo2-I.\RTE\_adc_lpmode0-IC:\Keil_v5\ARM\PACK\AmbiqMicro\Apollo_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="524" -DAPOLLO2_1024 -DAM_PACKAGE_BGA -DAM_PART_APOLLO2 -Dkeil-o .\bin\adc.o --omf_browse .\bin\adc.crf --depend .\bin\adc.d)
 I (../mcu/apollo2/am_mcu_apollo.h)(0x5AB4BB79)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x588BE5B4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BE5B4)

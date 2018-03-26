@@ -95,6 +95,20 @@ void am_adc_isr(void)
 	
 }
 
+void bitreturn(uint32_t val)
+{ 
+    int i;
+    char str[33];
+    for (i = 31; i >= 0; i--)
+	str[31-i] = '0' + ((val >> i) & 0x1);
+    str[32] = 0;
+		for(int j=0;j<32;j++){
+			am_util_stdio_printf("%c",str[j]);
+		}
+		am_util_stdio_printf("\n");
+    return;
+}
+
 int main() 
 {
 	//GENERAL CONFIGURATIONS
@@ -139,6 +153,16 @@ int main()
 	
 	//zwischenspeicher von output
 	uint32_t* fifo = (uint32_t*)(0x50010038);
+	
+	
+	//regelmässiger Output des FIFO Inhaltes
+	do
+	{
+		bitreturn((*fifo) & 0xFFFFF);
+		am_util_delay_ms(10);
+	}while(AM_HAL_ADC_FIFO_COUNT(am_hal_adc_fifo_pop()>0));
+
+	
 	//Output fifo
 	am_util_stdio_printf("%u\n", (*fifo) & 0xFFFFF);
 	am_util_stdio_printf("ADC with 1.2Msps");
