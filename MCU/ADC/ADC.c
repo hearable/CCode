@@ -63,14 +63,14 @@ uint32_t g_ui32ADCSampleIndex = 0;
 
 //*****************************************************************************
 //
-// Start up the ITM interface.
-//
+// Start up the ITM interface => Instrumentation Trace Macrocell
+// Used for Debugging
 //*****************************************************************************
 void
 itm_start(void)
 {
     //
-    // Initialize the printf interface for ITM/SWO output.
+    // Initialize the printf interface for ITM/SWO output. (SWO => Single Wire Output)
     //
     am_util_stdio_printf_init((am_util_stdio_print_char_t) am_bsp_itm_string_print);
 
@@ -99,6 +99,7 @@ itm_start(void)
 void
 adc_config(void)
 {
+		// "Variabeln" deklaration, Datenstruktur benutzt um den ADC zu konfigurieren
     am_hal_adc_config_t sADCConfig;
 
     //
@@ -106,7 +107,7 @@ adc_config(void)
     //
     am_hal_pwrctrl_periph_enable(AM_HAL_PWRCTRL_ADC);
 
-    //
+    //ADC CONFIGURATIONS
     // Set up the ADC configuration parameters. These settings are reasonable
     // for accurate measurements at a low sample rate.
     //
@@ -118,7 +119,7 @@ adc_config(void)
     sADCConfig.ui32Repeat = AM_HAL_ADC_REPEAT;
     am_hal_adc_config(&sADCConfig);
 
-    //
+    // when to wake up
     // For this example, the samples will be coming in slowly. This means we
     // can afford to wake up for every conversion.
     //
@@ -138,7 +139,7 @@ adc_config(void)
 }
 
 //*****************************************************************************
-//
+// TimeNumber of ADC needs to be 3, TimerSegment?
 // Initialize the ADC repetitive sample timer A3.
 //
 //*****************************************************************************
@@ -147,15 +148,15 @@ init_timerA3_for_ADC(void)
 {
     //
     // Start a timer to trigger the ADC periodically (1 second).
-    //
+    // (TimerNumber, TimerSegment, CifigVal)
     am_hal_ctimer_config_single(3, AM_HAL_CTIMER_TIMERA,
                                    AM_HAL_CTIMER_HFRC_12MHZ |
                                    AM_HAL_CTIMER_FN_REPEAT |
                                    AM_HAL_CTIMER_INT_ENABLE |
                                    AM_HAL_CTIMER_PIN_ENABLE);
-
+		//(Interrupt)
     am_hal_ctimer_int_enable(AM_HAL_CTIMER_INT_TIMERA3);
-
+		//TimerNumber, TimerSegment, Period, OnTime
     am_hal_ctimer_period_set(3, AM_HAL_CTIMER_TIMERA, 10, 5);
 
     //
@@ -164,7 +165,7 @@ init_timerA3_for_ADC(void)
     am_hal_ctimer_adc_trigger_enable();
 
     //
-    // Start the timer.
+    // Start the timer (TimerNumber, TimerSegment)
     //
     am_hal_ctimer_start(3, AM_HAL_CTIMER_TIMERA);
 }
@@ -177,6 +178,7 @@ init_timerA3_for_ADC(void)
 void
 am_adc_isr(void)
 {
+		// Variabeln auf 32 Bit festsetzen, Status ist interrupt status
     uint32_t ui32Status, ui32FifoData;
 
     //
@@ -199,7 +201,7 @@ am_adc_isr(void)
       {
         //
         // Read the value from the FIFO into the circular buffer.
-        //
+        // and print it
         ui32FifoData = am_hal_adc_fifo_pop();
 				am_util_stdio_printf("%d \n", ui32FifoData);
         g_ui32ADCSampleBuffer[g_ui32ADCSampleIndex] = AM_HAL_ADC_FIFO_FULL_SAMPLE(ui32FifoData);
@@ -218,7 +220,7 @@ am_adc_isr(void)
 int
 main(void)
 {
-    //
+    // GENERAL CONFIGURATIONS	
     // Set the system clock to maximum frequency, and set the default low-power
     // settings for this board.
     //
@@ -237,8 +239,8 @@ main(void)
     am_hal_pwrctrl_memory_enable(AM_HAL_PWRCTRL_MEMEN_FLASH512K);
     am_hal_pwrctrl_memory_enable(AM_HAL_PWRCTRL_MEMEN_SRAM16K);
 
-    //
-    // Allow the XTAL to turn off.
+    // CLOCK AND TIMER CONFIGURATIONS
+    // Allow the XTAL (oscillator) to turn off.
     //
     am_hal_clkgen_osc_stop(AM_HAL_CLKGEN_OSC_XT);
 
@@ -253,28 +255,28 @@ main(void)
     itm_start();
 
     //
-    // Start the CTIMER A3 for timer-based ADC measurements.
+    // Start the CTIMER A3 (generell purpose timer) for timer-based ADC measurements.
     //
     init_timerA3_for_ADC();
 
-    //
+    // INTERRUPTS
     // Enable interrupts.
     //
     am_hal_interrupt_enable(AM_HAL_INTERRUPT_ADC);
     am_hal_interrupt_master_enable();
 
-    //
+    // INPUT CONFIGURATIONS
     // Set a pin to act as our ADC input
     //
     am_hal_gpio_pin_config(16, AM_HAL_PIN_16_ADCSE0);
 
-    //
+    // CONFIGURE ADC
     // Configure the ADC
     //
     adc_config();
 
     //
-    // Trigger the ADC sampling for the first time manually.
+    // Trigger the ADC sampling for the first time manually. (with the software)
     //
     am_hal_adc_trigger();
 
