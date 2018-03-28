@@ -1,6 +1,10 @@
 #ifndef HANNING_H_INCLUDED
 #define HANNING_H_INCLUDED
 
+#ifndef PI
+	#define PI 3.14159265359
+#endif
+
 // Defines whether the periodic or the symmetric version should be used
 typedef enum {SYMMETRIC, PERIODIC} HanningPeriodicity;
 
@@ -10,7 +14,7 @@ log2(windowSize) is an integer.
 periodicity is either symmetric for creating FIR filters from IIR filters or
 periodic for STFT applications.
 */
-double* Hanning(int windowSize, HanningPeriodicity periodicity);
+float* HanningWindow(int windowSize, HanningPeriodicity periodicity);
 /* POST:
 Returns the corresponding Hanning-Window
 */
@@ -19,7 +23,7 @@ Returns the corresponding Hanning-Window
 PRE:
 windowSize is the dimension of currentWindowRe and previousWindowRe
 */
-double* OverlapAddHanning(int windowSize, double overlapPercentage, double* currentWindowRe, double* previousWindowRe);
+float* OverlapAddHanning(int windowSize, float overlapPercentage, float* currentWindowRe, float* previousWindowRe);
 /* POST:
 Returns the overlapped sum of two Hanning-Windows
 */
@@ -32,5 +36,5 @@ typedef enum {HEAD, MID, TAIL} OverlapPart;
 /*
 Parses the HEAD/MID/TAIL portion of the output of OverlapAddHanning
 */
-double* ReturnWindowOutputHanning(int windowSize, double overlapPercentage, double* overlapAddResult, OverlapPart part);
+float* ReturnWindowOutputHanning(int windowSize, float overlapPercentage, float* overlapAddResult, OverlapPart part);
 #endif // HANNING_H_INCLUDED

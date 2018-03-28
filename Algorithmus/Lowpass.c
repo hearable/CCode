@@ -1,13 +1,17 @@
 #include "Lowpass.h"
 #include "Hanning.h"
+#include <stdlib.h>
 
 // implements Hanning-Lowpass, n bin rolloff
-double* LowpassFilter(int windowSize, double sampleFrequency, double cutOffFrequency, int rolloff){
-    double* resultValue = (double*) calloc(windowSize, sizeof(double));
+// Implemented in frequency domain
+float* LowpassFilter(int windowSize, float sampleFrequency, float cutOffFrequency, int rolloff){
+    float* resultValue = (float*) calloc(windowSize, sizeof(float));
 
-    int finalbin = (windowSize) * ((cutOffFrequency/sampleFrequency)+(1.0d/(windowSize+1)));
+    int finalbin = (windowSize) * ((cutOffFrequency/sampleFrequency)+(1.0f/(windowSize+1)));
 
-    double* hanningWindow = HanningWindow(2*rolloff, SYMMETRIC);
+
+    // Pick a hanning window which is twice as wide, and only take half of it
+    float* hanningWindow = HanningWindow(2*rolloff, SYMMETRIC);
 
     for(int i=0;i<finalbin-((rolloff+1)/2);i++){
         resultValue[i] = 1;
