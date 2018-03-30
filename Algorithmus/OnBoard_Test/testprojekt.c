@@ -50,6 +50,7 @@
 #include "am_bsp.h"
 #include "am_util.h"
 #include "Utils.h"
+#include "pffft.h"
 
 
 //*****************************************************************************
@@ -102,7 +103,7 @@ main(void)
 		
     am_util_stdio_terminal_clear();
 		
-		TestSetup();
+		TestSetup(MUTE, 256, 1);
 	
     am_bsp_debug_printf_disable();
 

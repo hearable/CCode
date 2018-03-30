@@ -82,18 +82,23 @@ void CyclicCosineForwardShift(float* spectrumRe, float* spectrumIm, int windowSi
     return;
 }
 
+// This function is implemented in time domain
 void CyclicCosineForwardShiftInTime(float* data, int windowSize, float sampleFrequency, float shiftFrequency){
 		for(int i=0;i<windowSize;i++){
 			data[i] *= cos(2*PI*i*(shiftFrequency/sampleFrequency));
 		}
 }
 
+// This function is implemented in time domain
+// Saves time by not always recomputing this cosine terms
 void CyclicForwardShiftInTime(float* data, int windowSize, float* vector){
 		for(int i=0;i<windowSize;i++){
 			data[i] *= vector[i];
 		}
 }
 
+// This function is implemented in time domain
+// Helper function to initialize a frequency shift vector to save some time in the long term
 void InitializeCosineVector(float* vector, int windowSize, float sampleFrequency, float shiftFrequency){
 		for(int i=0;i<windowSize;i++){
 			vector[i] = cos(2*PI*(shiftFrequency/sampleFrequency)*i);

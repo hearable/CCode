@@ -48,7 +48,6 @@ bool Fft_transform(float real[], float imag[], size_t n) {
 		return Fft_transformBluestein(real, imag, n);
 }
 
-
 bool Fft_inverseTransform(float real[], float imag[], size_t n) {
 	bool returnValue = Fft_transform(imag, real, n);
 	for(int i=0;i<n;i++){
@@ -58,24 +57,28 @@ bool Fft_inverseTransform(float real[], float imag[], size_t n) {
 	return returnValue;
 }
 
-
 bool Fft_transformRadix2(float real[], float imag[], size_t n) {
 	// Length variables
 	bool status = false;
 	int levels = 0;  // Compute levels = floor(log2(n))
-	for (size_t temp = n; temp > 1U; temp >>= 1)
+	for (size_t i = n; i > 1U; i >>= 1){
 		levels++;
-	if ((size_t)1U << levels != n)
+	}
+	if ((size_t)1U << levels != n){
 		return false;  // n is not a power of 2
-
+	}
 	// Trignometric tables
-	if (SIZE_MAX / sizeof(float) < n / 2)
+	if (SIZE_MAX / sizeof(float) < n / 2){
 		return false;
+	}
 	size_t size = (n / 2) * sizeof(float);
 	float *cos_table = malloc(size);
 	float *sin_table = malloc(size);
-	if (cos_table == NULL || sin_table == NULL)
-		goto cleanup;
+	if (cos_table == NULL || sin_table == NULL){
+			free(cos_table);
+			free(sin_table);
+			return status;
+	}
 	for (size_t i = 0; i < n / 2; i++) {
 		cos_table[i] = cos(2 * PI * i / n);
 		sin_table[i] = sin(2 * PI * i / n);
@@ -113,10 +116,6 @@ bool Fft_transformRadix2(float real[], float imag[], size_t n) {
 			break;
 	}
 	status = true;
-
-cleanup:
-	free(cos_table);
-	free(sin_table);
 	return status;
 }
 
@@ -273,4 +272,72 @@ static void *memdup(const void *src, size_t n) {
 	if (n > 0 && dest != NULL)
 		memcpy(dest, src, n);
 	return dest;
+}
+
+bool Fft_inverseTransform_static(float real[], float imag[], size_t n, float* sin_table, float* cos_table) {
+	bool returnValue = Fft_transform(imag, real, n);
+	for(int i=0;i<n;i++){
+        imag[i] /= n;
+        real[i] /= n;
+	}
+	return returnValue;
+}
+
+bool Fft_transformRadix2_static(float real[], float imag[], size_t n, float* sin_table, float* cos_table) {
+	// Length variables
+	bool status = false;
+	int levels = 0;  // Compute levels = floor(log2(n))
+	for (size_t i = n; i > 1U; i >>= 1){
+		levels++;
+	}
+	if ((size_t)1U << levels != n){
+		return false;  // n is not a power of 2
+	}
+	// Trignometric tables
+	if (SIZE_MAX / sizeof(float) < n / 2){
+		return false;
+	}
+
+	// Bit-reversed addressing permutation
+	for (size_t i = 0; i < n; i++) {
+		size_t j = reverse_bits(i, levels);
+		if (j > i) {
+			float temp = real[i];
+			real[i] = real[j];
+			real[j] = temp;
+			temp = imag[i];
+			imag[i] = imag[j];
+			imag[j] = temp;
+		}
+	}
+
+	// Cooley-Tukey decimation-in-time radix-2 FFT
+	for (size_t size = 2; size <= n; size *= 2) {
+		size_t halfsize = size / 2;
+		size_t tablestep = n / size;
+		for (size_t i = 0; i < n; i += size) {
+			for (size_t j = i, k = 0; j < i + halfsize; j++, k += tablestep) {
+				size_t l = j + halfsize;
+				float tpre =  real[l] * cos_table[k] + imag[l] * sin_table[k];
+				float tpim = -real[l] * sin_table[k] + imag[l] * cos_table[k];
+				real[l] = real[j] - tpre;
+				imag[l] = imag[j] - tpim;
+				real[j] += tpre;
+				imag[j] += tpim;
+			}
+		}
+		if (size == n)  // Prevent overflow in 'size *= 2'
+			break;
+	}
+	status = true;
+	return status;
+}
+
+bool Fft_transform_static(float real[], float imag[], size_t n, float* sin_table, float* cos_table) {
+	if (n == 0)
+		return true;
+	else if ((n & (n - 1)) == 0)  // Is power of 2
+		return Fft_transformRadix2_static(real, imag, n, sin_table, cos_table);
+	else  // More complicated algorithm for arbitrary sizes
+		return Fft_transformBluestein(real, imag, n);
 }

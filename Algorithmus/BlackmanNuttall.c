@@ -3,6 +3,7 @@
 #include <math.h>
 
 // Implements the BlackmanNutall Windowfunction
+// Currently NOT used
 float* BlackmanNutall(int effectiveWindowSize){
 
     float* filterValues;

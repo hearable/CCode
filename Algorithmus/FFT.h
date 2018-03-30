@@ -31,7 +31,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-
 /*
  * Computes the discrete Fourier transform (DFT) of the given complex vector, storing the result back into the vector.
  * The vector can have any length. This is a wrapper function. Returns true if successful, false otherwise (out of memory).
@@ -75,5 +74,11 @@ bool Fft_convolveReal(const float x[], const float y[], float out[], size_t n);
  * Returns true if successful, false otherwise (out of memory).
  */
 bool Fft_convolveComplex(const float xreal[], const float ximag[], const float yreal[], const float yimag[], float outreal[], float outimag[], size_t n);
+
+// These function work similar to the original ones, save some tweaking
+bool Fft_transformRadix2_static(float real[], float imag[], size_t n, float* sin_table, float* cos_table);
+bool Fft_inverseTransform_static(float real[], float imag[], size_t n, float* sin_table, float* cos_table);
+bool Fft_transform_static(float real[], float imag[], size_t n, float* sin_table, float* cos_table);
+
 
 #endif

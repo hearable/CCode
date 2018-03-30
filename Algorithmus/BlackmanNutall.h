@@ -6,6 +6,7 @@
 #endif
 
 // Optimal overlap: 66.3%
+// Basic BlackmanNutall window
 float* BlackmanNutall(int windowSize);
 
 #endif // BLACKMANNUTALL_H_INCLUDED
