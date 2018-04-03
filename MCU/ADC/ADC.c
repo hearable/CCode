@@ -56,7 +56,10 @@
 // Define a circular buffer to hold the ADC samples
 //
 //*****************************************************************************
-#define ADC_SAMPLE_BUF_SIZE 1024
+//#define ADC_SAMPLE_BUF_SIZE 1024 //windowsize hier anpassen => auskommentiert
+//definiere main Funktion um Variabeln nachher zu haben
+int main(uint32_t ADC_SAMPLE_BUF_SIZE, int* daten[3][ADC_SAMPLE_BUF_SIZE]);
+//Index für den Buffer
 #define ADC_SAMPLE_INDEX_M  0x3FF
 uint32_t g_ui32ADCSampleBuffer[ADC_SAMPLE_BUF_SIZE];
 uint32_t g_ui32ADCSampleIndex = 0;
@@ -154,7 +157,7 @@ init_timerA3_for_ADC(void)
                                    AM_HAL_CTIMER_FN_REPEAT |
                                    AM_HAL_CTIMER_INT_ENABLE |
                                    AM_HAL_CTIMER_PIN_ENABLE);
-		//(Interrupt)
+	//parameter: which interrput is to be used
     am_hal_ctimer_int_enable(AM_HAL_CTIMER_INT_TIMERA3);
 		//TimerNumber, TimerSegment, Period, OnTime
     am_hal_ctimer_period_set(3, AM_HAL_CTIMER_TIMERA, 10, 5);
@@ -175,7 +178,7 @@ init_timerA3_for_ADC(void)
 // Interrupt handler for the ADC.
 //
 //*****************************************************************************
-void
+void //TODO: ZirkularBuffer evt. komplett entfernen und nurnoch Output Buffer brauchen
 am_adc_isr(void)
 {
 		// Variabeln auf 32 Bit festsetzen, Status ist interrupt status
@@ -204,7 +207,8 @@ am_adc_isr(void)
         // and print it
         ui32FifoData = am_hal_adc_fifo_pop();
 				am_util_stdio_printf("%d \n", ui32FifoData);
-        g_ui32ADCSampleBuffer[g_ui32ADCSampleIndex] = AM_HAL_ADC_FIFO_FULL_SAMPLE(ui32FifoData);
+				daten[datenpushnr][g_ui32ADCSampleIndex] = AM_HAL_ADC_FIFO_FULL_SAMPLE(ui32FifoData);
+        //g_ui32ADCSampleBuffer[g_ui32ADCSampleIndex] = AM_HAL_ADC_FIFO_FULL_SAMPLE(ui32FifoData); => für Zirkularbuffer, nicht mehr benötigt
         g_ui32ADCSampleIndex = (g_ui32ADCSampleIndex + 1) & ADC_SAMPLE_INDEX_M;
       } while (AM_HAL_ADC_FIFO_COUNT(ui32FifoData) > 0);
 
@@ -215,10 +219,10 @@ am_adc_isr(void)
 //*****************************************************************************
 //
 // Main function.
-//
+// ADC_SAMPLE_BUF_SIZE => windowsize
 //*****************************************************************************
 int
-main(void)
+main(uint32_t ADC_SAMPLE_BUF_SIZE, int* daten[3][ADC_SAMPLE_BUF_SIZE])
 {
     // GENERAL CONFIGURATIONS	
     // Set the system clock to maximum frequency, and set the default low-power

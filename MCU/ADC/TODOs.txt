@@ -1,5 +1,4 @@
 Nachschlagen:
-- am_hal_ctimer_int_enable
 - TimerSegment
 - CifigVal
 - OnTime

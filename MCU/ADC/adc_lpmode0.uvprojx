@@ -386,6 +386,11 @@
               <FileType>1</FileType>
               <FilePath>ADC.c</FilePath>
             </File>
+            <File>
+              <FileName>Interface.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Interface.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
