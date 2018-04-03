@@ -92,3 +92,63 @@
 
 1521565822 c:\users\moritz scherer\documents\ccode\cyclicshift.h
 
+1522413795 source:c:\users\moritz scherer\documents\ccode\algorithmus\main.c
+	"Utils.c"
+
+1522411990 c:\users\moritz scherer\documents\ccode\algorithmus\hanning.c
+	"Hanning.h"
+	<string.h>
+	<stdio.h>
+	<math.h>
+
+1522413948 c:\users\moritz scherer\documents\ccode\algorithmus\hanning.h
+
+1522411657 c:\users\moritz scherer\documents\ccode\algorithmus\fft.c
+	<math.h>
+	<stddef.h>
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
+	"FFT.h"
+
+1521837827 c:\users\moritz scherer\documents\ccode\algorithmus\fft.h
+	<stdbool.h>
+	<stddef.h>
+
+1522414368 c:\users\moritz scherer\documents\ccode\algorithmus\lowpass.c
+	"Lowpass.h"
+	"Hanning.h"
+
+1522414084 c:\users\moritz scherer\documents\ccode\algorithmus\lowpass.h
+
+1522411844 c:\users\moritz scherer\documents\ccode\algorithmus\cyclicshift.c
+	"CyclicShift.h"
+
+1522414083 c:\users\moritz scherer\documents\ccode\algorithmus\cyclicshift.h
+
+1522414359 source:c:\users\moritz scherer\documents\ccode\algorithmus\utils.c
+	<stdio.h>
+	<stdlib.h>
+	"Hanning.h"
+	"FFT.h"
+	"math.h"
+	"Lowpass.h"
+	"CyclicShift.h"
+
+1522414559 c:\users\moritz scherer\documents\ccode\algorithmus\utils.c
+	<stdio.h>
+	<stdlib.h>
+	"Hanning.c"
+	"FFT.c"
+	"math.h"
+	"Lowpass.c"
+	"CyclicShift.c"
+
+1522411657 source:c:\users\moritz scherer\documents\ccode\algorithmus\fft.c
+	<math.h>
+	<stddef.h>
+	<stdint.h>
+	<stdlib.h>
+	<string.h>
+	"FFT.h"
+

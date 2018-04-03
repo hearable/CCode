@@ -2,17 +2,18 @@
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 
-#define PI 3.14159265359
 
-double* HanningWindow(int windowSize, HanningPeriodicity periodicity){
-    double *hanningValues;
+// Implements the Hanning Window in time domain
+float* HanningWindow(int windowSize, HanningPeriodicity periodicity){
+    float *hanningValues;
     int effectiveWindowSize = 0;
     int halfWindowSize = 0;
     int copyIndex = 0;
 
-    hanningValues = (double*) calloc(windowSize, sizeof(double)); // Allocate needed memory
-    memset(hanningValues, 0, windowSize*sizeof(double)); // Make sure allocated memory is all zeros t first
+    hanningValues = (float*) calloc(windowSize, sizeof(float)); // Allocate needed memory
+    memset(hanningValues, 0, windowSize*sizeof(float)); // Make sure allocated memory is all zeros t first
 
     if(periodicity == PERIODIC){
         effectiveWindowSize = windowSize - 1;
@@ -52,8 +53,10 @@ double* HanningWindow(int windowSize, HanningPeriodicity periodicity){
     return hanningValues;
 }
 
-double* ReturnWindowOutputHanning(int windowSize, double overlapPercentage, double* overlapAddResult, OverlapPart part){
-    double* returnValue = calloc(windowSize, sizeof(double));;
+// After applying OverlapAddHanning to two processed windows, apply ReturnWindowOutputHanning to get
+// the part of the sum which you're after -> HEAD, MID, TAIL
+float* ReturnWindowOutputHanning(int windowSize, float overlapPercentage, float* overlapAddResult, OverlapPart part){
+    float* returnValue = calloc(windowSize, sizeof(float));;
     int overlapIndex = (int)((windowSize+1)*(1-overlapPercentage));
     switch(part){
         case(HEAD):
@@ -75,11 +78,12 @@ double* ReturnWindowOutputHanning(int windowSize, double overlapPercentage, doub
     return returnValue;
 }
 
-double* OverlapAddHanning(int windowSize, double overlapPercentage, double* currentWindowRe, double* previousWindowRe){
-    double* returnValue;
+// Applies the overlap-Add method to Hanning windowed-STFT
+float* OverlapAddHanning(int windowSize, float overlapPercentage, float* currentWindowRe, float* previousWindowRe){
+    float* returnValue;
     int overlapIndex = (int)((windowSize+1)*(1-overlapPercentage));
 
-    returnValue = (double*) calloc(windowSize+overlapIndex, sizeof(double));
+    returnValue = (float*) calloc(windowSize+overlapIndex, sizeof(float));
 
     for(int i=0;i<overlapIndex;i++){
         returnValue[i] = previousWindowRe[i];

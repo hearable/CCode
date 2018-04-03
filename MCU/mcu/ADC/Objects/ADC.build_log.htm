@@ -1,0 +1,89 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.24.2.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Paula Hombach, ETH, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.24.1
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARMCM3.DLL V5.24.1
+Dialog DLL:      DCM.DLL V1.16.0.0
+Target DLL:      UL2CM3.DLL V1.160.3.0
+Dialog DLL:      TCM.DLL V1.32.0.0
+ 
+<h2>Project:</h2>
+C:\Users\Paula Hombach\Documents\ETH\Gruppenarbeit\GitHub\MCU\ADC\ADC.uvprojx
+Project File Date:  03/23/2018
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild target 'Target 1'
+compiling ADC.c...
+ADC.c(20): error:  #20: identifier "AM_HAL_PWRCTRL_MEMEN_FLASH512KB" is undefined
+  	am_hal_pwrctrl_memory_enable(AM_HAL_PWRCTRL_MEMEN_FLASH512KB);
+ADC.c(22): error:  #20: identifier "AM_HAL_PWCTRL_MEMEN_SRAM16K" is undefined
+  	am_hal_pwrctrl_memory_enable(AM_HAL_PWCTRL_MEMEN_SRAM16K);
+ADC.c(30): warning:  #223-D: function "itm_start" declared implicitly
+  	itm_start();
+ADC.c(32): warning:  #223-D: function "init_timerA3_for_ADC" declared implicitly
+  	init_timerA3_for_ADC();
+ADC.c(43): warning:  #223-D: function "adc_config" declared implicitly
+  	adc_config();
+ADC.c(49): warning:  #223-D: function "am_util_studio_printf" declared implicitly
+  	am_util_studio_printf("ADC with 1.2Msps")
+ADC.c(50): error:  #65: expected a ";"
+  	am_util_delay_ms() //time-delay because of printing message
+ADC.c(62): error:  #260-D: explicit type is missing ("int" assumed)
+  am_adc_isr(void)
+ADC.c(68): error:  #20: identifier "uni32Status" is undefined
+  	uni32Status = am_hal_adc_int_status_get(true);
+ADC.c(73): error:  #20: identifier "AM_HAL_ADC_INT_FIFOFOOVR1" is undefined
+  	if (ui32Status & AM_HAL_ADC_INT_FIFOFOOVR1)
+ADC.c(81): error:  #18: expected a ")"
+  		} while (
+M_HAL_ADC_FIFO_COUNT(ui32FifoData>0);
+ADC.c(87): error:  #159: declaration is incompatible with previous "itm_start"  (declared at line 30)
+  void itm_start (void)
+ADC.c(101): warning:  #1294-D: Old-style function adc_config
+  void adc_config(coid)
+ADC.c(101): warning:  #1079-D: standard requires that parameter "coid"  be given a type by a subsequent declaration ("int" assumed)
+  void adc_config(coid)
+ADC.c(101): error:  #159: declaration is incompatible with previous "adc_config"  (declared at line 43)
+  void adc_config(coid)
+ADC.c(111): error:  #20: identifier "AM_HAL_ADC_REF_INT2P0" is undefined
+  	sADCConfig.ui32Reference = AM_HAL_ADC_REF_INT2P0;
+ADC.c(122): error:  #20: identifier "AM_HAL_SLOT_CHSEL_SE9" is undefined
+  	am_hal_adc_slot_config(0, 
+M_HAL_ADC_SLOT_AVG_128 | 
+M_HAL_ADC_SLOT_14BIT | AM_HAL_SLOT_CHSEL_SE9 | AM_HAL_ADC_SLOT_ENABLE);
+ADC.c(128): error:  #159: declaration is incompatible with previous "init_timerA3_for_ADC"  (declared at line 32)
+  void init_timerA3_for_ADC(void)
+ADC.c: 6 warnings, 12 errors
+".\Objects\ADC.axf" - 12 Error(s), 6 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: AmbiqMicro
+                http://s3.asia.ambiqmicro.com/pack/AmbiqMicro.Apollo_DFP.1.0.0.pack
+                AmbiqMicro.Apollo_DFP.1.0.0
+                Ambiq Micro Apollo Series Device Support
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Target_1
+  C:\Keil_v5\ARM\PACK\AmbiqMicro\Apollo_DFP\1.0.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Target not created.
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
