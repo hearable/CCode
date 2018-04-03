@@ -1,0 +1,10 @@
+Nachschlagen:
+- TimerSegment
+- CifigVal
+- OnTime
+- Flash (AM_HAL_PWRCTRL_MEMEN_FLASH512K)
+
+
+Entscheiden:
+- Was passiert mit bitreturn?
+- Input Pin (AM_HAL_PIN_16_ADCSE0)?

@@ -3,48 +3,41 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.24.2.0
-Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Paula Hombach, ETH, LIC=----
+IDE-Version: µVision V5.25.2.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Moritz Scherer, Eth Zürich, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.24.1
+Toolchain:       MDK-Lite  Version: 5.25.2.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.06 update 5 (build 528)
-Assembler:       Armasm.exe V5.06 update 5 (build 528)
-Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
-Library Manager: ArmAr.exe V5.06 update 5 (build 528)
-Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
-CPU DLL:         SARMCM3.DLL V5.24.1
-Dialog DLL:      DCM.DLL V1.16.0.0
-Target DLL:      Segger\JL2CM3.dll V2.99.26.0
-Dialog DLL:      TCM.DLL V1.32.0.0
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.25.2.0
+Dialog DLL:      DCM.DLL V1.17.1.0
+Target DLL:      Segger\JL2CM3.dll V2.99.29.0
+Dialog DLL:      TCM.DLL V1.35.1.0
  
 <h2>Project:</h2>
-C:\Users\Paula Hombach\Documents\ETH\Gruppenarbeit\GitHub\MCU\ADC\adc_lpmode0.uvprojx
-Project File Date:  03/23/2018
+C:\Users\Moritz Scherer\Documents\CCode\MCU\ADC\adc_lpmode0.uvprojx
+Project File Date:  03/26/2018
 
 <h2>Output:</h2>
-*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'adc_lpmode0'
 compiling am_util_delay.c...
 compiling am_util_stdio.c...
-compiling ADC.c...
-ADC.c(29): warning:  #1294-D: Old-style function adc_config
-  void adc_config(coid)
-ADC.c(29): warning:  #1079-D: standard requires that parameter "coid"  be given a type by a subsequent declaration ("int" assumed)
-  void adc_config(coid)
-ADC.c(132): warning:  #165-D: too few arguments in function call
-  	adc_config();
-ADC.c: 3 warnings, 0 errors
-compiling am_util_faultisr.c...
-compiling am_devices_led.c...
 compiling startup_keil.s...
+compiling am_devices_led.c...
+compiling ADC.c...
+compiling am_util_faultisr.c...
 linking...
-Program Size: Code=7266 RO-data=46 RW-data=164 ZI-data=8564  
+Program Size: Code=7138 RO-data=46 RW-data=164 ZI-data=8564  
 After Build - User command #1: fromelf --bin --output bin\adc_lpmode0.bin bin\adc_lpmode0.axf
 After Build - User command #2: fromelf -cedrst --output bin\adc_lpmode0.txt bin\adc_lpmode0.axf
-".\bin\adc_lpmode0.axf" - 0 Error(s), 3 Warning(s).
+".\bin\adc_lpmode0.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
